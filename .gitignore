@@ -1,4 +1,4 @@
 # No modules
 node_modules
 .env
-.vscode/settings.json
+.vscode
