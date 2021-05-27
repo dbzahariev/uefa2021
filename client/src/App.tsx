@@ -21,7 +21,7 @@ export default function App() {
 
   const getBlogPost = () => {
     axios
-      .get("/api")
+      .get("/games")
       .then((response) => {
         const data = response.data as PostType[];
         setPosts(data);
