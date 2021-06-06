@@ -34,40 +34,31 @@ router.post("/save", (req, res) => {
   });
 });
 
-// router.get("/", (req, res) => {
-//   BlogPost.find({})
-//     .then((data) => {
-//       console.log("Data: ", data);
-//       res.json(data);
-//     })
-//     .catch((error) => {
-//       console.log("error: ", daerrorta);
-//     });
-// });
+router.post("/update", (req, res) => {
+  const data = req.body || {};
+  let name = req?.query?.name;
 
-// router.post("/save", (req, res) => {
-//   const data = req.body;
+  if (!name) {
+    res
+      .status(404)
+      .json({ msg: `Not found id (${name})`, type: typeMsg.error });
+    return;
+  }
 
-//   const newBlogPost = new BlogPost(data);
-
-//   newBlogPost.save((error) => {
-//     if (error) {
-//       res.status(500).json({ msg: "Sorry, internal server errors" });
-//       return;
-//     }
-//     // BlogPost
-//     return res.json({
-//       msg: "Your data has been saved!!!!!!",
-//     });
-//   });
-// });
-
-// router.get("/name", (req, res) => {
-//   const data = {
-//     username: "peterson",
-//     age: 5,
-//   };
-//   res.json(data);
-// });
+  Games.findOneAndUpdate(
+    { name: name },
+    { bets: data.bets },
+    { useFindAndModify: false }
+  )
+    .then((games) => {
+      res.json({
+        msg: "Settings is saved successfully!",
+        type: typeMsg.success,
+      });
+    })
+    .catch((err) => {
+      res.status(500);
+    });
+});
 
 module.exports = router;

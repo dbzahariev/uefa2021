@@ -3,12 +3,8 @@ const mongoose = require("mongoose");
 // Schema
 const Schema = mongoose.Schema;
 const GamestSchema = new Schema({
-  title: String,
-  body: String,
-  date: {
-    type: String,
-    default: Date.now(),
-  },
+  name: String,
+  bets: Array,
 });
 
 // Model
