@@ -39,9 +39,7 @@ router.post("/update", (req, res) => {
   let name = req?.query?.name;
 
   if (!name) {
-    res
-      .status(404)
-      .json({ msg: `Not found id (${name})`, type: typeMsg.error });
+    res.status(404).json({ msg: `Not found id (${name})` });
     return;
   }
 
@@ -50,14 +48,11 @@ router.post("/update", (req, res) => {
     { bets: data.bets },
     { useFindAndModify: false }
   )
-    .then((games) => {
-      res.json({
-        msg: "Settings is saved successfully!",
-        type: typeMsg.success,
-      });
+    .then(() => {
+      return res.json({ msg: "Settings is saved successfully!" });
     })
-    .catch((err) => {
-      res.status(500);
+    .catch(() => {
+      return res.status(500);
     });
 });
 

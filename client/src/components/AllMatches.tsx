@@ -60,8 +60,10 @@ export default function AllMatches() {
   const [users, setUsers] = useState<usersType[]>([]);
 
   useEffect(() => {
-    getAllMatches();
-  }, []);
+    if (matches.length === 0) {
+      getAllMatches();
+    }
+  }, [matches.length]);
 
   useEffect(() => {
     getAllUsers();
@@ -82,8 +84,7 @@ export default function AllMatches() {
         url: `/api/update?name=${user.name}`,
       })
         .then((res) => {
-          console.log("ok");
-          debugger;
+          console.log(res.data.msg);
           // showNotification(res.data.msg, 1, res.data.type);
           // redux.dispatch({
           //   type: ACTIONS.SET_SETTINGS,
@@ -172,7 +173,7 @@ export default function AllMatches() {
   ) => {
     let selectedMatch = user.bets.find((el) => el.matchId === fullMatch.id);
     if (selectedMatch) return selectedMatch[type];
-    else return 0;
+    else return "";
   };
 
   const renderP = (el: string) => {
@@ -253,7 +254,7 @@ export default function AllMatches() {
           expandedRowRender: (record: MatchType) => {
             let date = new Date(record.utcDate).toLocaleString("bg-bg");
             return (
-              <p style={{ margin: 0 }}>{`Този мач ще се играе на ${date}`}</p>
+              <p style={{ margin: 0 }}>{`Този мач ще се проведе на ${date}`}</p>
             );
           },
           rowExpandable: () => true,
@@ -328,7 +329,7 @@ export default function AllMatches() {
                 render={(_, record: MatchType) => {
                   let selectedMatchWinner =
                     user.bets.find((el) => el.matchId === record.id)?.winner ||
-                    "DRAW";
+                    "";
                   return renderP(selectedMatchWinner);
                 }}
               />
@@ -344,8 +345,10 @@ export default function AllMatches() {
   }
 
   return (
-    <div style={{ width: "10%", background: "red" }}>
-      <Space direction={"horizontal"}>{oneMatchTable(matches)}</Space>
-    </div>
+    <>
+      <div style={{ width: "10%" }}>
+        <Space direction={"horizontal"}>{oneMatchTable(matches)}</Space>
+      </div>
+    </>
   );
 }
