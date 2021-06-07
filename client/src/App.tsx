@@ -49,8 +49,6 @@ export default function App() {
           <Link to="/match/303759">Mач</Link>
         </Space>
 
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
         <Switch>
           <Route path="/" exact>
             <AllMatches refresh={refresh} />
@@ -65,6 +63,4 @@ export default function App() {
       </div>
     </Router>
   );
-  // return <div className="app">{<OneMatch matchId="303759" />}</div>;
-  // return <div className="app">{<AllMatches refresh={refresh} />}</div>;
 }
