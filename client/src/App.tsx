@@ -66,5 +66,5 @@ export default function App() {
     </Router>
   );
   // return <div className="app">{<OneMatch matchId="303759" />}</div>;
-  return <div className="app">{<AllMatches refresh={refresh} />}</div>;
+  // return <div className="app">{<AllMatches refresh={refresh} />}</div>;
 }

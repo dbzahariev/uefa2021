@@ -1,4 +1,4 @@
-import { Alert, Input, notification, Space, Table } from "antd";
+import { Input, notification, Space, Table } from "antd";
 import Column from "antd/lib/table/Column";
 import ColumnGroup from "antd/lib/table/ColumnGroup";
 import axios, { AxiosRequestConfig } from "axios";
@@ -54,6 +54,8 @@ interface usersType {
     awayTeamScore: number;
     winner: string;
   }[];
+  _id?: string;
+  id?: string;
 }
 
 export default function AllMatches({ refresh }: { refresh: Function }) {
@@ -84,35 +86,29 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
     getAllUsers();
   }, []);
 
-  const setBetsToDB = () => {
-    if (!users) {
-      return null;
-    }
-    if (users.length === 0) {
-      return null;
-    }
-    users.forEach((user) => {
+  const setBetsToDB = (userProp: usersType) => {
+    if (userProp) {
+      let user = userProp;
       axios({
         method: "POST",
         data: { bets: user.bets },
         withCredentials: true,
-        url: `/api/update?name=${user.name}`,
+        url: `/api/update?id=${user.id}`,
       })
         .then((res) => {
           notification.open({
-            message: "Notification Title",
+            message: `Залогът е записан успешно!`,
+            type: "success",
           });
-          console.log(res.data.msg);
-          // showNotification(res.data.msg, 1, res.data.type);
-          // redux.dispatch({
-          //   type: ACTIONS.SET_SETTINGS,
-          //   payload: { username: user, settings: newSettings },
-          // });
         })
         .catch((err) => {
+          notification.open({
+            message: `Грешка`,
+            type: "error",
+          });
           return console.error(err);
         });
-    });
+    }
   };
 
   const getAllMatches = () => {
@@ -163,7 +159,13 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
         let users = [...res.data] as usersType[];
         let newUsers: usersType[] = [];
         users.forEach((el) => {
-          let userToAdd = { name: el.name, bets: el.bets };
+          let userToAdd: usersType = {
+            name: el.name,
+            bets: el.bets,
+          };
+          if (el._id) {
+            userToAdd.id = el._id;
+          }
           newUsers.push(userToAdd);
         });
         setUsers(newUsers);
@@ -238,7 +240,7 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
 
     setUsers(newUsers);
 
-    setBetsToDB();
+    setBetsToDB(user);
   };
 
   const renderColumnForUser = (

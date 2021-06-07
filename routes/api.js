@@ -36,24 +36,40 @@ router.post("/save", (req, res) => {
 
 router.post("/update", (req, res) => {
   const data = req.body || {};
-  let name = req?.query?.name;
+  let id = req?.query?.id;
 
-  if (!name) {
-    res.status(404).json({ msg: `Not found id (${name})` });
+  if (!id) {
+    res.status(404).json({ msg: `Not found id (${id})` });
     return;
   }
 
   Games.findOneAndUpdate(
-    { name: name },
+    { _id: id },
     { bets: data.bets },
     { useFindAndModify: false }
   )
     .then(() => {
-      return res.json({ msg: "Settings is saved successfully!" });
+      return res.json({ msg: "Bet is saved successfully!" });
     })
     .catch(() => {
       return res.status(500);
     });
 });
+
+// Games.findOne(id).then((game) => {
+//   console.log(game);
+//   // Games.findOneAndUpdate(
+//   //   { _id: id },
+//   //   { bets: data.bets },
+//   //   { useFindAndModify: false }
+//   // )
+//   //   .then(() => {
+//   //     return res.json({ msg: "Bet is saved successfully!" });
+//   //   })
+//   //   .catch(() => {
+//   //     return res.status(500);
+//   //   });
+// });
+// });
 
 module.exports = router;

@@ -23,9 +23,9 @@ export default function AutoRefresh({ refresh }: { refresh: Function }) {
     let newValue = event.target.checked;
     let newInterval2: number | "disable";
     if (newValue) {
-      newInterval2 = "disable";
-    } else {
       newInterval2 = 30;
+    } else {
+      newInterval2 = "disable";
     }
     setNewInterval(newInterval2);
   };
@@ -45,10 +45,10 @@ export default function AutoRefresh({ refresh }: { refresh: Function }) {
               setIsModalVisible(false);
             }}
           >
-            <Space direction={"vertical"}>
+            <Space direction={"horizontal"}>
               <Checkbox
                 onChange={onChangeAllowRefresh}
-                defaultChecked={newInterval === "disable"}
+                defaultChecked={newInterval !== "disable"}
               >
                 Auto refresh
               </Checkbox>
@@ -56,17 +56,15 @@ export default function AutoRefresh({ refresh }: { refresh: Function }) {
                 disabled={newInterval === "disable"}
                 min={30}
                 step={5}
-                max={180}
+                max={5 * 60}
                 defaultValue={30}
                 value={newInterval === "disable" ? 30 : newInterval}
                 onChange={(value: number) => {
                   setNewInterval(value);
                 }}
+                bordered={false}
               />
             </Space>
-            <p>Some contents...</p>
-            <p>Some contents...</p>
-            <p>Some contents...</p>
           </Modal>
         </>
         {`inter, ${AutoRefreshInterval}`}

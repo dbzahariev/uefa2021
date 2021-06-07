@@ -69,6 +69,9 @@ const convertResult = (score: {
   res.resultE = `${score.extraTime.homeTeam || 0}:${
     score.extraTime.awayTeam || 0
   }`;
+  if (score.extraTime.homeTeam === null) {
+    res.resultE = "няма";
+  }
 
   let resultFH =
     score.extraTime.homeTeam ||
@@ -180,7 +183,7 @@ export default function OneMatch({ matchId }: { matchId: string }) {
           <p>Победител: {winner}</p>
           <p>Първо полувреме: {result1}</p>
           <p>Второ полувреме: {result2}</p>
-          <p>Продължение полувреме: {resultЕ}</p>
+          <p>Продължение: {resultЕ}</p>
           <p>Краен резултат: {resultF}</p>
         </Space>
       </div>
