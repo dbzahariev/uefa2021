@@ -7,6 +7,7 @@
     "@types/node": "^15.6.1",
     "@types/react": "^17.0.8",
     "@types/react-dom": "^17.0.5",
+    "@types/react-router-dom": "^5.1.7",
     "antd": "^4.16.0",
     "axios": "^0.21.1",
     "react": "^17.0.2",
@@ -36,8 +37,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:8080",
-  "devDependencies": {
-    "@types/react-router-dom": "^5.1.7"
-  }
+  "proxy": "http://localhost:8080"
 }
