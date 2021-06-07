@@ -95,7 +95,6 @@ export default function AllCompetition() {
     axios(config)
       .then(function (response) {
         let data: any = response.data;
-        debugger;
         let matches: any[] = [];
         data.forEach((el: any) => {
           matches.push(el);

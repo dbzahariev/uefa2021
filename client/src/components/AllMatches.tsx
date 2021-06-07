@@ -110,7 +110,6 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
           // });
         })
         .catch((err) => {
-          debugger;
           return console.error(err);
         });
     });
@@ -270,7 +269,6 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
         scroll={{ y: windowHeight * 0.77 }}
         expandable={{
           expandedRowRender: (record: MatchType) => {
-            debugger;
             let date = new Date(record.utcDate).toLocaleString("bg-bg");
             return (
               <p style={{ margin: 0 }}>{`Този мач ще се проведе на ${date}`}</p>
