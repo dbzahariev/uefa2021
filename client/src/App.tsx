@@ -7,7 +7,10 @@ import "./App.css";
 import AllCompetition from "./components/AllCompetition";
 // eslint-disable-next-line
 import Groups from "./components/Groups";
+// eslint-disable-next-line
 import AllMatches from "./components/AllMatches";
+// eslint-disable-next-line
+import OneMatch from "./components/OneMatch";
 import "antd/dist/antd.css";
 
 export const competitionsIds = {
@@ -16,5 +19,11 @@ export const competitionsIds = {
 };
 
 export default function App() {
-  return <div className="app">{<AllMatches />}</div>;
+  const [reload, setReload] = useState(0);
+
+  const refresh = () => {
+    setReload(reload + 1);
+  };
+  // return <div className="app">{<OneMatch matchId="303759" />}</div>;
+  return <div className="app">{<AllMatches refresh={refresh} />}</div>;
 }

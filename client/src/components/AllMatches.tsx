@@ -1,10 +1,11 @@
-import { Input, Space, Table } from "antd";
+import { Alert, Input, notification, Space, Table } from "antd";
 import Column from "antd/lib/table/Column";
 import ColumnGroup from "antd/lib/table/ColumnGroup";
 import axios, { AxiosRequestConfig } from "axios";
-import { Key, useEffect, useState } from "react";
+import { Key, useEffect, useRef, useState } from "react";
 import { competitionsIds } from "../App";
 import { translateTeamsName } from "../helpers/Translate";
+import AutoRefresh, { AutoRefreshInterval } from "./AutoRefresh";
 
 interface MatchType {
   number: number;
@@ -55,9 +56,23 @@ interface usersType {
   }[];
 }
 
-export default function AllMatches() {
+export default function AllMatches({ refresh }: { refresh: Function }) {
   const [matches, setMatches] = useState<MatchType[]>([]);
   const [users, setUsers] = useState<usersType[]>([]);
+
+  let intervalRef = useRef<any>();
+
+  useEffect(() => {
+    if (AutoRefreshInterval >= 1 && AutoRefreshInterval !== "disable") {
+      intervalRef.current = setInterval(() => {
+        getAllMatches();
+        getAllUsers();
+      }, AutoRefreshInterval * 1000);
+    }
+
+    return () => clearInterval(intervalRef.current);
+    // eslint-disable-next-line
+  }, [AutoRefreshInterval]);
 
   useEffect(() => {
     if (matches.length === 0) {
@@ -84,6 +99,9 @@ export default function AllMatches() {
         url: `/api/update?name=${user.name}`,
       })
         .then((res) => {
+          notification.open({
+            message: "Notification Title",
+          });
           console.log(res.data.msg);
           // showNotification(res.data.msg, 1, res.data.type);
           // redux.dispatch({
@@ -252,12 +270,14 @@ export default function AllMatches() {
         scroll={{ y: windowHeight * 0.77 }}
         expandable={{
           expandedRowRender: (record: MatchType) => {
+            debugger;
             let date = new Date(record.utcDate).toLocaleString("bg-bg");
             return (
               <p style={{ margin: 0 }}>{`Този мач ще се проведе на ${date}`}</p>
             );
           },
           rowExpandable: () => true,
+          defaultExpandedRowKeys: ["1"],
         }}
       >
         <Column title="Н" dataIndex="number" key="number" width={56} />
@@ -346,6 +366,8 @@ export default function AllMatches() {
 
   return (
     <>
+      <AutoRefresh refresh={refresh} />
+      <p>{AutoRefreshInterval}</p>
       <div style={{ width: "10%" }}>
         <Space direction={"horizontal"}>{oneMatchTable(matches)}</Space>
       </div>
