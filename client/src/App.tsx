@@ -1,16 +1,11 @@
-// eslint-disable-next-line
-import axios from "axios";
-// eslint-disable-next-line
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 // eslint-disable-next-line
 import AllCompetition from "./components/AllCompetition";
-// eslint-disable-next-line
 import Groups from "./components/Groups";
-// eslint-disable-next-line
 import AllMatches from "./components/AllMatches";
-// eslint-disable-next-line
 import OneMatch from "./components/OneMatch";
+import PlayersPoints from "./components/PlayersPoints";
 import "antd/dist/antd.css";
 
 import {
@@ -19,13 +14,16 @@ import {
   Route,
   Link,
   useParams,
+  Redirect,
 } from "react-router-dom";
 import { Space } from "antd";
 
-export const competitionsIds = {
+const competitionsIds = {
   Uefa: 2018,
   Premier: 2021,
 };
+
+export const selectedCompetition = competitionsIds.Premier;
 
 function MatchWithParams() {
   let params: any = useParams();
@@ -45,19 +43,27 @@ export default function App() {
       <div>
         <Space direction={"horizontal"}>
           <Link to="/">Home</Link>
+          <Link to="/groups">Групи</Link>
           <Link to="/allMatches">Всички мачове</Link>
           <Link to="/match/303759">Mач</Link>
+          {/* <Link to="/points">Toчки</Link> */}
         </Space>
 
         <Switch>
           <Route path="/" exact>
-            <AllMatches refresh={refresh} />
+            <Redirect to="/allMatches" />
           </Route>
           <Route path="/allMatches">
             <AllMatches refresh={refresh} />
           </Route>
           <Route path="/match/:matchId">
             <MatchWithParams />
+          </Route>
+          <Route path="/groups">
+            <Groups />
+          </Route>
+          <Route path="/points">
+            <PlayersPoints />
           </Route>
         </Switch>
       </div>

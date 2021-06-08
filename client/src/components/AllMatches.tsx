@@ -3,11 +3,11 @@ import Column from "antd/lib/table/Column";
 import ColumnGroup from "antd/lib/table/ColumnGroup";
 import axios, { AxiosRequestConfig } from "axios";
 import { Key, useEffect, useRef, useState } from "react";
-import { competitionsIds } from "../App";
+import { selectedCompetition } from "../App";
 import { translateTeamsName } from "../helpers/Translate";
 import AutoRefresh, { AutoRefreshInterval } from "./AutoRefresh";
 
-interface MatchType {
+export interface MatchType {
   number: number;
   key: Key;
   id: number;
@@ -114,7 +114,7 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
   const getAllMatches = () => {
     var config: AxiosRequestConfig = {
       method: "GET",
-      url: `https://api.football-data.org/v2/competitions/${competitionsIds.Premier}/matches`,
+      url: `https://api.football-data.org/v2/competitions/${selectedCompetition}/matches`,
       headers: {
         "X-Auth-Token": "35261f5a038d45029fa4ae0abc1f2f7a",
       },

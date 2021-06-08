@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig } from "axios";
 import React, { useEffect } from "react";
-import { competitionsIds } from "../App";
+import { selectedCompetition } from "../App";
 import { translateTeamsName } from "../helpers/Translate";
 
 export default function AllCompetition() {
@@ -29,7 +29,7 @@ export default function AllCompetition() {
   const getAllTeams = () => {
     var config: AxiosRequestConfig = {
       method: "GET",
-      url: `https://api.football-data.org/v2/competitions/${competitionsIds.Uefa}/teams`,
+      url: `https://api.football-data.org/v2/competitions/${selectedCompetition}/teams`,
       headers: {
         "X-Auth-Token": "35261f5a038d45029fa4ae0abc1f2f7a",
       },
@@ -63,7 +63,7 @@ export default function AllCompetition() {
   const getAllMatches = () => {
     var config: AxiosRequestConfig = {
       method: "GET",
-      url: `https://api.football-data.org/v2/competitions/${competitionsIds.Uefa}/matches`,
+      url: `https://api.football-data.org/v2/competitions/${selectedCompetition}/matches`,
       headers: {
         "X-Auth-Token": "35261f5a038d45029fa4ae0abc1f2f7a",
       },
