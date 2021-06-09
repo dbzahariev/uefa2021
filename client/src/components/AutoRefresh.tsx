@@ -41,16 +41,14 @@ export default function AutoRefresh({ refresh }: { refresh: Function }) {
             title="Basic Modal"
             visible={isModalVisible}
             onOk={handleOk}
-            onCancel={() => {
-              setIsModalVisible(false);
-            }}
+            onCancel={() => setIsModalVisible(false)}
           >
             <Space direction={"horizontal"}>
               <Checkbox
                 onChange={onChangeAllowRefresh}
                 defaultChecked={newInterval !== "disable"}
               >
-                Auto refresh
+                Автоматично презареждане
               </Checkbox>
               <InputNumber
                 disabled={newInterval === "disable"}

@@ -97,24 +97,20 @@ export default function App() {
     <Router>
       <div>
         <Space direction={"horizontal"}>
-          <Link to="/">Home</Link>
+          <Link to="/">Всички мачове</Link>
           <Link to="/groups">Групи</Link>
-          <Link to="/allmatches">Всички мачове</Link>
-          <Link to="/match/303759">Mач</Link>
+          {/* <Link to="/match/303759">Mач</Link> */}
         </Space>
 
         <Switch>
-          <Route path="/" exact>
-            <AllMatches refresh={refresh} />
-          </Route>
-          <Route path="/allmatches">
-            <AllMatches refresh={refresh} />
-          </Route>
           <Route path="/match/:matchId">
             <MatchWithParams />
           </Route>
           <Route path="/groups">
             <Groups />
+          </Route>
+          <Route path="/">
+            <AllMatches refresh={refresh} />
           </Route>
         </Switch>
       </div>
