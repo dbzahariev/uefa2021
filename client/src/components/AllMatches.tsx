@@ -6,6 +6,7 @@ import { Key, useEffect, useRef, useState } from "react";
 import { selectedCompetition } from "../App";
 import { translateTeamsName } from "../helpers/Translate";
 import AutoRefresh, { AutoRefreshInterval } from "./AutoRefresh";
+import $ from "jquery";
 
 export interface MatchType {
   number: number;
@@ -434,6 +435,46 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
       </Table>
     );
   };
+
+  useEffect(() => {
+    const getSelector1 = (index: number) => {
+      let res = "";
+      res += `tr:nth-child(1) > th:nth-child(${index + 5}), `;
+      res += `tr:nth-child(2) > th:nth-child(${4 * index}), `;
+      res += `tr:nth-child(2) > th:nth-child(${4 * index + 1}), `;
+      res += `tr:nth-child(2) > th:nth-child(${4 * index + 2}), `;
+      res += `tr:nth-child(2) > th:nth-child(${4 * index + 3}), `;
+      res += `tr:nth-child(3) > th:nth-child(${index + (index - 1)}), `;
+      res += `tr:nth-child(3) > th:nth-child(${index + index})`;
+
+      return res;
+    };
+
+    const getSelector2 = (index: number) => {
+      let res = "";
+
+      for (let i = 5 * index - 5; i < 5 * index; i++) {
+        res += `td:nth-child(${8 + i}), `;
+      }
+
+      res = res.slice(0, res.length - 2);
+
+      return res;
+    };
+
+    let colors = ["129", "203", "235"];
+    for (let i = 0; i < users.length; i++) {
+      let selector1 = getSelector1(i + 1);
+      $(selector1).css("background-color", `hsl(${colors[i]}, 100%, 95%)`);
+
+      let selector2 = getSelector2(i + 1);
+
+      $(selector2).css("border-bottom", "1px solid");
+      $(selector2).css("border-left", "1px solid");
+      $(selector2).css("border-right", "1px solid");
+      $(selector2).css("border-color", `hsl(${colors[i]}, 100%, 85%)`);
+    }
+  }, [matches, users.length]);
 
   if (matches.length === 0) {
     return null;
