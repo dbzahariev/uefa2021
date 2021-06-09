@@ -484,7 +484,7 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
       $(selector2).css("border-right", "1px solid");
       $(selector2).css("border-color", `hsl(${colors[i]}, 100%, 85%)`);
     }
-  }, [matches, users.length]);
+  }, [loading]);
 
   if (loading) {
     return (
