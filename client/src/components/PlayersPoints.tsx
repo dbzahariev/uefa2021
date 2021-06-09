@@ -117,7 +117,7 @@ export default function PlayersPoints() {
       response = await axios(config);
 
       let data: MatchType[] = response.data.matches;
-      data = data.slice(0, 3); // limit First 3
+      data = data.slice(0, 55); // limit First 3
       let matches: MatchType[] = [];
 
       data.forEach((el, index) => {

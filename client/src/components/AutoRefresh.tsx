@@ -34,8 +34,8 @@ export default function AutoRefresh({ refresh }: { refresh: Function }) {
     <div>
       <Space direction={"horizontal"}>
         <>
-          <Button type="primary" onClick={showModal}>
-            Open Modal
+          <Button onClick={showModal}>
+            Автоматично презареждане на стрницата
           </Button>
           <Modal
             title="Basic Modal"
@@ -67,7 +67,6 @@ export default function AutoRefresh({ refresh }: { refresh: Function }) {
             </Space>
           </Modal>
         </>
-        {`inter, ${AutoRefreshInterval}`}
       </Space>
     </div>
   );

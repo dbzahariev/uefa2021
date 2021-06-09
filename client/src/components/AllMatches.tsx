@@ -1,4 +1,4 @@
-import { Input, notification, Space, Table } from "antd";
+import { Input, notification, Space, Spin, Table } from "antd";
 import Column from "antd/lib/table/Column";
 import ColumnGroup from "antd/lib/table/ColumnGroup";
 import axios, { AxiosRequestConfig } from "axios";
@@ -7,6 +7,7 @@ import { selectedCompetition } from "../App";
 import { translateTeamsName } from "../helpers/Translate";
 import AutoRefresh, { AutoRefreshInterval } from "./AutoRefresh";
 import $ from "jquery";
+import { LoadingOutlined } from "@ant-design/icons";
 
 export interface MatchType {
   number: number;
@@ -76,6 +77,7 @@ export const renderP = (el: string) => {
 export default function AllMatches({ refresh }: { refresh: Function }) {
   const [matches, setMatches] = useState<MatchType[]>([]);
   const [users, setUsers] = useState<UsersType[]>([]);
+  const [loading, setLoading] = useState(false);
 
   let intervalRef = useRef<any>();
 
@@ -138,7 +140,7 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
     axios(config)
       .then(function (response) {
         let data: MatchType[] = response.data.matches;
-        data = data.slice(0, 3); // limit First 3
+        data = data.slice(0, 55); // limit First 3
         let matches: MatchType[] = [];
 
         data.forEach((el: MatchType, index) => {
@@ -210,6 +212,14 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
     if (selectedMatch) return selectedMatch[type];
     else return "";
   };
+
+  useEffect(() => {
+    if (users.length > 0 && matches.length > 0) {
+      setLoading(false);
+    } else {
+      setLoading(true);
+    }
+  }, [users.length, matches.length]);
 
   const handleChange = (
     el1: any,
@@ -317,14 +327,14 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
 
   const oneMatchTable = (AllMatches: MatchType[]) => {
     let windowHeight = window.innerHeight;
-    let columnWidth = 200;
+    let columnWidth = 150;
 
     return (
       <Table
         dataSource={AllMatches}
         pagination={false}
         bordered
-        scroll={{ y: windowHeight * 0.77 }}
+        scroll={{ y: windowHeight * 0.6 }}
         expandable={{
           expandedRowRender: (record: MatchType) => {
             let date = new Date(record.utcDate).toLocaleString("bg-bg");
@@ -363,7 +373,7 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
             title="П"
             dataIndex="winner"
             key="winner"
-            width={80}
+            width={40}
             render={renderP}
           />
         </ColumnGroup>
@@ -401,7 +411,7 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
                 title="П"
                 dataIndex="winner"
                 key="winner"
-                width={80}
+                width={40}
                 render={(_, record: MatchType) => {
                   let selectedMatchWinner =
                     user.bets.find((el) => el.matchId === record.id)?.winner ||
@@ -476,6 +486,29 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
     }
   }, [matches, users.length]);
 
+  if (loading) {
+    return (
+      <div
+        style={{
+          height: window.innerHeight * 0.4,
+          width: window.innerWidth,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          textAlign: "center",
+        }}
+      >
+        <div>
+          <Spin
+            indicator={<LoadingOutlined style={{ fontSize: 80 }} spin />}
+            size="large"
+            style={{ width: "100%", height: "100%", alignItems: "center" }}
+          />
+        </div>
+      </div>
+    );
+  }
+
   if (matches.length === 0) {
     return null;
   }
@@ -483,8 +516,7 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
   return (
     <>
       <AutoRefresh refresh={refresh} />
-      <p>{AutoRefreshInterval}</p>
-      <div style={{ width: "10%" }}>
+      <div style={{ width: 500 }}>
         <Space direction={"horizontal"}>{oneMatchTable(matches)}</Space>
       </div>
     </>
