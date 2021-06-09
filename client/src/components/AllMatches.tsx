@@ -46,21 +46,35 @@ export interface MatchType {
   awayTeamScore?: number;
 }
 
-interface usersType {
+export interface UsersType {
   name: string;
   bets: {
     matchId: number;
     homeTeamScore: number;
     awayTeamScore: number;
     winner: string;
+    point: number;
   }[];
   _id?: string;
   id?: string;
+  totalPoints?: number;
 }
+
+export const renderP = (el: string) => {
+  let result = "";
+  if (el === "HOME_TEAM") {
+    result = "1";
+  } else if (el === "AWAY_TEAM") {
+    result = "2";
+  } else if (el === "DRAW") {
+    result = "Р";
+  }
+  return <span>{result}</span>;
+};
 
 export default function AllMatches({ refresh }: { refresh: Function }) {
   const [matches, setMatches] = useState<MatchType[]>([]);
-  const [users, setUsers] = useState<usersType[]>([]);
+  const [users, setUsers] = useState<UsersType[]>([]);
 
   let intervalRef = useRef<any>();
 
@@ -86,7 +100,7 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
     getAllUsers();
   }, []);
 
-  const setBetsToDB = (userProp: usersType) => {
+  const setBetsToDB = (userProp: UsersType) => {
     if (userProp) {
       let user = userProp;
       axios({
@@ -156,10 +170,10 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
       url: "/api",
     })
       .then((res) => {
-        let users = [...res.data] as usersType[];
-        let newUsers: usersType[] = [];
+        let users = [...res.data] as UsersType[];
+        let newUsers: UsersType[] = [];
         users.forEach((el) => {
-          let userToAdd: usersType = {
+          let userToAdd: UsersType = {
             name: el.name,
             bets: el.bets,
           };
@@ -168,6 +182,7 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
           }
           newUsers.push(userToAdd);
         });
+
         setUsers(newUsers);
       })
       .catch((err) => {});
@@ -186,7 +201,7 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
   };
 
   const getValue = (
-    user: usersType,
+    user: UsersType,
     type: "homeTeamScore" | "awayTeamScore",
     fullMatch: MatchType
   ) => {
@@ -195,21 +210,9 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
     else return "";
   };
 
-  const renderP = (el: string) => {
-    let code = "";
-    if (el === "HOME_TEAM") {
-      code = "1";
-    } else if (el === "AWAY_TEAM") {
-      code = "2";
-    } else if (el === "DRAW") {
-      code = "Равен";
-    }
-    return <span>{code}</span>;
-  };
-
   const handleChange = (
     el1: any,
-    user: usersType,
+    user: UsersType,
     fullMatch: MatchType,
     type: "homeTeamScore" | "awayTeamScore"
   ) => {
@@ -228,6 +231,7 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
         awayTeamScore: 0,
         winner: "DRAW",
         [type]: Number(newValue),
+        point: 0,
       };
       newBet.winner = calcWinner(newBet.homeTeamScore, newBet.awayTeamScore);
       bet = newBet;
@@ -246,7 +250,7 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
   const renderColumnForUser = (
     el: any,
     fullMatch: MatchType,
-    user: usersType,
+    user: UsersType,
     type: "homeTeamScore" | "awayTeamScore"
   ) => {
     return (
@@ -257,6 +261,57 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
         onChange={(el) => handleChange(el, user, fullMatch, type)}
       />
     );
+  };
+
+  const getPointForEvent = (selectedMatch: MatchType, user: UsersType) => {
+    let bet = user.bets.find((el) => el.matchId === selectedMatch.id);
+    let res = 0;
+    if (bet) {
+      if (
+        selectedMatch.winner === bet.winner &&
+        selectedMatch.homeTeamScore === bet.homeTeamScore &&
+        selectedMatch.awayTeamScore === bet.awayTeamScore
+      ) {
+        res = 3;
+      } else if (selectedMatch.winner === bet.winner) {
+        res = 1;
+      }
+    }
+    return res;
+  };
+
+  const getPoints = (user: UsersType, match: MatchType) => {
+    let res = { current: 5, total: 7 };
+    res.current = getPointForEvent(match, user);
+
+    let dd = user.bets.find((el) => el.matchId === match.id);
+    if (dd) {
+      dd.point = res.current;
+    }
+    let ttp = 0;
+    for (let i = 0; i < user.bets.length; i++) {
+      let cBet = user.bets[i];
+      ttp += cBet.point;
+      if (cBet.matchId === match.id) {
+        break;
+      }
+    }
+    res.total = ttp;
+
+    // user.bets.forEach((el) => {
+    //   ttp += el.point;
+    // });
+    // res.total = ttp;
+
+    // if (user.totalPoints) {
+    //   user.totalPoints += res.current;
+    // } else {
+    //   user.totalPoints = res.current;
+    // }
+
+    // res.total = user.totalPoints;
+
+    return res;
   };
 
   const oneMatchTable = (AllMatches: MatchType[]) => {
@@ -320,7 +375,7 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
             <span>{translateTeamsName(el.name) || "Ще се реши"}</span>
           )}
         />
-        {users.map((user: usersType) => {
+        {users.map((user: UsersType) => {
           return (
             <ColumnGroup key={user.name} title={user.name}>
               <Column
@@ -353,6 +408,26 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
                   return renderP(selectedMatchWinner);
                 }}
               />
+              <ColumnGroup title="Точки">
+                <Column
+                  title="T"
+                  dataIndex=""
+                  key=""
+                  width={80 / 2}
+                  render={(_, record: MatchType) => {
+                    return getPoints(user, record).current;
+                  }}
+                />
+                <Column
+                  title="O"
+                  dataIndex=""
+                  key=""
+                  width={80 / 2}
+                  render={(_, record: MatchType) => {
+                    return getPoints(user, record).total;
+                  }}
+                />
+              </ColumnGroup>
             </ColumnGroup>
           );
         })}
