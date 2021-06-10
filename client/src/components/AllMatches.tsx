@@ -372,7 +372,7 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
         dataSource={AllMatches}
         pagination={false}
         bordered
-        // scroll={{ y: windowHeight * 2 }}
+        scroll={{ y: windowHeight * 0.2 }}
         expandable={{
           expandedRowRender: (record: MatchType) => {
             let date = new Date(record.utcDate).toLocaleString("bg-bg");
@@ -413,7 +413,13 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
           );
         }}
       >
-        <Column title="Н" dataIndex="number" key="number" width={56} />
+        <Column
+          title="Н"
+          dataIndex="number"
+          key="number"
+          width={56}
+          fixed={true}
+        />
         <Column
           title="Домакин"
           dataIndex="homeTeam"
