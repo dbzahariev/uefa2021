@@ -372,7 +372,7 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
         dataSource={AllMatches}
         pagination={false}
         bordered
-        scroll={{ y: windowHeight * 0.5 }}
+        // scroll={{ y: windowHeight * 2 }}
         expandable={{
           expandedRowRender: (record: MatchType) => {
             let date = new Date(record.utcDate).toLocaleString("bg-bg");
