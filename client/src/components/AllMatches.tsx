@@ -372,7 +372,7 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
         dataSource={AllMatches}
         pagination={false}
         bordered
-        scroll={{ y: windowHeight * 0.6 }}
+        scroll={{ y: windowHeight * 0.5 }}
         expandable={{
           expandedRowRender: (record: MatchType) => {
             let date = new Date(record.utcDate).toLocaleString("bg-bg");
@@ -386,10 +386,10 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
         footer={() => {
           return (
             <div>
-              <Space direction={"horizontal"} size={window.innerHeight * 0.47}>
+              <Space direction={"horizontal"} size={window.innerWidth * 0.315}>
                 <div
                   style={{
-                    width: window.innerHeight * 0.21,
+                    backgroundColor: "red",
                   }}
                 >
                   <span>Последният оцелял:</span>
@@ -399,8 +399,7 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
                     return (
                       <div
                         style={{
-                          width: window.innerHeight * 0.41,
-                          height: 10,
+                          width: window.innerWidth * 0.24,
                         }}
                       >
                         <Input
