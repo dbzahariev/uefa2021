@@ -386,14 +386,20 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
         footer={() => {
           return (
             <div>
-              <Space direction={"horizontal"} size={483}>
-                <span>Последният оцелял:</span>
+              <Space direction={"horizontal"} size={window.innerHeight * 0.47}>
+                <div
+                  style={{
+                    width: window.innerHeight * 0.21,
+                  }}
+                >
+                  <span>Последният оцелял:</span>
+                </div>
                 <Space direction={"horizontal"} size={2}>
                   {users.map((user) => {
                     return (
                       <div
                         style={{
-                          width: 368,
+                          width: window.innerHeight * 0.41,
                           height: 10,
                         }}
                       >
@@ -551,7 +557,7 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
       let selector1 = getSelector1(i + 1);
       $(selector1).css(
         "background-color",
-        `hsl(${colors[users[i].index]}, 100%, 95%)`
+        `hsl(${colors[users[i].index - 1]}, 100%, 95%)`
       );
 
       let selector2 = getSelector2(i + 1);
@@ -559,7 +565,10 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
       $(selector2).css("border-bottom", "1px solid");
       $(selector2).css("border-left", "1px solid");
       $(selector2).css("border-right", "1px solid");
-      $(selector2).css("border-color", `hsl(${colors[i]}, 100%, 55%)`);
+      $(selector2).css(
+        "border-color",
+        `hsl(${colors[users[i].index - 1]}, 100%, 55%)`
+      );
     }
   }, [loading, users]);
 
