@@ -577,8 +577,8 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
     return (
       <div
         style={{
-          height: window.innerHeight * 0.4,
-          width: window.innerWidth,
+          // height: window.innerHeight * 0.4,
+          // width: window.innerWidth,
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
