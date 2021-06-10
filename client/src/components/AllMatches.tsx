@@ -387,11 +387,7 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
           return (
             <div>
               <Space direction={"horizontal"} size={window.innerWidth * 0.315}>
-                <div
-                  style={{
-                    backgroundColor: "red",
-                  }}
-                >
+                <div>
                   <span>Последният оцелял:</span>
                 </div>
                 <Space direction={"horizontal"} size={2}>
