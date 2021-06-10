@@ -5,6 +5,8 @@ const Schema = mongoose.Schema;
 const GamestSchema = new Schema({
   name: String,
   bets: Array,
+  index: Number,
+  finalWinner: String,
 });
 
 // Model

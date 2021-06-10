@@ -22,7 +22,7 @@ export interface MatchType {
     name: string;
   };
   utcDate: Date;
-  group: string;
+  group?: string | undefined;
   score?: {
     duration: string;
     extraTime: {
@@ -57,19 +57,23 @@ export interface UsersType {
     winner: string;
     point: number;
   }[];
+  index: number;
   _id?: string;
   id?: string;
   totalPoints?: number;
+  finalWinner: "string";
 }
 
 export const renderP = (el: string) => {
   let result = "";
   if (el === "HOME_TEAM") {
-    result = "1";
+    result = "Д";
   } else if (el === "AWAY_TEAM") {
-    result = "2";
+    result = "Г";
   } else if (el === "DRAW") {
     result = "Р";
+  } else {
+    result = "";
   }
   return <span>{result}</span>;
 };
@@ -143,7 +147,10 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
         data = data.slice(0, 55); // limit First 3
         let matches: MatchType[] = [];
 
-        data.forEach((el: MatchType, index) => {
+        data.forEach((el: any, index) => {
+          if (el.id === 325091) {
+            // debugger;
+          }
           let score = el.score;
           let matchToAdd: MatchType = {
             number: index + 1,
@@ -152,10 +159,10 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
             homeTeam: el.homeTeam,
             awayTeam: el.awayTeam,
             utcDate: el.utcDate,
-            group: el.group,
+            group: el.group || el.stage,
             winner: score?.winner || "",
-            homeTeamScore: score?.fullTime?.homeTeam || 0,
-            awayTeamScore: score?.fullTime?.awayTeam || 0,
+            homeTeamScore: score?.fullTime?.homeTeam || "",
+            awayTeamScore: score?.fullTime?.awayTeam || "",
           };
           matches.push(matchToAdd);
         });
@@ -179,12 +186,16 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
           let userToAdd: UsersType = {
             name: el.name,
             bets: el.bets,
+            index: el.index,
+            finalWinner: el.finalWinner,
           };
           if (el._id) {
             userToAdd.id = el._id;
           }
           newUsers.push(userToAdd);
         });
+
+        newUsers.sort((a, b) => a.index - b.index);
 
         setUsers(newUsers);
       })
@@ -329,6 +340,33 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
     let windowHeight = window.innerHeight;
     let columnWidth = 150;
 
+    const handleChangeFinal = (ev: any, user: any) => {
+      let newFinalWinner: string = ev.target.value;
+      axios({
+        method: "POST",
+        data: { finalWinner: newFinalWinner },
+        withCredentials: true,
+        url: `/api/update?id=${user.id}`,
+      })
+        .then((res) => {
+          notification.open({
+            message: `Победителят е записан успешно!`,
+            type: "success",
+          });
+          window.location.reload();
+        })
+        .catch((err) => {
+          notification.open({
+            message: `Грешка`,
+            type: "error",
+          });
+        });
+    };
+
+    const getFinalWinner = (user: any) => {
+      return user.finalWinner;
+    };
+
     return (
       <Table
         dataSource={AllMatches}
@@ -345,6 +383,34 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
           rowExpandable: () => true,
           defaultExpandedRowKeys: ["1"],
         }}
+        footer={() => {
+          return (
+            <div>
+              <Space direction={"horizontal"} size={483}>
+                <span>Последният оцелял:</span>
+                <Space direction={"horizontal"} size={2}>
+                  {users.map((user) => {
+                    return (
+                      <div
+                        style={{
+                          width: 368,
+                          height: 10,
+                        }}
+                      >
+                        <Input
+                          placeholder=""
+                          defaultValue={getFinalWinner(user)}
+                          value={getFinalWinner(user)}
+                          onChange={(el) => handleChangeFinal(el, user)}
+                        />
+                      </div>
+                    );
+                  })}
+                </Space>
+              </Space>
+            </div>
+          );
+        }}
       >
         <Column title="Н" dataIndex="number" key="number" width={56} />
         <Column
@@ -352,9 +418,9 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
           dataIndex="homeTeam"
           key="homeTeam"
           width={columnWidth}
-          render={(el: any) => (
-            <span>{translateTeamsName(el.name) || "Ще се реши"}</span>
-          )}
+          render={(el: any) => {
+            return <span>{translateTeamsName(el.name) || "Ще се реши"}</span>;
+          }}
         />
         <ColumnGroup title="Резултат">
           <Column
@@ -384,6 +450,14 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
           width={columnWidth}
           render={(el: any) => (
             <span>{translateTeamsName(el.name) || "Ще се реши"}</span>
+          )}
+        />
+        <Column
+          title="Група"
+          dataIndex="group"
+          width={90}
+          render={(el: any) => (
+            <span>{translateTeamsName(el) || "Ще се реши"}</span>
           )}
         />
         {users.map((user: UsersType) => {
@@ -421,19 +495,19 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
               />
               <ColumnGroup title="Точки">
                 <Column
-                  title="T"
+                  title="Точки"
                   dataIndex=""
                   key=""
-                  width={80 / 2}
+                  width={160 / 2}
                   render={(_, record: MatchType) => {
                     return getPoints(user, record).current;
                   }}
                 />
                 <Column
-                  title="O"
+                  title="Общо"
                   dataIndex=""
                   key=""
-                  width={80 / 2}
+                  width={160 / 2}
                   render={(_, record: MatchType) => {
                     return getPoints(user, record).total;
                   }}
@@ -449,7 +523,7 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
   useEffect(() => {
     const getSelector1 = (index: number) => {
       let res = "";
-      res += `tr:nth-child(1) > th:nth-child(${index + 5}), `;
+      res += `tr:nth-child(1) > th:nth-child(${index + 6}), `;
       res += `tr:nth-child(2) > th:nth-child(${4 * index}), `;
       res += `tr:nth-child(2) > th:nth-child(${4 * index + 1}), `;
       res += `tr:nth-child(2) > th:nth-child(${4 * index + 2}), `;
@@ -464,7 +538,7 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
       let res = "";
 
       for (let i = 5 * index - 5; i < 5 * index; i++) {
-        res += `td:nth-child(${8 + i}), `;
+        res += `td:nth-child(${9 + i}), `;
       }
 
       res = res.slice(0, res.length - 2);
@@ -472,19 +546,22 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
       return res;
     };
 
-    let colors = ["129", "203", "235"];
+    let colors = ["10", "180", "50", "203", "129"];
     for (let i = 0; i < users.length; i++) {
       let selector1 = getSelector1(i + 1);
-      $(selector1).css("background-color", `hsl(${colors[i]}, 100%, 95%)`);
+      $(selector1).css(
+        "background-color",
+        `hsl(${colors[users[i].index]}, 100%, 95%)`
+      );
 
       let selector2 = getSelector2(i + 1);
 
       $(selector2).css("border-bottom", "1px solid");
       $(selector2).css("border-left", "1px solid");
       $(selector2).css("border-right", "1px solid");
-      $(selector2).css("border-color", `hsl(${colors[i]}, 100%, 85%)`);
+      $(selector2).css("border-color", `hsl(${colors[i]}, 100%, 55%)`);
     }
-  }, [loading]);
+  }, [loading, users]);
 
   if (loading) {
     return (
@@ -516,7 +593,7 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
   return (
     <>
       <AutoRefresh refresh={refresh} />
-      <div style={{ width: 500 }}>
+      <div style={{ width: 2500 }}>
         <Space direction={"horizontal"}>{oneMatchTable(matches)}</Space>
       </div>
     </>

@@ -157,6 +157,8 @@ export default function PlayersPoints() {
         let userToAdd: UsersType = {
           name: el.name,
           bets: el.bets,
+          index: el.index,
+          finalWinner: el.finalWinner,
         };
         if (el._id) {
           userToAdd.id = el._id;

@@ -42,18 +42,32 @@ router.post("/update", (req, res) => {
     res.status(404).json({ msg: `Not found id (${id})` });
     return;
   }
-
-  Games.findOneAndUpdate(
-    { _id: id },
-    { bets: data.bets },
-    { useFindAndModify: false }
-  )
-    .then(() => {
-      return res.json({ msg: "Bet is saved successfully!" });
-    })
-    .catch(() => {
-      return res.status(500);
-    });
+  if (data.bets) {
+    Games.findOneAndUpdate(
+      { _id: id },
+      { bets: data.bets },
+      { useFindAndModify: false }
+    )
+      .then(() => {
+        return res.json({ msg: "Bet is saved successfully!" });
+      })
+      .catch(() => {
+        return res.status(500);
+      });
+  }
+  if (data.finalWinner) {
+    Games.findOneAndUpdate(
+      { _id: id },
+      { finalWinner: data.finalWinner },
+      { useFindAndModify: false }
+    )
+      .then(() => {
+        return res.json({ msg: "Final winner is saved successfully!" });
+      })
+      .catch(() => {
+        return res.status(500);
+      });
+  }
 });
 
 // Games.findOne(id).then((game) => {

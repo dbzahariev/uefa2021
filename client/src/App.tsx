@@ -21,7 +21,7 @@ const competitionsIds = {
   Premier: 2021,
 };
 
-export const selectedCompetition = competitionsIds.Premier;
+export const selectedCompetition = competitionsIds.Uefa;
 
 function MatchWithParams() {
   let params: any = useParams();
