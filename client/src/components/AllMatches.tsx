@@ -306,6 +306,18 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
     setBetsToDB(user);
   };
 
+  const checkDisabledInput = (fullMatch: MatchType) => {
+    let result = false;
+    let now = new Date();
+    let matchDate = new Date(fullMatch.utcDate);
+    let dddd = now.getTime() - matchDate.getTime();
+    let sasss = Math.round(dddd / 1000 / 60);
+
+    result = sasss >= 15;
+
+    return result;
+  };
+
   const renderColumnForUser = (
     el: any,
     fullMatch: MatchType,
@@ -314,6 +326,7 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
   ) => {
     return (
       <Input
+        disabled={checkDisabledInput(fullMatch)}
         placeholder=""
         defaultValue={el}
         value={getValue(user, type, fullMatch)}
