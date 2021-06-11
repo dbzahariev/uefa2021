@@ -599,15 +599,15 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
     };
 
     const getSelector2 = (index: number) => {
-      let res = "";
+      let result = "";
 
       for (let i = 5 * index - 5; i < 5 * index; i++) {
-        res += `td:nth-child(${9 + i}), `;
+        result += `td:nth-child(${9 + i}), `;
       }
 
-      res = res.slice(0, res.length - 2);
+      result = result.slice(0, result.length - 2);
 
-      return res;
+      return result;
     };
 
     let colors = ["10", "180", "50", "80", "203", "129"];
