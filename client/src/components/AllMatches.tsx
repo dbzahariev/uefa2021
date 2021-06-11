@@ -85,6 +85,10 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
   const [finalWinnerForUsers, setFinalWinnerForUsers] = useState<
     { name: string; finalWinner: string }[]
   >([]);
+  const [dimensions, setDimensions] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
 
   let intervalRef = useRef<any>();
 
@@ -114,7 +118,13 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
 
   useEffect(() => {
     getAllUsers();
+
+    window.addEventListener("resize", updateWindowDimensions);
   }, []);
+
+  const updateWindowDimensions = () => {
+    setDimensions({ width: window.innerWidth, height: window.innerHeight });
+  };
 
   useEffect(() => {
     getAllFinalWinner();
@@ -174,7 +184,6 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
 
         data.forEach((el: any, index) => {
           if (el.id === 325091) {
-            // debugger;
           }
           let score = el.score;
           let matchToAdd: MatchType = {
@@ -418,32 +427,53 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
           defaultExpandedRowKeys: ["1"],
         }}
         footer={() => {
+          $("div.ant-table-footer").css("padding-right", 0);
+
+          let headerWidth =
+            $("tr:nth-child(1) > th:nth-child(7)").width() || 330.31633;
+
           return (
             <div>
-              <Space direction={"horizontal"} size={window.innerWidth * 0.315}>
-                <div>
+              <div style={{ display: "flex", justifyContent: "space-between" }}>
+                {/* <Space direction={"horizontal"} size={0}> */}
+                <div
+                  style={{
+                    // width: 200,
+                    backgroundColor: "red",
+                  }}
+                >
                   <span>Последният оцелял:</span>
                 </div>
-                <Space direction={"horizontal"} size={2}>
-                  {users.map((user, index) => {
-                    return (
-                      <div
-                        key={index}
-                        style={{
-                          width: window.innerWidth * 0.24,
-                        }}
-                      >
-                        <Input
-                          placeholder=""
-                          defaultValue={getFinalWinner(user)}
-                          value={getFinalWinner(user)}
-                          onChange={(el) => handleChangeFinal(el, user)}
-                        />
-                      </div>
-                    );
-                  })}
-                </Space>
-              </Space>
+                <div
+                  style={{
+                    alignSelf: "flex-end",
+                    backgroundColor: "green",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <Space direction={"horizontal"} size={0}>
+                    {users.map((user, index) => {
+                      return (
+                        <div
+                          key={index}
+                          style={{
+                            width: headerWidth + (363.38 - headerWidth),
+                          }}
+                        >
+                          <Input
+                            placeholder=""
+                            defaultValue={getFinalWinner(user)}
+                            value={getFinalWinner(user)}
+                            onChange={(el) => handleChangeFinal(el, user)}
+                          />
+                        </div>
+                      );
+                    })}
+                  </Space>
+                </div>
+                {/* </Space> */}
+              </div>
             </div>
           );
         }}
@@ -638,6 +668,7 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
 
   return (
     <>
+      <p>{dimensions.width}</p>
       <AutoRefresh refresh={refresh} />
       <div style={{ width: 2500 }}>
         <Space direction={"horizontal"}>{oneMatchTable(matches)}</Space>
