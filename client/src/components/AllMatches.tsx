@@ -332,6 +332,17 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
       } else if (selectedMatch.winner === bet.winner) {
         res = 1;
       }
+      let difSM: number | undefined = undefined;
+      let difBet: number | undefined = undefined;
+      if (selectedMatch.homeTeamScore && selectedMatch.awayTeamScore) {
+        difSM = selectedMatch.homeTeamScore - selectedMatch.awayTeamScore;
+      }
+      if (bet.homeTeamScore && bet.awayTeamScore) {
+        difBet = bet.homeTeamScore - bet.awayTeamScore;
+      }
+      if (difSM && difBet && difSM === difBet) {
+        res = 2;
+      }
     }
     return res;
   };
@@ -610,7 +621,7 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
       return result;
     };
 
-    let colors = ["10", "180", "50", "80", "203", "129"];
+    let colors = ["10", "180", "50", "80", "203", "284", "129"];
     for (let i = 0; i < users.length; i++) {
       let selector1 = getSelector1(i + 1);
       $(selector1).css(
