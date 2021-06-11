@@ -82,20 +82,29 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
   const [matches, setMatches] = useState<MatchType[]>([]);
   const [users, setUsers] = useState<UsersType[]>([]);
   const [loading, setLoading] = useState(false);
+  const [finalWinnerForUsers, setFinalWinnerForUsers] = useState<
+    { name: string; finalWinner: string }[]
+  >([]);
 
   let intervalRef = useRef<any>();
 
   useEffect(() => {
     if (AutoRefreshInterval >= 1 && AutoRefreshInterval !== "disable") {
       intervalRef.current = setInterval(() => {
-        getAllMatches();
-        getAllUsers();
+        reloadData();
+        // getAllMatches();
+        // getAllUsers();
       }, AutoRefreshInterval * 1000);
     }
 
     return () => clearInterval(intervalRef.current);
     // eslint-disable-next-line
   }, [AutoRefreshInterval]);
+
+  const reloadData = () => {
+    getAllMatches();
+    getAllUsers();
+  };
 
   useEffect(() => {
     if (matches.length === 0) {
@@ -106,6 +115,22 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
   useEffect(() => {
     getAllUsers();
   }, []);
+
+  useEffect(() => {
+    getAllFinalWinner();
+    // eslint-disable-next-line
+  }, [users]);
+
+  const getAllFinalWinner = () => {
+    if (users.length === 0) {
+      return;
+    }
+    let foo: any[] = [];
+    users.forEach((user) => {
+      foo.push({ name: user.name, finalWinner: user.finalWinner });
+    });
+    setFinalWinnerForUsers(foo);
+  };
 
   const setBetsToDB = (userProp: UsersType) => {
     if (userProp) {
@@ -337,24 +362,30 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
   };
 
   const oneMatchTable = (AllMatches: MatchType[]) => {
+    // eslint-disable-next-line
     let windowHeight = window.innerHeight;
     let columnWidth = 150;
 
-    const handleChangeFinal = (ev: any, user: any) => {
+    const handleChangeFinal = (
+      ev: React.ChangeEvent<HTMLInputElement>,
+      user: UsersType
+    ) => {
       let newFinalWinner: string = ev.target.value;
+
+      let foo = [...finalWinnerForUsers];
+      let kk = foo.find((el) => el.name === user.name);
+      if (kk) {
+        kk.finalWinner = newFinalWinner;
+      }
+      setFinalWinnerForUsers(foo);
+
       axios({
         method: "POST",
         data: { finalWinner: newFinalWinner },
         withCredentials: true,
         url: `/api/update?id=${user.id}`,
       })
-        .then((res) => {
-          notification.open({
-            message: `Победителят е записан успешно!`,
-            type: "success",
-          });
-          window.location.reload();
-        })
+        .then((res) => {})
         .catch((err) => {
           notification.open({
             message: `Грешка`,
@@ -363,8 +394,11 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
         });
     };
 
-    const getFinalWinner = (user: any) => {
-      return user.finalWinner;
+    const getFinalWinner = (user: UsersType) => {
+      let foo = finalWinnerForUsers.find((el) => el.name === user.name);
+      if (foo?.finalWinner) {
+        return foo.finalWinner;
+      } else return "";
     };
 
     return (
@@ -391,9 +425,10 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
                   <span>Последният оцелял:</span>
                 </div>
                 <Space direction={"horizontal"} size={2}>
-                  {users.map((user) => {
+                  {users.map((user, index) => {
                     return (
                       <div
+                        key={index}
                         style={{
                           width: window.innerWidth * 0.24,
                         }}
@@ -462,6 +497,7 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
         <Column
           title="Група"
           dataIndex="group"
+          key="group"
           width={90}
           render={(el: any) => (
             <span>{translateTeamsName(el) || "Ще се реши"}</span>
@@ -504,7 +540,7 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
                 <Column
                   title="Точки"
                   dataIndex=""
-                  key=""
+                  key="points"
                   width={160 / 2}
                   render={(_, record: MatchType) => {
                     return getPoints(user, record).current;
@@ -513,7 +549,7 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
                 <Column
                   title="Общо"
                   dataIndex=""
-                  key=""
+                  key="totalPoints"
                   width={160 / 2}
                   render={(_, record: MatchType) => {
                     return getPoints(user, record).total;
