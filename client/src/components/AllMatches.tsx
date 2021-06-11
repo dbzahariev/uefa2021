@@ -433,46 +433,37 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
             $("tr:nth-child(1) > th:nth-child(7)").width() || 330.31633;
 
           return (
-            <div>
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
-                {/* <Space direction={"horizontal"} size={0}> */}
-                <div
-                  style={{
-                    // width: 200,
-                    backgroundColor: "red",
-                  }}
-                >
-                  <span>Последният оцелял:</span>
-                </div>
-                <div
-                  style={{
-                    alignSelf: "flex-end",
-                    backgroundColor: "green",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <Space direction={"horizontal"} size={0}>
-                    {users.map((user, index) => {
-                      return (
-                        <div
-                          key={index}
-                          style={{
-                            width: headerWidth + (363.38 - headerWidth),
-                          }}
-                        >
-                          <Input
-                            placeholder=""
-                            defaultValue={getFinalWinner(user)}
-                            value={getFinalWinner(user)}
-                            onChange={(el) => handleChangeFinal(el, user)}
-                          />
-                        </div>
-                      );
-                    })}
-                  </Space>
-                </div>
-                {/* </Space> */}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              <span>Последният оцелял:</span>
+              <div
+                style={{
+                  alignSelf: "flex-end",
+                  display: "flex",
+                }}
+              >
+                {users.map((user, index) => {
+                  return (
+                    <div
+                      key={index}
+                      style={{
+                        width: headerWidth + (363.38 - headerWidth),
+                      }}
+                    >
+                      <Input
+                        placeholder=""
+                        defaultValue={getFinalWinner(user)}
+                        value={getFinalWinner(user)}
+                        onChange={(el) => handleChangeFinal(el, user)}
+                      />
+                    </div>
+                  );
+                })}
               </div>
             </div>
           );
