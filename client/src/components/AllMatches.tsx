@@ -610,7 +610,7 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
       return res;
     };
 
-    let colors = ["10", "180", "50", "203", "129", "80"];
+    let colors = ["10", "180", "50", "80", "203", "129"];
     for (let i = 0; i < users.length; i++) {
       let selector1 = getSelector1(i + 1);
       $(selector1).css(
