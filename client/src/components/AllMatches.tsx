@@ -44,8 +44,8 @@ export interface MatchType {
     winner: string;
   };
   winner?: string;
-  homeTeamScore?: number;
-  awayTeamScore?: number;
+  homeTeamScore?: number | undefined;
+  awayTeamScore?: number | undefined;
 }
 
 export interface UsersType {
@@ -107,11 +107,6 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
     // eslint-disable-next-line
   }, [AutoRefreshInterval]);
 
-  const reloadData = () => {
-    getAllMatches();
-    getAllUsers();
-  };
-
   useEffect(() => {
     if (matches.length === 0) {
       getAllMatches();
@@ -121,17 +116,76 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
   useEffect(() => {
     getAllUsers();
 
+    const updateWindowDimensions = () => {
+      setDimensions({ width: window.innerWidth, height: window.innerHeight });
+    };
+
     window.addEventListener("resize", updateWindowDimensions);
   }, []);
-
-  const updateWindowDimensions = () => {
-    setDimensions({ width: window.innerWidth, height: window.innerHeight });
-  };
 
   useEffect(() => {
     getAllFinalWinner();
     // eslint-disable-next-line
   }, [users]);
+
+  useEffect(() => {
+    if (users.length > 0 && matches.length > 0) {
+      setLoading(false);
+    } else {
+      setLoading(true);
+    }
+  }, [users.length, matches.length]);
+
+  useEffect(() => {
+    const getSelector1 = (index: number) => {
+      let res = "";
+      res += `tr:nth-child(1) > th:nth-child(${index + 6}), `;
+      res += `tr:nth-child(2) > th:nth-child(${4 * index}), `;
+      res += `tr:nth-child(2) > th:nth-child(${4 * index + 1}), `;
+      res += `tr:nth-child(2) > th:nth-child(${4 * index + 2}), `;
+      res += `tr:nth-child(2) > th:nth-child(${4 * index + 3}), `;
+      res += `tr:nth-child(3) > th:nth-child(${index + (index - 1)}), `;
+      res += `tr:nth-child(3) > th:nth-child(${index + index})`;
+
+      return res;
+    };
+
+    const getSelector2 = (index: number) => {
+      let result = "";
+
+      for (let i = 5 * index - 5; i < 5 * index; i++) {
+        result += `td:nth-child(${9 + i}), `;
+      }
+
+      result = result.slice(0, result.length - 2);
+
+      return result;
+    };
+
+    // let colors = ["10", "180", "50", "80", "203", "284", "129"];
+    for (let i = 0; i < users.length; i++) {
+      let selector1 = getSelector1(i + 1);
+      $(selector1).css(
+        "background-color",
+        `hsl(${users[i].colorTable}, 100%, 95%)`
+      );
+
+      let selector2 = getSelector2(i + 1);
+
+      $(selector2).css("border-bottom", "1px solid");
+      $(selector2).css("border-left", "1px solid");
+      $(selector2).css("border-right", "1px solid");
+      $(selector2).css(
+        "border-color",
+        `hsl(${users[i].colorTable}, 100%, 55%)`
+      );
+    }
+  }, [loading, users]);
+
+  const reloadData = () => {
+    getAllMatches();
+    getAllUsers();
+  };
 
   const getAllFinalWinner = () => {
     if (users.length === 0) {
@@ -188,6 +242,19 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
           if (el.id === 325091) {
           }
           let score = el.score;
+          const calcScore = (matchScore: any) => {
+            let res = { ht: undefined, at: undefined };
+            let ht = score?.fullTime?.homeTeam;
+            let at = score?.fullTime?.awayTeam;
+            if (ht !== null) {
+              res.ht = score?.fullTime?.homeTeam;
+            }
+            if (at !== null) {
+              res.at = score?.fullTime?.awayTeam;
+            }
+
+            return res;
+          };
           let matchToAdd: MatchType = {
             number: index + 1,
             key: matches.length || 0,
@@ -197,8 +264,8 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
             utcDate: el.utcDate,
             group: el.group || el.stage,
             winner: score?.winner || "",
-            homeTeamScore: score?.fullTime?.homeTeam || "",
-            awayTeamScore: score?.fullTime?.awayTeam || "",
+            homeTeamScore: calcScore(el.score).ht,
+            awayTeamScore: calcScore(el.score).at,
           };
           matches.push(matchToAdd);
         });
@@ -260,14 +327,6 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
     if (selectedMatch) return selectedMatch[type];
     else return "";
   };
-
-  useEffect(() => {
-    if (users.length > 0 && matches.length > 0) {
-      setLoading(false);
-    } else {
-      setLoading(true);
-    }
-  }, [users.length, matches.length]);
 
   const handleChange = (
     el1: any,
@@ -610,52 +669,6 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
       </Table>
     );
   };
-
-  useEffect(() => {
-    const getSelector1 = (index: number) => {
-      let res = "";
-      res += `tr:nth-child(1) > th:nth-child(${index + 6}), `;
-      res += `tr:nth-child(2) > th:nth-child(${4 * index}), `;
-      res += `tr:nth-child(2) > th:nth-child(${4 * index + 1}), `;
-      res += `tr:nth-child(2) > th:nth-child(${4 * index + 2}), `;
-      res += `tr:nth-child(2) > th:nth-child(${4 * index + 3}), `;
-      res += `tr:nth-child(3) > th:nth-child(${index + (index - 1)}), `;
-      res += `tr:nth-child(3) > th:nth-child(${index + index})`;
-
-      return res;
-    };
-
-    const getSelector2 = (index: number) => {
-      let result = "";
-
-      for (let i = 5 * index - 5; i < 5 * index; i++) {
-        result += `td:nth-child(${9 + i}), `;
-      }
-
-      result = result.slice(0, result.length - 2);
-
-      return result;
-    };
-
-    // let colors = ["10", "180", "50", "80", "203", "284", "129"];
-    for (let i = 0; i < users.length; i++) {
-      let selector1 = getSelector1(i + 1);
-      $(selector1).css(
-        "background-color",
-        `hsl(${users[i].colorTable}, 100%, 95%)`
-      );
-
-      let selector2 = getSelector2(i + 1);
-
-      $(selector2).css("border-bottom", "1px solid");
-      $(selector2).css("border-left", "1px solid");
-      $(selector2).css("border-right", "1px solid");
-      $(selector2).css(
-        "border-color",
-        `hsl(${users[i].colorTable}, 100%, 55%)`
-      );
-    }
-  }, [loading, users]);
 
   if (loading) {
     return (
