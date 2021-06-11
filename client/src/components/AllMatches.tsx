@@ -242,8 +242,17 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
           if (el.id === 325091) {
           }
           let score = el.score;
-          const calcScore = (matchScore: any) => {
-            let res = { ht: undefined, at: undefined };
+
+          const calcScore = (match: any) => {
+            let res: {
+              ht: number | undefined;
+              at: number | undefined;
+            } = { ht: undefined, at: undefined };
+
+            if (match.id === 285418) {
+              // debugger;
+            }
+
             let ht = score?.fullTime?.homeTeam;
             let at = score?.fullTime?.awayTeam;
             if (ht !== null) {
@@ -255,6 +264,8 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
 
             return res;
           };
+          let calculatedScore = calcScore(el);
+
           let matchToAdd: MatchType = {
             number: index + 1,
             key: matches.length || 0,
@@ -264,8 +275,8 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
             utcDate: el.utcDate,
             group: el.group || el.stage,
             winner: score?.winner || "",
-            homeTeamScore: calcScore(el.score).ht,
-            awayTeamScore: calcScore(el.score).at,
+            homeTeamScore: calculatedScore.ht,
+            awayTeamScore: calculatedScore.at,
           };
           matches.push(matchToAdd);
         });
