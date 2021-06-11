@@ -668,7 +668,6 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
 
   return (
     <>
-      <p>{dimensions.width}</p>
       <AutoRefresh refresh={refresh} />
       <div style={{ width: 2500 }}>
         <Space direction={"horizontal"}>{oneMatchTable(matches)}</Space>
