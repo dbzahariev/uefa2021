@@ -100,7 +100,7 @@ export default function App() {
         <Space direction={"horizontal"}>
           <Link to="/">Всички мачове</Link>
           <Link to="/groups">Групи</Link>
-          <Link to="/rules">Правила</Link>
+          <Link to="/rules">Регламент</Link>
           {/* <Link to="/match/303759">Mач</Link> */}
         </Space>
 
