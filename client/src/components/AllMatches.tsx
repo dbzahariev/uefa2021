@@ -62,6 +62,7 @@ export interface UsersType {
   id?: string;
   totalPoints?: number;
   finalWinner: "string";
+  colorTable: string;
 }
 
 export const renderP = (el: string) => {
@@ -85,6 +86,7 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
   const [finalWinnerForUsers, setFinalWinnerForUsers] = useState<
     { name: string; finalWinner: string }[]
   >([]);
+  // eslint-disable-next-line
   const [dimensions, setDimensions] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
@@ -222,6 +224,7 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
             bets: el.bets,
             index: el.index,
             finalWinner: el.finalWinner,
+            colorTable: el.colorTable,
           };
           if (el._id) {
             userToAdd.id = el._id;
@@ -621,12 +624,12 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
       return result;
     };
 
-    let colors = ["10", "180", "50", "80", "203", "284", "129"];
+    // let colors = ["10", "180", "50", "80", "203", "284", "129"];
     for (let i = 0; i < users.length; i++) {
       let selector1 = getSelector1(i + 1);
       $(selector1).css(
         "background-color",
-        `hsl(${colors[users[i].index - 1]}, 100%, 95%)`
+        `hsl(${users[i].colorTable}, 100%, 95%)`
       );
 
       let selector2 = getSelector2(i + 1);
@@ -636,7 +639,7 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
       $(selector2).css("border-right", "1px solid");
       $(selector2).css(
         "border-color",
-        `hsl(${colors[users[i].index - 1]}, 100%, 55%)`
+        `hsl(${users[i].colorTable}, 100%, 55%)`
       );
     }
   }, [loading, users]);

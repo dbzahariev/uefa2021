@@ -7,6 +7,7 @@ const GamestSchema = new Schema({
   bets: Array,
   index: Number,
   finalWinner: String,
+  colorTable: String,
 });
 
 // Model

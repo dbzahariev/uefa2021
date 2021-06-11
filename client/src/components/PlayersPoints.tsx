@@ -159,6 +159,7 @@ export default function PlayersPoints() {
           bets: el.bets,
           index: el.index,
           finalWinner: el.finalWinner,
+          colorTable: el.colorTable,
         };
         if (el._id) {
           userToAdd.id = el._id;
