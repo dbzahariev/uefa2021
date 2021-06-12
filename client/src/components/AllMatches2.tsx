@@ -488,10 +488,23 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
           }}
         /> */}
         {users.map((user: UsersType) => {
-          let totalPoints: string | number = 0;
+          let totalPoints: string | number = "?";
+          let haveInPlay = false;
           matches.forEach((match) => {
-            totalPoints = getPoints(user, match).total;
+            if (
+              !haveInPlay &&
+              (match.status === "IN_PLAY" || match.status === "PAUSED")
+            ) {
+              haveInPlay = true;
+            }
+
+            if (!haveInPlay) {
+              totalPoints = getPoints(user, match).total;
+            }
           });
+          if (haveInPlay) {
+            totalPoints = "?";
+          }
 
           return (
             <ColumnGroup
@@ -528,12 +541,11 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
                   return renderP(selectedMatchWinner, user, record);
                 }}
               />
-              {/* <ColumnGroup title="Точки"> */}
               <Column
-                title="Точки"
+                title="Т"
                 dataIndex=""
                 key="points"
-                width={160 / 2}
+                width={40}
                 render={(_, record: MatchType) => {
                   return getPoints(user, record).current;
                 }}
