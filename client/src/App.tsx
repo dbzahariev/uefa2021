@@ -98,12 +98,20 @@ export default function App() {
   return (
     <Router>
       <div>
-        <Space direction={"horizontal"}>
-          <Link to="/">Всички мачове</Link>
-          <Link to="/addbet">Залог</Link>
-          <Link to="/groups/all">Групи</Link>
-          <Link to="/rules">Регламент</Link>
-          {/* <Link to="/match/303759">Mач</Link> */}
+        <Space direction={"horizontal"} size={"large"}>
+          <Link style={{ fontSize: "21px" }} to="/">
+            Всички мачове
+          </Link>
+          <Link style={{ fontSize: "21px" }} to="/addbet">
+            Залог
+          </Link>
+          <Link style={{ fontSize: "21px" }} to="/groups/all">
+            Групи
+          </Link>
+          <Link style={{ fontSize: "21px" }} to="/rules">
+            Регламент
+          </Link>
+          {/* <Link style={{ fontSize: "30px" }} to="/match/303759">Mач</Link> */}
         </Space>
 
         <Switch>
