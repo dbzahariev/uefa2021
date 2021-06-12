@@ -8,6 +8,7 @@ import { translateTeamsName } from "../helpers/Translate";
 import AutoRefresh, { AutoRefreshInterval } from "./AutoRefresh";
 import $ from "jquery";
 import { LoadingOutlined } from "@ant-design/icons";
+import { Link } from "react-router-dom";
 
 export interface MatchType {
   number: number;
@@ -623,10 +624,11 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
           width={90}
           render={(el: any) => {
             return (
-              <a href={`/groups/${el}`}>
+              <Link to={`/groups/${el}`}>
                 {translateTeamsName(el) || "Ще се реши"}
-              </a>
+              </Link>
             );
+            // return <a href={`/groups/${el}`}></a>;
           }}
         />
         {users.map((user: UsersType) => {
