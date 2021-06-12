@@ -152,7 +152,7 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
   useEffect(() => {
     const getSelector1 = (index: number) => {
       let res = "";
-      res += `tr:nth-child(1) > th:nth-child(${index + 6}), `;
+      res += `tr:nth-child(1) > th:nth-child(${index + 5}), `;
       res += `tr:nth-child(2) > th:nth-child(${4 * index}), `;
       res += `tr:nth-child(2) > th:nth-child(${4 * index + 1}), `;
       res += `tr:nth-child(2) > th:nth-child(${4 * index + 2}), `;
@@ -166,8 +166,8 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
     const getSelector2 = (index: number) => {
       let result = "";
 
-      for (let i = 5 * index - 5; i < 5 * index; i++) {
-        result += `td:nth-child(${9 + i}), `;
+      for (let i = 4 * index - 4; i < 4 * index; i++) {
+        result += `td:nth-child(${8 + i}), `;
       }
 
       result = result.slice(0, result.length - 2);
@@ -406,7 +406,11 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
           expandedRowRender: (record: MatchType) => {
             let date = new Date(record.utcDate).toLocaleString("bg-bg");
             return (
-              <p style={{ margin: 0 }}>{`Този мач ще се проведе на ${date}`}</p>
+              <p
+                style={{ margin: 0 }}
+              >{`Този мач ще се проведе на ${date}. Този мач се играе в ${
+                translateTeamsName(record.group || "") || "Ще се реши"
+              }`}</p>
             );
           },
           rowExpandable: () => true,
@@ -469,7 +473,7 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
             <span>{translateTeamsName(el.name) || "Ще се реши"}</span>
           )}
         />
-        <Column
+        {/* <Column
           title="Група"
           dataIndex="group"
           key="group"
@@ -481,10 +485,18 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
               </Link>
             );
           }}
-        />
+        /> */}
         {users.map((user: UsersType) => {
+          let totalPoints: string | number = 0;
+          matches.forEach((match) => {
+            totalPoints = getPoints(user, match).total;
+          });
+
           return (
-            <ColumnGroup key={user.name} title={user.name}>
+            <ColumnGroup
+              key={user.name}
+              title={`${user.name} (${totalPoints})`}
+            >
               <Column
                 title="1"
                 dataIndex="homeTeamScore"
@@ -515,17 +527,17 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
                   return renderP(selectedMatchWinner, user, record);
                 }}
               />
-              <ColumnGroup title="Точки">
-                <Column
-                  title="Точки"
-                  dataIndex=""
-                  key="points"
-                  width={160 / 2}
-                  render={(_, record: MatchType) => {
-                    return getPoints(user, record).current;
-                  }}
-                />
-                <Column
+              {/* <ColumnGroup title="Точки"> */}
+              <Column
+                title="Точки"
+                dataIndex=""
+                key="points"
+                width={160 / 2}
+                render={(_, record: MatchType) => {
+                  return getPoints(user, record).current;
+                }}
+              />
+              {/* <Column
                   title="Общо"
                   dataIndex=""
                   key="totalPoints"
@@ -533,8 +545,8 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
                   render={(_, record: MatchType) => {
                     return getPoints(user, record).total;
                   }}
-                />
-              </ColumnGroup>
+                /> */}
+              {/* </ColumnGroup> */}
             </ColumnGroup>
           );
         })}
