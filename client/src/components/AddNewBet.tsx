@@ -3,6 +3,7 @@ import Column from "antd/lib/table/Column";
 import ColumnGroup from "antd/lib/table/ColumnGroup";
 import axios, { AxiosRequestConfig } from "axios";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { selectedCompetition } from "../App";
 import { translateTeamsName } from "../helpers/Translate";
 import { MatchType, renderP, UsersType } from "./AllMatches";
@@ -210,14 +211,19 @@ export default function AddNewBet() {
     getAllUsers(selectedUserName);
   }, [selectedUserName]);
 
-  const checkDisabledInput = (fullMatch: MatchType) => {
+  const checkDisabledInput = (fullMatch: MatchType, user: UsersType) => {
     let result = false;
     let now = new Date();
     let matchDate = new Date(fullMatch.utcDate);
-    let dddd = now.getTime() - matchDate.getTime();
-    let sasss = Math.round(dddd / 1000 / 60);
+    let difference = now.getTime() - matchDate.getTime();
+    let differenceMin = Math.round(difference / 1000 / 60);
 
-    result = sasss >= 15;
+    result = differenceMin >= 15;
+
+    let dd = user.bets.find((el) => el.matchId === fullMatch.id);
+    if (differenceMin < 15 && !dd) {
+      result = false;
+    }
 
     return result;
   };
@@ -321,7 +327,7 @@ export default function AddNewBet() {
     ) => {
       return (
         <Input
-          disabled={checkDisabledInput(fullMatch)}
+          disabled={checkDisabledInput(fullMatch, user)}
           placeholder=""
           defaultValue={el}
           value={getValue(user, type, fullMatch)}
@@ -340,54 +346,22 @@ export default function AddNewBet() {
           expandedRowRender: (record: MatchType) => {
             let date = new Date(record.utcDate).toLocaleString("bg-bg");
             return (
-              <p style={{ margin: 0 }}>{`Този мач ще се проведе на ${date}`}</p>
+              <>
+                <span>
+                  {`Този мач ще се проведе на ${date}.`}
+                  <br />
+                  {`Този мач се играе в `}
+                </span>
+
+                <Link to={`/groups/${record.group}`}>
+                  {translateTeamsName(record.group || "") || "Ще се реши"}
+                </Link>
+              </>
             );
           },
           rowExpandable: () => true,
           defaultExpandedRowKeys: ["1"],
         }}
-        // footer={() => {
-        //   $("div.ant-table-footer").css("padding-right", 0);
-
-        //   let headerWidth =
-        //     $("tr:nth-child(1) > th:nth-child(7)").width() || 330.31633;
-
-        //   return (
-        //     <div
-        //       style={{
-        //         display: "flex",
-        //         justifyContent: "space-between",
-        //         alignItems: "center",
-        //       }}
-        //     >
-        //       <span>Последният оцелял:</span>
-        //       <div
-        //         style={{
-        //           alignSelf: "flex-end",
-        //           display: "flex",
-        //         }}
-        //       >
-        //         {users.map((user, index) => {
-        //           return (
-        //             <div
-        //               key={index}
-        //               style={{
-        //                 width: headerWidth + (363.38 - headerWidth),
-        //               }}
-        //             >
-        //               <Input
-        //                 placeholder=""
-        //                 defaultValue={getFinalWinner(user)}
-        //                 value={getFinalWinner(user)}
-        //                 onChange={(el) => handleChangeFinal(el, user)}
-        //               />
-        //             </div>
-        //           );
-        //         })}
-        //       </div>
-        //     </div>
-        //   );
-        // }}
       >
         <Column
           title="Н"
@@ -435,7 +409,7 @@ export default function AddNewBet() {
             <span>{translateTeamsName(el.name) || "Ще се реши"}</span>
           )}
         />
-        <Column
+        {/* <Column
           title="Група"
           dataIndex="group"
           key="group"
@@ -447,7 +421,7 @@ export default function AddNewBet() {
               </a>
             );
           }}
-        />
+        /> */}
         {users.map((user: UsersType) => {
           return (
             <ColumnGroup key={user.name} title={user.name}>
@@ -481,26 +455,6 @@ export default function AddNewBet() {
                   return renderP(selectedMatchWinner);
                 }}
               />
-              <ColumnGroup title="Точки">
-                <Column
-                  title="Точки"
-                  dataIndex=""
-                  key="points"
-                  width={160 / 2}
-                  render={(_, record: MatchType) => {
-                    return getPoints(user, record).current;
-                  }}
-                />
-                <Column
-                  title="Общо"
-                  dataIndex=""
-                  key="totalPoints"
-                  width={160 / 2}
-                  render={(_, record: MatchType) => {
-                    return getPoints(user, record).total;
-                  }}
-                />
-              </ColumnGroup>
             </ColumnGroup>
           );
         })}
