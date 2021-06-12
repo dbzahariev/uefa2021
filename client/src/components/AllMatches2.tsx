@@ -47,6 +47,7 @@ export interface MatchType {
   winner?: string;
   homeTeamScore?: number | undefined;
   awayTeamScore?: number | undefined;
+  status: string;
 }
 
 export interface UsersType {
@@ -83,6 +84,9 @@ export const renderP = (
     result = "";
   }
   if (!user) {
+    if (fullMatch && fullMatch.status === "IN_PLAY") {
+      result = "?";
+    }
     return <span>{result}</span>;
   } else {
     if (fullMatch) {
@@ -229,10 +233,6 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
               at: number | undefined;
             } = { ht: undefined, at: undefined };
 
-            if (match.id === 285418) {
-              // debugger;
-            }
-
             let ht = score?.fullTime?.homeTeam;
             let at = score?.fullTime?.awayTeam;
             if (ht !== null) {
@@ -257,6 +257,7 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
             winner: score?.winner || "",
             homeTeamScore: calculatedScore.ht,
             awayTeamScore: calculatedScore.at,
+            status: el.status,
           };
           matches.push(matchToAdd);
         });
@@ -354,6 +355,10 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
       }
     }
 
+    if (match.status === "IN_PLAY") {
+      res.current = "?";
+    }
+
     return res;
   };
 
@@ -385,7 +390,6 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
       if (dif > 0 && dd.toString().length > 0) {
         dd = "?";
       }
-
       return dd;
     };
 
@@ -428,19 +432,25 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
             dataIndex="homeTeamScore"
             key="homeTeamScore"
             width={40}
+            render={(el: any, record: MatchType) =>
+              record.status === "IN_PLAY" ? "?" : el
+            }
           />
           <Column
             title="2"
             dataIndex="awayTeamScore"
             key="awayTeamScore"
             width={40}
+            render={(el: any, record: MatchType) =>
+              record.status === "IN_PLAY" ? "?" : el
+            }
           />
           <Column
             title="П"
             dataIndex="winner"
             key="winner"
             width={40}
-            render={(el) => renderP(el, null, null)}
+            render={(el, match: MatchType) => renderP(el, null, match)}
           />
         </ColumnGroup>
         <Column
