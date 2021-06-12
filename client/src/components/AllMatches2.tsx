@@ -84,7 +84,10 @@ export const renderP = (
     result = "";
   }
   if (!user) {
-    if (fullMatch && fullMatch.status === "IN_PLAY") {
+    if (
+      fullMatch &&
+      (fullMatch.status === "IN_PLAY" || fullMatch.status === "PAUSED")
+    ) {
       result = "?";
     }
     return <span>{result}</span>;
@@ -355,7 +358,7 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
       }
     }
 
-    if (match.status === "IN_PLAY") {
+    if (match.status === "IN_PLAY" || match.status === "PAUSED") {
       res.current = "?";
     }
 
@@ -433,7 +436,9 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
             key="homeTeamScore"
             width={40}
             render={(el: any, record: MatchType) =>
-              record.status === "IN_PLAY" ? "?" : el
+              record.status === "IN_PLAY" || record.status === "PAUSED"
+                ? "?"
+                : el
             }
           />
           <Column
@@ -442,7 +447,9 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
             key="awayTeamScore"
             width={40}
             render={(el: any, record: MatchType) =>
-              record.status === "IN_PLAY" ? "?" : el
+              record.status === "IN_PLAY" || record.status === "PAUSED"
+                ? "?"
+                : el
             }
           />
           <Column
