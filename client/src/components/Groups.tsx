@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios, { AxiosRequestConfig } from "axios";
-import { Space, Table } from "antd";
+import { Button, Space, Table } from "antd";
 import { translateTeamsName } from "../helpers/Translate";
+import { useParams } from "react-router-dom";
+import $ from "jquery";
 
 const competitionsIds = {
   Uefa: 2018,
@@ -9,6 +11,7 @@ const competitionsIds = {
 };
 
 type OneRow = {
+  key: string;
   name: string;
   playedGames: number;
   won: number;
@@ -25,6 +28,8 @@ type OneGroup = {
 
 export default function Groups() {
   const [groups, setGroups] = useState<OneGroup[]>([]);
+
+  let params: any = useParams();
 
   useEffect(() => {
     getAllStandings();
@@ -55,6 +60,7 @@ export default function Groups() {
           for (let j = 0; j < group.table.length; j++) {
             let teams = group.table[j];
             let teamsToAdd: OneRow = {
+              key: teams.team.name,
               name: translateTeamsName(teams.team.name),
               playedGames: teams.playedGames,
               won: teams.won,
@@ -73,6 +79,19 @@ export default function Groups() {
         console.log(error);
       });
   };
+
+  useEffect(() => {
+    let groupName = params.groupName;
+    if (groupName && groupName !== "All") {
+      let el = document.getElementById(groupName);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+    // if (document.getElementById("title") !== null) {
+    //   document.getElementById("title").scrollIntoView();
+    // }
+  }, [groups]);
 
   const renderGroups = () => {
     const oneGroupTable = (oneGroup: OneGroup) => {
@@ -133,6 +152,7 @@ export default function Groups() {
       ];
       return (
         <Table
+          key={`Group ${oneGroup.name}`}
           title={() => (
             <p style={{ textAlign: "center" }}>{`Група ${oneGroup.name}`}</p>
           )}
@@ -148,11 +168,19 @@ export default function Groups() {
       <div>
         {groups.map((group) => {
           return (
-            <div>
+            <div key={`Group ${group.name}`} id={`Group ${group.name}`}>
               <Space direction={"horizontal"}>{oneGroupTable(group)}</Space>
             </div>
           );
         })}
+        <Button
+          onClick={() => {
+            window.scrollTo(0, 0);
+            // $("body").scrollTop(0);
+          }}
+        >
+          Начало
+        </Button>
       </div>
     );
   };

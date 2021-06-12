@@ -99,7 +99,7 @@ export default function App() {
       <div>
         <Space direction={"horizontal"}>
           <Link to="/">Всички мачове</Link>
-          <Link to="/groups">Групи</Link>
+          <Link to="/groups/all">Групи</Link>
           <Link to="/rules">Регламент</Link>
           {/* <Link to="/match/303759">Mач</Link> */}
         </Space>
@@ -108,7 +108,7 @@ export default function App() {
           <Route path="/match/:matchId">
             <MatchWithParams />
           </Route>
-          <Route path="/groups">
+          <Route path="/groups/:groupName">
             <Groups />
           </Route>
           <Route path="/rules">

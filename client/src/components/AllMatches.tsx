@@ -310,7 +310,7 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
           newUsers.push(userToAdd);
         });
 
-        newUsers.sort((a, b) => a.index - b.index);
+        // newUsers.sort((a, b) => a.index - b.index);
 
         setUsers(newUsers);
       })
@@ -523,48 +523,48 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
           rowExpandable: () => true,
           defaultExpandedRowKeys: ["1"],
         }}
-        footer={() => {
-          $("div.ant-table-footer").css("padding-right", 0);
+        // footer={() => {
+        //   $("div.ant-table-footer").css("padding-right", 0);
 
-          let headerWidth =
-            $("tr:nth-child(1) > th:nth-child(7)").width() || 330.31633;
+        //   let headerWidth =
+        //     $("tr:nth-child(1) > th:nth-child(7)").width() || 330.31633;
 
-          return (
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-              }}
-            >
-              <span>Последният оцелял:</span>
-              <div
-                style={{
-                  alignSelf: "flex-end",
-                  display: "flex",
-                }}
-              >
-                {users.map((user, index) => {
-                  return (
-                    <div
-                      key={index}
-                      style={{
-                        width: headerWidth + (363.38 - headerWidth),
-                      }}
-                    >
-                      <Input
-                        placeholder=""
-                        defaultValue={getFinalWinner(user)}
-                        value={getFinalWinner(user)}
-                        onChange={(el) => handleChangeFinal(el, user)}
-                      />
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          );
-        }}
+        //   return (
+        //     <div
+        //       style={{
+        //         display: "flex",
+        //         justifyContent: "space-between",
+        //         alignItems: "center",
+        //       }}
+        //     >
+        //       <span>Последният оцелял:</span>
+        //       <div
+        //         style={{
+        //           alignSelf: "flex-end",
+        //           display: "flex",
+        //         }}
+        //       >
+        //         {users.map((user, index) => {
+        //           return (
+        //             <div
+        //               key={index}
+        //               style={{
+        //                 width: headerWidth + (363.38 - headerWidth),
+        //               }}
+        //             >
+        //               <Input
+        //                 placeholder=""
+        //                 defaultValue={getFinalWinner(user)}
+        //                 value={getFinalWinner(user)}
+        //                 onChange={(el) => handleChangeFinal(el, user)}
+        //               />
+        //             </div>
+        //           );
+        //         })}
+        //       </div>
+        //     </div>
+        //   );
+        // }}
       >
         <Column
           title="Н"
@@ -617,9 +617,13 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
           dataIndex="group"
           key="group"
           width={90}
-          render={(el: any) => (
-            <span>{translateTeamsName(el) || "Ще се реши"}</span>
-          )}
+          render={(el: any) => {
+            return (
+              <a href={`/groups/${el}`}>
+                {translateTeamsName(el) || "Ще се реши"}
+              </a>
+            );
+          }}
         />
         {users.map((user: UsersType) => {
           return (
@@ -711,7 +715,7 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
   return (
     <>
       <AutoRefresh refresh={refresh} />
-      <div style={{ width: 2500 }}>
+      <div style={{ width: 4000 }}>
         <Space direction={"horizontal"}>{oneMatchTable(matches)}</Space>
       </div>
     </>
