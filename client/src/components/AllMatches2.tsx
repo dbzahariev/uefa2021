@@ -406,11 +406,12 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
           expandedRowRender: (record: MatchType) => {
             let date = new Date(record.utcDate).toLocaleString("bg-bg");
             return (
-              <p
-                style={{ margin: 0 }}
-              >{`Този мач ще се проведе на ${date}. Този мач се играе в ${
-                translateTeamsName(record.group || "") || "Ще се реши"
-              }`}</p>
+              <>
+                <span>{`Този мач ще се проведе на ${date}. Този мач се играе в `}</span>
+                <Link to={`/groups/${record.group}`}>
+                  {translateTeamsName(record.group || "") || "Ще се реши"}
+                </Link>
+              </>
             );
           },
           rowExpandable: () => true,
