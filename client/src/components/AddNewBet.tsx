@@ -1,228 +1,24 @@
-import { Input, notification, Space, Spin, Table } from "antd";
+import { Input, notification, Select, Space, Table } from "antd";
 import Column from "antd/lib/table/Column";
 import ColumnGroup from "antd/lib/table/ColumnGroup";
 import axios, { AxiosRequestConfig } from "axios";
-import { Key, useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { selectedCompetition } from "../App";
 import { translateTeamsName } from "../helpers/Translate";
-import AutoRefresh, { AutoRefreshInterval } from "./AutoRefresh";
-import $ from "jquery";
-import { LoadingOutlined } from "@ant-design/icons";
+import { MatchType, renderP, UsersType } from "./AllMatches";
 
-export interface MatchType {
-  number: number;
-  key: Key;
-  id: number;
-  homeTeam: {
-    id: number;
-    name: string;
-  };
-  awayTeam: {
-    id: number;
-    name: string;
-  };
-  utcDate: Date;
-  group?: string | undefined;
-  score?: {
-    duration: string;
-    extraTime: {
-      homeTeam: null;
-      awayTeam: null;
-    };
-    fullTime: {
-      homeTeam: number;
-      awayTeam: number;
-    };
-    halfTime: {
-      homeTeam: number;
-      awayTeam: number;
-    };
-    penalties: {
-      homeTeam: null;
-      awayTeam: null;
-    };
-    winner: string;
-  };
-  winner?: string;
-  homeTeamScore?: number | undefined;
-  awayTeamScore?: number | undefined;
-}
+const { Option } = Select;
 
-export interface UsersType {
-  name: string;
-  bets: {
-    matchId: number;
-    homeTeamScore: number;
-    awayTeamScore: number;
-    winner: string;
-    point: number;
-    date: Date;
-  }[];
-  index: number;
-  _id?: string;
-  id?: string;
-  totalPoints?: number;
-  finalWinner: "string";
-  colorTable: string;
-}
-
-export const renderP = (el: string) => {
-  let result = "";
-  if (el === "HOME_TEAM") {
-    result = "Д";
-  } else if (el === "AWAY_TEAM") {
-    result = "Г";
-  } else if (el === "DRAW") {
-    result = "Р";
-  } else {
-    result = "";
-  }
-  return <span>{result}</span>;
-};
-
-export default function AllMatches({ refresh }: { refresh: Function }) {
-  const [matches, setMatches] = useState<MatchType[]>([]);
+export default function AddNewBet() {
   const [users, setUsers] = useState<UsersType[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [finalWinnerForUsers, setFinalWinnerForUsers] = useState<
-    { name: string; finalWinner: string }[]
-  >([]);
-  // eslint-disable-next-line
-  const [dimensions, setDimensions] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
-  });
-
-  let intervalRef = useRef<any>();
+  const [matches, setMatches] = useState<MatchType[]>([]);
+  const [selectedUserName, setSelectedUserName] = useState("");
+  const [usersNames, setUsersNames] = useState<string[]>([]);
 
   useEffect(() => {
-    if (AutoRefreshInterval >= 1 && AutoRefreshInterval !== "disable") {
-      intervalRef.current = setInterval(() => {
-        reloadData();
-        // getAllMatches();
-        // getAllUsers();
-      }, AutoRefreshInterval * 1000);
-    }
-
-    return () => clearInterval(intervalRef.current);
-    // eslint-disable-next-line
-  }, [AutoRefreshInterval]);
-
-  useEffect(() => {
-    if (matches.length === 0) {
-      getAllMatches();
-    }
-  }, [matches.length]);
-
-  useEffect(() => {
-    getAllUsers();
-
-    const updateWindowDimensions = () => {
-      setDimensions({ width: window.innerWidth, height: window.innerHeight });
-    };
-
-    window.addEventListener("resize", updateWindowDimensions);
-  }, []);
-
-  useEffect(() => {
-    getAllFinalWinner();
-    // eslint-disable-next-line
-  }, [users]);
-
-  useEffect(() => {
-    if (users.length > 0 && matches.length > 0) {
-      setLoading(false);
-    } else {
-      setLoading(true);
-    }
-  }, [users.length, matches.length]);
-
-  useEffect(() => {
-    const getSelector1 = (index: number) => {
-      let res = "";
-      res += `tr:nth-child(1) > th:nth-child(${index + 6}), `;
-      res += `tr:nth-child(2) > th:nth-child(${4 * index}), `;
-      res += `tr:nth-child(2) > th:nth-child(${4 * index + 1}), `;
-      res += `tr:nth-child(2) > th:nth-child(${4 * index + 2}), `;
-      res += `tr:nth-child(2) > th:nth-child(${4 * index + 3}), `;
-      res += `tr:nth-child(3) > th:nth-child(${index + (index - 1)}), `;
-      res += `tr:nth-child(3) > th:nth-child(${index + index})`;
-
-      return res;
-    };
-
-    const getSelector2 = (index: number) => {
-      let result = "";
-
-      for (let i = 5 * index - 5; i < 5 * index; i++) {
-        result += `td:nth-child(${9 + i}), `;
-      }
-
-      result = result.slice(0, result.length - 2);
-
-      return result;
-    };
-
-    // let colors = ["10", "180", "50", "80", "203", "284", "129"];
-    for (let i = 0; i < users.length; i++) {
-      let selector1 = getSelector1(i + 1);
-      $(selector1).css(
-        "background-color",
-        `hsl(${users[i].colorTable}, 100%, 95%)`
-      );
-
-      let selector2 = getSelector2(i + 1);
-
-      $(selector2).css("border-bottom", "1px solid");
-      $(selector2).css("border-left", "1px solid");
-      $(selector2).css("border-right", "1px solid");
-      $(selector2).css(
-        "border-color",
-        `hsl(${users[i].colorTable}, 100%, 55%)`
-      );
-    }
-  }, [loading, users]);
-
-  const reloadData = () => {
+    getAllUsersNames();
     getAllMatches();
-    getAllUsers();
-  };
-
-  const getAllFinalWinner = () => {
-    if (users.length === 0) {
-      return;
-    }
-    let foo: any[] = [];
-    users.forEach((user) => {
-      foo.push({ name: user.name, finalWinner: user.finalWinner });
-    });
-    setFinalWinnerForUsers(foo);
-  };
-
-  const setBetsToDB = (userProp: UsersType) => {
-    if (userProp) {
-      let user = userProp;
-      axios({
-        method: "POST",
-        data: { bets: user.bets },
-        withCredentials: true,
-        url: `/api/update?id=${user.id}`,
-      })
-        .then((res) => {
-          notification.open({
-            message: `Залогът е записан успешно!`,
-            type: "success",
-          });
-        })
-        .catch((err) => {
-          notification.open({
-            message: `Грешка`,
-            type: "error",
-          });
-          return console.error(err);
-        });
-    }
-  };
+  }, []);
 
   const getAllMatches = () => {
     var config: AxiosRequestConfig = {
@@ -279,7 +75,10 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
             homeTeamScore: calculatedScore.ht,
             awayTeamScore: calculatedScore.at,
           };
-          matches.push(matchToAdd);
+          let ss = el.status;
+          if (ss !== "FINISHED") {
+            matches.push(matchToAdd);
+          }
         });
         setMatches(matches);
       })
@@ -288,7 +87,7 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
       });
   };
 
-  const getAllUsers = () => {
+  const getAllUsers = (selectedUserName: string) => {
     axios({
       method: "GET",
       withCredentials: true,
@@ -308,7 +107,9 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
           if (el._id) {
             userToAdd.id = el._id;
           }
-          newUsers.push(userToAdd);
+          if (userToAdd.name === selectedUserName) {
+            newUsers.push(userToAdd);
+          }
         });
 
         // newUsers.sort((a, b) => a.index - b.index);
@@ -318,93 +119,24 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
       .catch((err) => {});
   };
 
-  const calcWinner = (homeScore: number, awayScore: number) => {
-    let res: string = "";
-    if (homeScore > awayScore) {
-      res = "HOME_TEAM";
-    } else if (awayScore > homeScore) {
-      res = "AWAY_TEAM";
-    } else {
-      res = "DRAW";
-    }
-    return res;
-  };
+  const getAllUsersNames = () => {
+    axios({
+      method: "GET",
+      withCredentials: true,
+      url: "/api",
+    })
+      .then((res) => {
+        let users = [...res.data] as UsersType[];
+        let newUsers: string[] = [];
+        users.forEach((el) => {
+          newUsers.push(el.name);
+        });
 
-  const getValue = (
-    user: UsersType,
-    type: "homeTeamScore" | "awayTeamScore",
-    fullMatch: MatchType
-  ) => {
-    let selectedMatch = user.bets.find((el) => el.matchId === fullMatch.id);
-    if (selectedMatch) return selectedMatch[type];
-    else return "";
-  };
+        // newUsers.sort((a, b) => a.index - b.index);
 
-  const handleChange = (
-    el1: any,
-    user: UsersType,
-    fullMatch: MatchType,
-    type: "homeTeamScore" | "awayTeamScore"
-  ) => {
-    let newValue = el1.target.value;
-    let newUsers = [...users];
-    let curUser = newUsers.find((userSel) => userSel.name === user.name);
-
-    if (!curUser) return null;
-
-    let bet = curUser.bets.find((el) => el.matchId === fullMatch.id);
-
-    if (!bet) {
-      let newBet = {
-        matchId: fullMatch.id,
-        homeTeamScore: 0,
-        awayTeamScore: 0,
-        winner: "DRAW",
-        [type]: Number(newValue),
-        point: 0,
-        date: new Date(),
-      };
-      newBet.winner = calcWinner(newBet.homeTeamScore, newBet.awayTeamScore);
-      bet = newBet;
-
-      curUser.bets.push(newBet);
-    } else {
-      bet[type] = Number(newValue);
-      bet.winner = calcWinner(bet.homeTeamScore, bet.awayTeamScore);
-    }
-
-    setUsers(newUsers);
-
-    setBetsToDB(user);
-  };
-
-  const checkDisabledInput = (fullMatch: MatchType) => {
-    let result = false;
-    let now = new Date();
-    let matchDate = new Date(fullMatch.utcDate);
-    let dddd = now.getTime() - matchDate.getTime();
-    let sasss = Math.round(dddd / 1000 / 60);
-
-    result = sasss >= 15;
-
-    return result;
-  };
-
-  const renderColumnForUser = (
-    el: any,
-    fullMatch: MatchType,
-    user: UsersType,
-    type: "homeTeamScore" | "awayTeamScore"
-  ) => {
-    return (
-      <Input
-        disabled={checkDisabledInput(fullMatch)}
-        placeholder=""
-        defaultValue={el}
-        value={getValue(user, type, fullMatch)}
-        onChange={(el) => handleChange(el, user, fullMatch, type)}
-      />
-    );
+        setUsersNames(newUsers);
+      })
+      .catch((err) => {});
   };
 
   const getPointForEvent = (selectedMatch: MatchType, user: UsersType) => {
@@ -469,46 +201,133 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
     return res;
   };
 
-  const oneMatchTable = (AllMatches: MatchType[]) => {
-    // eslint-disable-next-line
-    let windowHeight = window.innerHeight;
-    let columnWidth = 150;
+  const handleChangeForSelector = (value: any) => {
+    setSelectedUserName(value);
+    console.log(`selected ${value}`);
+  };
 
-    // eslint-disable-next-line
-    const handleChangeFinal = (
-      ev: React.ChangeEvent<HTMLInputElement>,
-      user: UsersType
-    ) => {
-      let newFinalWinner: string = ev.target.value;
+  useEffect(() => {
+    getAllUsers(selectedUserName);
+  }, [selectedUserName]);
 
-      let foo = [...finalWinnerForUsers];
-      let kk = foo.find((el) => el.name === user.name);
-      if (kk) {
-        kk.finalWinner = newFinalWinner;
-      }
-      setFinalWinnerForUsers(foo);
+  const checkDisabledInput = (fullMatch: MatchType) => {
+    let result = false;
+    let now = new Date();
+    let matchDate = new Date(fullMatch.utcDate);
+    let dddd = now.getTime() - matchDate.getTime();
+    let sasss = Math.round(dddd / 1000 / 60);
 
+    result = sasss >= 15;
+
+    return result;
+  };
+
+  const calcWinner = (homeScore: number, awayScore: number) => {
+    let res: string = "";
+    if (homeScore > awayScore) {
+      res = "HOME_TEAM";
+    } else if (awayScore > homeScore) {
+      res = "AWAY_TEAM";
+    } else {
+      res = "DRAW";
+    }
+    return res;
+  };
+
+  const setBetsToDB = (userProp: UsersType) => {
+    if (userProp) {
+      let user = userProp;
       axios({
         method: "POST",
-        data: { finalWinner: newFinalWinner },
+        data: { bets: user.bets },
         withCredentials: true,
         url: `/api/update?id=${user.id}`,
       })
-        .then((res) => {})
+        .then((res) => {
+          notification.open({
+            message: `Залогът е записан успешно!`,
+            type: "success",
+          });
+        })
         .catch((err) => {
           notification.open({
             message: `Грешка`,
             type: "error",
           });
+          return console.error(err);
         });
-    };
+    }
+  };
 
+  const handleChange = (
+    el1: any,
+    user: UsersType,
+    fullMatch: MatchType,
+    type: "homeTeamScore" | "awayTeamScore"
+  ) => {
+    let newValue = el1.target.value;
+    let newUsers = [...users];
+    let curUser = newUsers.find((userSel) => userSel.name === user.name);
+
+    if (!curUser) return null;
+
+    let bet = curUser.bets.find((el) => el.matchId === fullMatch.id);
+
+    if (!bet) {
+      let newBet = {
+        matchId: fullMatch.id,
+        homeTeamScore: 0,
+        awayTeamScore: 0,
+        winner: "DRAW",
+        [type]: Number(newValue),
+        point: 0,
+        date: new Date(),
+      };
+      newBet.winner = calcWinner(newBet.homeTeamScore, newBet.awayTeamScore);
+      bet = newBet;
+
+      curUser.bets.push(newBet);
+    } else {
+      bet[type] = Number(newValue);
+      bet.winner = calcWinner(bet.homeTeamScore, bet.awayTeamScore);
+    }
+    bet.date = new Date();
+
+    setUsers(newUsers);
+
+    setBetsToDB(user);
+  };
+
+  const getValue = (
+    user: UsersType,
+    type: "homeTeamScore" | "awayTeamScore",
+    fullMatch: MatchType
+  ) => {
+    let selectedMatch = user.bets.find((el) => el.matchId === fullMatch.id);
+    if (selectedMatch) return selectedMatch[type];
+    else return "";
+  };
+
+  const oneMatchTable = (AllMatches: MatchType[]) => {
     // eslint-disable-next-line
-    const getFinalWinner = (user: UsersType) => {
-      let foo = finalWinnerForUsers.find((el) => el.name === user.name);
-      if (foo?.finalWinner) {
-        return foo.finalWinner;
-      } else return "";
+    let windowHeight = window.innerHeight;
+    let columnWidth = 150;
+
+    const renderColumnForUser = (
+      el: any,
+      fullMatch: MatchType,
+      user: UsersType,
+      type: "homeTeamScore" | "awayTeamScore"
+    ) => {
+      return (
+        <Input
+          disabled={checkDisabledInput(fullMatch)}
+          placeholder=""
+          defaultValue={el}
+          value={getValue(user, type, fullMatch)}
+          onChange={(el) => handleChange(el, user, fullMatch, type)}
+        />
+      );
     };
 
     return (
@@ -586,7 +405,7 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
             return <span>{translateTeamsName(el.name) || "Ще се реши"}</span>;
           }}
         />
-        <ColumnGroup title="Резултат">
+        {/* <ColumnGroup title="Резултат">
           <Column
             title="1"
             dataIndex="homeTeamScore"
@@ -606,7 +425,7 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
             width={40}
             render={renderP}
           />
-        </ColumnGroup>
+        </ColumnGroup> */}
         <Column
           title="Гост"
           dataIndex="awayTeam"
@@ -689,39 +508,31 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
     );
   };
 
-  if (loading) {
-    return (
-      <div
-        style={{
-          // height: window.innerHeight * 0.4,
-          // width: window.innerWidth,
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          textAlign: "center",
-        }}
-      >
-        <div>
-          <Spin
-            indicator={<LoadingOutlined style={{ fontSize: 80 }} spin />}
-            size="large"
-            style={{ width: "100%", height: "100%", alignItems: "center" }}
-          />
-        </div>
-      </div>
-    );
-  }
-
-  if (matches.length === 0) {
-    return null;
-  }
-
   return (
-    <>
-      <AutoRefresh refresh={refresh} />
+    <div>
+      <Select
+        defaultValue={"Избери играч"}
+        style={{ width: 140 }}
+        onChange={handleChangeForSelector}
+      >
+        <Option value="">Избери играч</Option>
+        {usersNames.map((user) => {
+          return (
+            <Option key={user} value={user}>
+              {user}
+            </Option>
+          );
+        })}
+        {/* <Option value="jack">Jack</Option>
+        <Option value="lucy">Lucy</Option>
+        <Option value="disabled" disabled>
+          Disabled
+        </Option>
+        <Option value="Yiminghe">yiminghe</Option> */}
+      </Select>
       <div style={{ width: 4000 }}>
         <Space direction={"horizontal"}>{oneMatchTable(matches)}</Space>
       </div>
-    </>
+    </div>
   );
 }

@@ -16,6 +16,7 @@ import {
 } from "react-router-dom";
 import { Space } from "antd";
 import Rules from "./components/Rules";
+import AddNewBet from "./components/AddNewBet";
 
 const competitionsIds = {
   Uefa: 2018,
@@ -99,6 +100,7 @@ export default function App() {
       <div>
         <Space direction={"horizontal"}>
           <Link to="/">Всички мачове</Link>
+          <Link to="/addbet">Залог</Link>
           <Link to="/groups/all">Групи</Link>
           <Link to="/rules">Регламент</Link>
           {/* <Link to="/match/303759">Mач</Link> */}
@@ -113,6 +115,9 @@ export default function App() {
           </Route>
           <Route path="/rules">
             <Rules />
+          </Route>
+          <Route path="/addbet">
+            <AddNewBet />
           </Route>
           <Route path="/">
             <AllMatches refresh={refresh} />

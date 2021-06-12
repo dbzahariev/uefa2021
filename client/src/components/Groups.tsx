@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios, { AxiosRequestConfig } from "axios";
 import { Button, Space, Table } from "antd";
 import { translateTeamsName } from "../helpers/Translate";
 import { useParams } from "react-router-dom";
-import $ from "jquery";
 
 const competitionsIds = {
   Uefa: 2018,
@@ -91,6 +90,7 @@ export default function Groups() {
     // if (document.getElementById("title") !== null) {
     //   document.getElementById("title").scrollIntoView();
     // }
+    // eslint-disable-next-line
   }, [groups]);
 
   const renderGroups = () => {
