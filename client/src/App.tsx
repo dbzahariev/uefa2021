@@ -103,7 +103,7 @@ export default function App() {
             Всички мачове
           </Link>
           <Link style={{ fontSize: "15px" }} to="/addbet">
-            Залог
+            Прогноза
           </Link>
           <Link style={{ fontSize: "15px" }} to="/groups/all">
             Групи
