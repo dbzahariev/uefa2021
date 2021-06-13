@@ -159,7 +159,7 @@ export default function AddNewBet() {
     result = differenceMin >= 15;
 
     let dd = user.bets.find((el) => el.matchId === fullMatch.id);
-    if (differenceMin < 15 && !dd) {
+    if (differenceMin <= 15 && dd === undefined) {
       result = false;
     }
 
@@ -317,27 +317,6 @@ export default function AddNewBet() {
             return <span>{translateTeamsName(el.name) || "Ще се реши"}</span>;
           }}
         />
-        {/* <ColumnGroup title="Резултат">
-          <Column
-            title="1"
-            dataIndex="homeTeamScore"
-            key="homeTeamScore"
-            width={40}
-          />
-          <Column
-            title="2"
-            dataIndex="awayTeamScore"
-            key="awayTeamScore"
-            width={40}
-          />
-          <Column
-            title="П"
-            dataIndex="winner"
-            key="winner"
-            width={40}
-            render={renderP}
-          />
-        </ColumnGroup> */}
         <Column
           title="Гост"
           dataIndex="awayTeam"
@@ -347,24 +326,11 @@ export default function AddNewBet() {
             <span>{translateTeamsName(el.name) || "Ще се реши"}</span>
           )}
         />
-        {/* <Column
-          title="Група"
-          dataIndex="group"
-          key="group"
-          width={90}
-          render={(el: any) => {
-            return (
-              <a href={`/groups/${el}`}>
-                {translateTeamsName(el) || "Ще се реши"}
-              </a>
-            );
-          }}
-        /> */}
         {users.map((user: UsersType) => {
           return (
             <ColumnGroup key={user.name} title={user.name}>
               <Column
-                title="1"
+                title="Г"
                 dataIndex="homeTeamScore"
                 key="homeTeamScore"
                 width={80}
@@ -373,7 +339,7 @@ export default function AddNewBet() {
                 }
               />
               <Column
-                title="2"
+                title="Д"
                 dataIndex="awayTeamScore"
                 key="awayTeamScore"
                 width={80}

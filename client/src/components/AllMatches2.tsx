@@ -291,6 +291,7 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
           if (el._id) {
             userToAdd.id = el._id;
           }
+
           newUsers.push(userToAdd);
         });
 
@@ -344,9 +345,12 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
   const getPoints = (user: UsersType, match: MatchType) => {
     let res: {
       current: number | string;
+      currentNumber: number;
       total: number | string;
-    } = { current: 5, total: 7 };
+      totalNumber: number;
+    } = { current: 5, currentNumber: 5, total: 7, totalNumber: 7 };
     res.current = getPointForEvent(match, user);
+    res.currentNumber = res.current;
 
     let dd = user.bets.find((el) => el.matchId === match.id);
     if (dd) {
@@ -361,6 +365,7 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
       }
     }
     res.total = ttp;
+    res.totalNumber = ttp;
 
     if (match.winner === "") {
       if (dd) {
@@ -408,6 +413,31 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
       return dd;
     };
 
+    const getTotalPointByName = (user: UsersType) => {
+      let totalPoints: string | number = "?";
+      let haveInPlay = false;
+      let indexPlayedMatch = -1;
+      matches.forEach((match, index) => {
+        if (
+          !haveInPlay &&
+          (match.status === "IN_PLAY" || match.status === "PAUSED")
+        ) {
+          indexPlayedMatch = index;
+          haveInPlay = true;
+        }
+
+        if (!haveInPlay) {
+          totalPoints = getPoints(user, match).totalNumber;
+        }
+      });
+      if (haveInPlay) {
+        let indexPrevMatch = Math.max(0, indexPlayedMatch - 1);
+        totalPoints = getPoints(user, matches[indexPrevMatch]).totalNumber;
+      }
+
+      return totalPoints;
+    };
+
     return (
       <Table
         dataSource={AllMatches}
@@ -448,7 +478,7 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
         />
         <ColumnGroup title="Резултат">
           <Column
-            title="1"
+            title="Д"
             dataIndex="homeTeamScore"
             key="homeTeamScore"
             width={40}
@@ -459,7 +489,7 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
             }
           />
           <Column
-            title="2"
+            title="Г"
             dataIndex="awayTeamScore"
             key="awayTeamScore"
             width={40}
@@ -486,45 +516,15 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
             <span>{translateTeamsName(el.name) || "Ще се реши"}</span>
           )}
         />
-        {/* <Column
-          title="Група"
-          dataIndex="group"
-          key="group"
-          width={90}
-          render={(el: any) => {
-            return (
-              <Link to={`/groups/${el}`}>
-                {translateTeamsName(el) || "Ще се реши"}
-              </Link>
-            );
-          }}
-        /> */}
         {users.map((user: UsersType) => {
-          let totalPoints: string | number = "?";
-          let haveInPlay = false;
-          matches.forEach((match) => {
-            if (
-              !haveInPlay &&
-              (match.status === "IN_PLAY" || match.status === "PAUSED")
-            ) {
-              haveInPlay = true;
-            }
-
-            if (!haveInPlay) {
-              totalPoints = getPoints(user, match).total;
-            }
-          });
-          if (haveInPlay) {
-            totalPoints = "?";
-          }
-
+          let totalPoints = getTotalPointByName(user);
           return (
             <ColumnGroup
               key={user.name}
               title={`${user.name} (${totalPoints})`}
             >
               <Column
-                title="1"
+                title="Д"
                 dataIndex="homeTeamScore"
                 key="homeTeamScore"
                 width={40}
@@ -533,7 +533,7 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
                 }
               />
               <Column
-                title="2"
+                title="Г"
                 dataIndex="awayTeamScore"
                 key="awayTeamScore"
                 width={40}
@@ -562,16 +562,6 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
                   return getPoints(user, record).current;
                 }}
               />
-              {/* <Column
-                  title="Общо"
-                  dataIndex=""
-                  key="totalPoints"
-                  width={160 / 2}
-                  render={(_, record: MatchType) => {
-                    return getPoints(user, record).total;
-                  }}
-                /> */}
-              {/* </ColumnGroup> */}
             </ColumnGroup>
           );
         })}
