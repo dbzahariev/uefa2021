@@ -140,68 +140,6 @@ export default function AddNewBet() {
       .catch((err) => {});
   };
 
-  const getPointForEvent = (selectedMatch: MatchType, user: UsersType) => {
-    let bet = user.bets.find((el) => el.matchId === selectedMatch.id);
-    let res = 0;
-    if (bet) {
-      if (
-        selectedMatch.winner === bet.winner &&
-        selectedMatch.homeTeamScore === bet.homeTeamScore &&
-        selectedMatch.awayTeamScore === bet.awayTeamScore
-      ) {
-        res = 3;
-      } else if (selectedMatch.winner === bet.winner) {
-        res = 1;
-      }
-      let difSM: number | undefined = undefined;
-      let difBet: number | undefined = undefined;
-      if (selectedMatch.homeTeamScore && selectedMatch.awayTeamScore) {
-        difSM = selectedMatch.homeTeamScore - selectedMatch.awayTeamScore;
-      }
-      if (bet.homeTeamScore && bet.awayTeamScore) {
-        difBet = bet.homeTeamScore - bet.awayTeamScore;
-      }
-      if (difSM && difBet && difSM === difBet) {
-        res = 2;
-      }
-    }
-    return res;
-  };
-
-  const getPoints = (user: UsersType, match: MatchType) => {
-    let res = { current: 5, total: 7 };
-    res.current = getPointForEvent(match, user);
-
-    let dd = user.bets.find((el) => el.matchId === match.id);
-    if (dd) {
-      dd.point = res.current;
-    }
-    let ttp = 0;
-    for (let i = 0; i < user.bets.length; i++) {
-      let cBet = user.bets[i];
-      ttp += cBet.point;
-      if (cBet.matchId === match.id) {
-        break;
-      }
-    }
-    res.total = ttp;
-
-    // user.bets.forEach((el) => {
-    //   ttp += el.point;
-    // });
-    // res.total = ttp;
-
-    // if (user.totalPoints) {
-    //   user.totalPoints += res.current;
-    // } else {
-    //   user.totalPoints = res.current;
-    // }
-
-    // res.total = user.totalPoints;
-
-    return res;
-  };
-
   const handleChangeForSelector = (value: any) => {
     setSelectedUserName(value);
     console.log(`selected ${value}`);

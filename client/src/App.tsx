@@ -96,7 +96,7 @@ export default function App() {
   };
 
   return (
-    <Router>
+    <Router forceRefresh={true}>
       <div>
         <Space direction={"horizontal"} size={"large"}>
           <Link style={{ fontSize: "15px" }} to="/">
@@ -111,27 +111,25 @@ export default function App() {
           <Link style={{ fontSize: "15px" }} to="/rules">
             Регламент
           </Link>
-          {/* <Link style={{ fontSize: "30px" }} to="/match/303759">Mач</Link> */}
         </Space>
-
-        <Switch>
-          <Route path="/match/:matchId">
-            <MatchWithParams />
-          </Route>
-          <Route path="/groups/:groupName">
-            <Groups />
-          </Route>
-          <Route path="/rules">
-            <Rules />
-          </Route>
-          <Route path="/addbet">
-            <AddNewBet />
-          </Route>
-          <Route path="/">
-            <AllMatches refresh={refresh} />
-          </Route>
-        </Switch>
       </div>
+      <Switch>
+        <Route path="/match/:matchId">
+          <MatchWithParams />
+        </Route>
+        <Route path="/groups/:groupName">
+          <Groups />
+        </Route>
+        <Route path="/rules">
+          <Rules />
+        </Route>
+        <Route path="/addbet">
+          <AddNewBet />
+        </Route>
+        <Route path="/">
+          <AllMatches refresh={refresh} />
+        </Route>
+      </Switch>
     </Router>
   );
 }
