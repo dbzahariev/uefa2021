@@ -305,6 +305,7 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
   const getPointForEvent = (selectedMatch: MatchType, user: UsersType) => {
     let bet = user.bets.find((el) => el.matchId === selectedMatch.id);
     let res = 0;
+
     if (bet) {
       if (
         selectedMatch.winner === bet.winner &&
@@ -327,7 +328,7 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
       if (bet.homeTeamScore !== undefined && bet.awayTeamScore !== undefined) {
         difBet = bet.homeTeamScore - bet.awayTeamScore;
       }
-      if (difSM && difBet && difSM === difBet) {
+      if (res < 3 && difSM && difBet && difSM === difBet) {
         res = 2;
       }
 
