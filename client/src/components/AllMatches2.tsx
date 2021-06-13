@@ -316,14 +316,26 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
       }
       let difSM: number | undefined = undefined;
       let difBet: number | undefined = undefined;
-      if (selectedMatch.homeTeamScore && selectedMatch.awayTeamScore) {
+
+      if (
+        selectedMatch.homeTeamScore !== undefined &&
+        selectedMatch.awayTeamScore !== undefined
+      ) {
         difSM = selectedMatch.homeTeamScore - selectedMatch.awayTeamScore;
       }
-      if (bet.homeTeamScore && bet.awayTeamScore) {
+      if (bet.homeTeamScore !== undefined && bet.awayTeamScore !== undefined) {
         difBet = bet.homeTeamScore - bet.awayTeamScore;
       }
       if (difSM && difBet && difSM === difBet) {
         res = 2;
+      }
+
+      let betDate = new Date(bet.date);
+      let matchDate = new Date(selectedMatch.utcDate);
+      let diff = betDate.getTime() - matchDate.getTime();
+
+      if (diff > 0 && res > 0) {
+        res = res / 2;
       }
     }
     return res;
