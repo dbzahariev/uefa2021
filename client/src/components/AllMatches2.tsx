@@ -163,7 +163,7 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
       return res;
     };
 
-    const getSelector2 = (index: number) => {
+    const getSelectorForUsers = (index: number) => {
       let result = "";
 
       for (let i = 4 * index - 4; i < 4 * index; i++) {
@@ -183,16 +183,61 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
         `hsl(${users[i].colorTable}, 100%, 95%)`
       );
 
-      let selector2 = getSelector2(i + 1);
+      let selectorForUsers = getSelectorForUsers(i + 1);
 
-      $(selector2).css("border-bottom", "1px solid");
-      $(selector2).css("border-left", "1px solid");
-      $(selector2).css("border-right", "1px solid");
-      $(selector2).css(
+      $(selectorForUsers).css("border-bottom", "1px solid");
+      $(selectorForUsers).css("border-left", "1px solid");
+      $(selectorForUsers).css("border-right", "1px solid");
+      $(selectorForUsers).css(
         "border-color",
         `hsl(${users[i].colorTable}, 100%, 55%)`
       );
     }
+
+    const getForBorders = () => {
+      let res = { sel3: "", sel4: "", sel5: "", sel6: "", sel7: "" };
+
+      for (let i = 8; i < 36; i += 4) {
+        res.sel3 += `td:nth-child(${i}), `;
+      }
+
+      for (let i = 8; i < 36; i += 1) {
+        res.sel4 += `tr:nth-child(1) > td:nth-child(${i}), `;
+        res.sel5 += `tr:nth-child(51) > td:nth-child(${i}), `;
+      }
+
+      for (let i = 6; i < 13; i += 1) {
+        res.sel6 += `thead > tr:nth-child(1) > th:nth-child(${i}), `;
+      }
+
+      for (let i = 4; i < 50; i += 4) {
+        res.sel7 += `thead > tr:nth-child(2) > th:nth-child(${i}), `;
+      }
+
+      res.sel3 = res.sel3.slice(0, res.sel3.length - 2);
+      res.sel4 = res.sel4.slice(0, res.sel4.length - 2);
+      res.sel5 = res.sel5.slice(0, res.sel5.length - 2);
+      res.sel6 = res.sel6.slice(0, res.sel6.length - 2);
+      res.sel7 = res.sel7.slice(0, res.sel7.length - 2);
+      return res;
+    };
+    let borderSize = "2px solid hsl(0, 0%, 0%)";
+
+    $(getForBorders().sel3).css("border-left", borderSize);
+    $(`td:nth-child(35)`).css("border-right", borderSize);
+    $(getForBorders().sel4).css("border-top", borderSize);
+    $(getForBorders().sel5).css("border-bottom", borderSize);
+    $(getForBorders().sel6).css("border-top", borderSize);
+    $(getForBorders().sel6).css("border-left", borderSize);
+    $(getForBorders().sel7).css("border-left", borderSize);
+    $(`thead > tr:nth-child(1) > th:nth-child(12)`).css(
+      "border-right",
+      borderSize
+    );
+    $(`thead > tr:nth-child(2) > th:nth-child(31)`).css(
+      "border-right",
+      borderSize
+    );
   }, [loading, users]);
 
   const reloadData = () => {
