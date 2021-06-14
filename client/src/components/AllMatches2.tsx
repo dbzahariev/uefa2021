@@ -161,6 +161,20 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
   }, [users.length, matches.length]);
 
   useEffect(() => {
+    if (users.length > 0 && matches.length > 0) {
+      let oldUsers = [...users];
+
+      oldUsers.sort((a, b) => {
+        return (
+          getTotalPointByName(b) - getTotalPointByName(a) || a.index - b.index
+        );
+      });
+
+      setUsers(oldUsers);
+    }
+  }, [users, matches]);
+
+  useEffect(() => {
     const getSelector1 = (index: number) => {
       let res = "";
       res += `tr:nth-child(1) > th:nth-child(${index + 5}), `;
@@ -191,7 +205,7 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
       let selector1 = getSelector1(i + 1);
       $(selector1).css(
         "background-color",
-        `hsl(${users[i].colorTable}, 100%, 95%)`
+        `hsl(${users[i].colorTable}, 100%, 92%)`
       );
 
       let selectorForUsers = getSelectorForUsers(i + 1);
@@ -201,7 +215,7 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
       $(selectorForUsers).css("border-right", "1px solid");
       $(selectorForUsers).css(
         "border-color",
-        `hsl(${users[i].colorTable}, 100%, 55%)`
+        `hsl(${users[i].colorTable}, 100%, 50%)`
       );
     }
 
@@ -457,6 +471,31 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
     return res;
   };
 
+  const getTotalPointByName = (user: UsersType) => {
+    let totalPoints: number = 0;
+    let haveInPlay = false;
+    let indexPlayedMatch = -1;
+    matches.forEach((match, index) => {
+      if (
+        !haveInPlay &&
+        (match.status === "IN_PLAY" || match.status === "PAUSED")
+      ) {
+        indexPlayedMatch = index;
+        haveInPlay = true;
+      }
+
+      if (!haveInPlay) {
+        totalPoints = getPoints(user, match).totalNumber;
+      }
+    });
+    if (haveInPlay) {
+      let indexPrevMatch = Math.max(0, indexPlayedMatch - 1);
+      totalPoints = getPoints(user, matches[indexPrevMatch]).totalNumber;
+    }
+
+    return totalPoints;
+  };
+
   const oneMatchTable = (AllMatches: MatchType[]) => {
     // eslint-disable-next-line
     let windowHeight = window.innerHeight;
@@ -486,31 +525,6 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
         dd = "?";
       }
       return dd;
-    };
-
-    const getTotalPointByName = (user: UsersType) => {
-      let totalPoints: string | number = "?";
-      let haveInPlay = false;
-      let indexPlayedMatch = -1;
-      matches.forEach((match, index) => {
-        if (
-          !haveInPlay &&
-          (match.status === "IN_PLAY" || match.status === "PAUSED")
-        ) {
-          indexPlayedMatch = index;
-          haveInPlay = true;
-        }
-
-        if (!haveInPlay) {
-          totalPoints = getPoints(user, match).totalNumber;
-        }
-      });
-      if (haveInPlay) {
-        let indexPrevMatch = Math.max(0, indexPlayedMatch - 1);
-        totalPoints = getPoints(user, matches[indexPrevMatch]).totalNumber;
-      }
-
-      return totalPoints;
     };
 
     return (
