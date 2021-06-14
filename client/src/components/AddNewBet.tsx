@@ -1,4 +1,4 @@
-import { Input, notification, Select, Space, Table } from "antd";
+import { InputNumber, notification, Select, Space, Table } from "antd";
 import Column from "antd/lib/table/Column";
 import ColumnGroup from "antd/lib/table/ColumnGroup";
 import axios, { AxiosRequestConfig } from "axios";
@@ -46,10 +46,6 @@ export default function AddNewBet() {
               ht: number | undefined;
               at: number | undefined;
             } = { ht: undefined, at: undefined };
-
-            if (match.id === 285418) {
-              // debugger;
-            }
 
             let ht = score?.fullTime?.homeTeam;
             let at = score?.fullTime?.awayTeam;
@@ -154,12 +150,16 @@ export default function AddNewBet() {
     let now = new Date();
     let matchDate = new Date(fullMatch.utcDate);
     let difference = now.getTime() - matchDate.getTime();
-    let differenceMin = Math.round(difference / 1000 / 60);
-
-    result = differenceMin >= 15;
+    let differenceMin = Math.round(difference / 1000 / 60) - 20;
 
     let dd = user.bets.find((el) => el.matchId === fullMatch.id);
-    if (differenceMin <= 15 && dd === undefined) {
+
+    if (differenceMin > 0 && differenceMin <= 15) {
+      result = dd !== undefined;
+    } else {
+      result = true;
+    }
+    if (differenceMin <= 0) {
       result = false;
     }
 
@@ -175,15 +175,22 @@ export default function AddNewBet() {
     } else {
       res = "DRAW";
     }
+    if (homeScore === -1 || awayScore === -1) {
+      res = "";
+    }
     return res;
   };
 
   const setBetsToDB = (userProp: UsersType) => {
     if (userProp) {
       let user = userProp;
+      let betsToSave = [...user.bets];
+      betsToSave = betsToSave.filter((bet) => bet.homeTeamScore !== -1);
+      betsToSave = betsToSave.filter((bet) => bet.awayTeamScore !== -1);
+
       axios({
         method: "POST",
-        data: { bets: user.bets },
+        data: { bets: betsToSave },
         withCredentials: true,
         url: `/api/update?id=${user.id}`,
       })
@@ -209,7 +216,7 @@ export default function AddNewBet() {
     fullMatch: MatchType,
     type: "homeTeamScore" | "awayTeamScore"
   ) => {
-    let newValue = el1.target.value;
+    let newValue = el1;
     let newUsers = [...users];
     let curUser = newUsers.find((userSel) => userSel.name === user.name);
 
@@ -217,11 +224,15 @@ export default function AddNewBet() {
 
     let bet = curUser.bets.find((el) => el.matchId === fullMatch.id);
 
+    if (newValue === null) {
+      newValue = -1;
+    }
+
     if (!bet) {
       let newBet = {
         matchId: fullMatch.id,
-        homeTeamScore: 0,
-        awayTeamScore: 0,
+        homeTeamScore: -1,
+        awayTeamScore: -1,
         winner: "DRAW",
         [type]: Number(newValue),
         point: 0,
@@ -248,13 +259,18 @@ export default function AddNewBet() {
     fullMatch: MatchType
   ) => {
     let selectedMatch = user.bets.find((el) => el.matchId === fullMatch.id);
-    if (selectedMatch) return selectedMatch[type];
-    else return "";
+    let res: string | number = "";
+    if (selectedMatch) {
+      let foo = selectedMatch[type];
+      if (foo !== -1) {
+        res = foo;
+      }
+    }
+
+    return res;
   };
 
   const oneMatchTable = (AllMatches: MatchType[]) => {
-    // eslint-disable-next-line
-    let windowHeight = window.innerHeight;
     let columnWidth = 150;
 
     const renderColumnForUser = (
@@ -264,11 +280,14 @@ export default function AddNewBet() {
       type: "homeTeamScore" | "awayTeamScore"
     ) => {
       return (
-        <Input
+        <InputNumber
+          min={-1}
+          max={10}
           disabled={checkDisabledInput(fullMatch, user)}
           placeholder=""
-          defaultValue={el}
+          defaultValue={""}
           value={getValue(user, type, fullMatch)}
+          // value={""}
           onChange={(el) => handleChange(el, user, fullMatch, type)}
         />
       );
@@ -381,12 +400,6 @@ export default function AddNewBet() {
             </Option>
           );
         })}
-        {/* <Option value="jack">Jack</Option>
-        <Option value="lucy">Lucy</Option>
-        <Option value="disabled" disabled>
-          Disabled
-        </Option>
-        <Option value="Yiminghe">yiminghe</Option> */}
       </Select>
       <div style={{ width: 4000 }}>
         <Space direction={"horizontal"}>{oneMatchTable(matches)}</Space>

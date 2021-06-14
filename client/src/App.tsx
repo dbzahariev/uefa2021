@@ -9,10 +9,10 @@ import "antd/dist/antd.css";
 
 import {
   BrowserRouter as Router,
-  Switch,
   Route,
   Link,
   useParams,
+  Switch,
 } from "react-router-dom";
 import { Space } from "antd";
 import Rules from "./components/Rules";
@@ -33,63 +33,6 @@ function MatchWithParams() {
 
 export default function App() {
   const [reload, setReload] = useState(0);
-
-  // eslint-disable-next-line
-  // const fetchUsers = async () => {
-  //   let res = await axios({
-  //     method: "GET",
-  //     withCredentials: true,
-  //     url: "/api",
-  //   });
-  //   let users = [...res.data] as UsersType[];
-  //   let newUsers: UsersType[] = [];
-  //   users.forEach((el) => {
-  //     let userToAdd: UsersType = {
-  //       name: el.name,
-  //       bets: el.bets,
-  //     };
-  //     if (el._id) {
-  //       userToAdd.id = el._id;
-  //     }
-  //     newUsers.push(userToAdd);
-  //   });
-  //   return newUsers;
-  // };
-
-  // eslint-disable-next-line
-  // const fetchMatches = async () => {
-  //   let config: AxiosRequestConfig = {
-  //     method: "GET",
-  //     url: `https://api.football-data.org/v2/competitions/${selectedCompetition}/matches`,
-  //     headers: {
-  //       "X-Auth-Token": "35261f5a038d45029fa4ae0abc1f2f7a",
-  //     },
-  //   };
-
-  //   let response = await axios(config);
-
-  //   let data: MatchType[] = response.data.matches;
-  //   data = data.slice(0, 55); // limit First 3
-  //   let matches: MatchType[] = [];
-
-  //   data.forEach((el, index) => {
-  //     let score = el.score;
-  //     let matchToAdd: MatchType = {
-  //       number: index + 1,
-  //       key: matches.length || 0,
-  //       id: el.id,
-  //       homeTeam: el.homeTeam,
-  //       awayTeam: el.awayTeam,
-  //       utcDate: el.utcDate,
-  //       group: el.group,
-  //       winner: score?.winner || "",
-  //       homeTeamScore: score?.fullTime?.homeTeam || 0,
-  //       awayTeamScore: score?.fullTime?.awayTeam || 0,
-  //     };
-  //     matches.push(matchToAdd);
-  //   });
-  //   return matches;
-  // };
 
   const refresh = () => {
     setReload(reload + 1);
@@ -113,13 +56,15 @@ export default function App() {
           </Link>
         </Space>
       </div>
-      <Route path="/match/:matchId" exact component={MatchWithParams} />
-      <Route path="/groups/:groupName" component={Groups}></Route>
-      <Route path="/rules" exact component={Rules}></Route>
-      <Route path="/addbet" exact component={AddNewBet}></Route>
-      <Route path="/">
-        <AllMatches refresh={refresh} />
-      </Route>
+      <Switch>
+        <Route path="/match/:matchId" exact component={MatchWithParams} />
+        <Route path="/groups/:groupName" exact component={Groups}></Route>
+        <Route path="/rules" exact component={Rules}></Route>
+        <Route path="/addbet" exact component={AddNewBet}></Route>
+        <Route path="/" exact>
+          <AllMatches refresh={refresh} />
+        </Route>
+      </Switch>
     </Router>
   );
 }
