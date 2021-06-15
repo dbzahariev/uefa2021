@@ -150,10 +150,10 @@ export default function AddNewBet() {
     let now = new Date();
     let matchDate = new Date(fullMatch.utcDate);
     let difference = now.getTime() - matchDate.getTime();
-    let differenceMin = Math.round(difference / 1000 / 60) - 20;
+    let differenceMin = Math.round(difference / 1000 / 60);
 
     let dd = user.bets.find((el) => el.matchId === fullMatch.id);
-
+    // debugger;
     if (differenceMin > 0 && differenceMin <= 15) {
       result = dd !== undefined;
     } else {
