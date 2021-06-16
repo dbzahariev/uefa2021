@@ -111,10 +111,10 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
   const [users, setUsers] = useState<UsersType[]>([]);
   const [loading, setLoading] = useState(false);
 
-  // const [dimensions, setDimensions] = useState({
-  //   width: window.innerWidth,
-  //   height: window.innerHeight,
-  // });
+  const [dimensions, setDimensions] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
 
   let intervalRef = useRef<any>();
 
@@ -140,11 +140,11 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
   useEffect(() => {
     getAllUsers();
 
-    // const updateWindowDimensions = () => {
-    //   setDimensions({ width: window.innerWidth, height: window.innerHeight });
-    // };
+    const updateWindowDimensions = () => {
+      setDimensions({ width: window.innerWidth, height: window.innerHeight });
+    };
 
-    // window.addEventListener("resize", updateWindowDimensions);
+    window.addEventListener("resize", updateWindowDimensions);
   }, []);
 
   useEffect(() => {

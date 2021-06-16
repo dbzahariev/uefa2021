@@ -35,7 +35,7 @@ export default function AutoRefresh({ refresh }: { refresh: Function }) {
       <Space direction={"horizontal"}>
         <>
           <Button onClick={showModal}>
-            Автоматично презареждане на страницата
+            Автоматично презареждане на стрницата
           </Button>
           <Modal
             title="Basic Modal"
