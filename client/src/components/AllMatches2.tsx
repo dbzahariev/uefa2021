@@ -111,11 +111,6 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
   const [users, setUsers] = useState<UsersType[]>([]);
   const [loading, setLoading] = useState(false);
 
-  const [dimensions, setDimensions] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
-  });
-
   let intervalRef = useRef<any>();
 
   useEffect(() => {
@@ -139,12 +134,6 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
 
   useEffect(() => {
     getAllUsers();
-
-    const updateWindowDimensions = () => {
-      setDimensions({ width: window.innerWidth, height: window.innerHeight });
-    };
-
-    window.addEventListener("resize", updateWindowDimensions);
   }, []);
 
   useEffect(() => {
@@ -191,7 +180,7 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
       let selector1 = getSelector1(i + 1);
       $(selector1).css(
         "background-color",
-        `hsl(${users[i].colorTable}, 100%, 95%)`
+        `hsl(${users[i].colorTable}, 100%, 92%)`
       );
 
       let selector2 = getSelector2(i + 1);
@@ -201,7 +190,7 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
       $(selector2).css("border-right", "1px solid");
       $(selector2).css(
         "border-color",
-        `hsl(${users[i].colorTable}, 100%, 55%)`
+        `hsl(${users[i].colorTable}, 100%, 50%)`
       );
     }
 
@@ -249,6 +238,24 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
       "border-right",
       borderSize
     );
+
+    $(
+      `#root > div:nth-child(3) > div > div > div > div > div > div > div > div > table > thead`
+    ).css("position", "sticky");
+
+    $(
+      `#root > div:nth-child(3) > div > div > div > div > div > div > div > div > table > thead`
+    ).css("position", "-webkit-sticky");
+
+    $(
+      `#root > div:nth-child(3) > div > div > div > div > div > div > div > div > table > thead`
+    ).css("z-index", "1");
+
+    $(
+      `#root > div:nth-child(3) > div > div > div > div > div > div > div > div > table > thead`
+    ).css("top", "0");
+
+    $(`#root > div:nth-child(3)`).css("display", "inline");
   }, [loading, users]);
 
   const reloadData = () => {

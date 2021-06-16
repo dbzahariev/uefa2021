@@ -251,10 +251,6 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
               at: number | undefined;
             } = { ht: undefined, at: undefined };
 
-            if (match.id === 285418) {
-              // debugger;
-            }
-
             let ht = score?.fullTime?.homeTeam;
             let at = score?.fullTime?.awayTeam;
             if (ht !== null) {
