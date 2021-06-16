@@ -264,24 +264,6 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
       "border-right",
       borderSize
     );
-
-    $(
-      `#root > div:nth-child(3) > div > div > div > div > div > div > div > div > table > thead`
-    ).css("position", "sticky");
-
-    $(
-      `#root > div:nth-child(3) > div > div > div > div > div > div > div > div > table > thead`
-    ).css("position", "-webkit-sticky");
-
-    $(
-      `#root > div:nth-child(3) > div > div > div > div > div > div > div > div > table > thead`
-    ).css("z-index", "1");
-
-    $(
-      `#root > div:nth-child(3) > div > div > div > div > div > div > div > div > table > thead`
-    ).css("top", "0");
-
-    $(`#root > div:nth-child(3)`).css("display", "inline");
   }, [loading, users]);
 
   const reloadData = () => {
@@ -533,7 +515,7 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
         dataSource={AllMatches}
         pagination={false}
         bordered
-        // scroll={!navigator.maxTouchPoints ? { y: dimensions.width * 0.72 } : {}}
+        // scroll={{ y: windowHeight * 0.2 }}
         expandable={{
           expandedRowRender: (record: MatchType) => {
             let date = new Date(record.utcDate).toLocaleString("bg-bg");
@@ -555,7 +537,7 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
           dataIndex="number"
           key="number"
           width={56}
-          // fixed={true}
+          fixed={true}
         />
         <Column
           title="Домакин"
