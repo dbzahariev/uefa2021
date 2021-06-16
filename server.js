@@ -7,6 +7,18 @@ const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 8080; // Step 1
 
+//Chat
+const http = require("http").createServer(app);
+const io = require("socket.io")(http);
+
+io.on("connection", (socket) => {
+  socket.on("message", ({ name, message }) => {
+    io.emit("message", { name, message });
+  });
+});
+
+//End chat
+
 const routes = require("./routes/api");
 
 require("dotenv").config();
@@ -44,3 +56,9 @@ app.use(morgan("tiny"));
 app.use("/api", routes);
 
 app.listen(PORT, console.log(`Server is starting at ${PORT}`));
+
+//Chat
+http.listen(PORT + 1, () => {
+  console.log(`hi chat ${PORT + 1}`);
+});
+//End chat
