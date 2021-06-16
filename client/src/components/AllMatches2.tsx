@@ -189,7 +189,7 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
       return res;
     };
 
-    const getSelectorForUsers = (index: number) => {
+    const getSelector2 = (index: number) => {
       let result = "";
 
       for (let i = 4 * index - 4; i < 4 * index; i++) {
@@ -209,12 +209,12 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
         `hsl(${users[i].colorTable}, 100%, 92%)`
       );
 
-      let selectorForUsers = getSelectorForUsers(i + 1);
+      let selector2 = getSelector2(i + 1);
 
-      $(selectorForUsers).css("border-bottom", "1px solid");
-      $(selectorForUsers).css("border-left", "1px solid");
-      $(selectorForUsers).css("border-right", "1px solid");
-      $(selectorForUsers).css(
+      $(selector2).css("border-bottom", "1px solid");
+      $(selector2).css("border-left", "1px solid");
+      $(selector2).css("border-right", "1px solid");
+      $(selector2).css(
         "border-color",
         `hsl(${users[i].colorTable}, 100%, 50%)`
       );
