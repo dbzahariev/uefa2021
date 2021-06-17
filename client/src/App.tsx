@@ -1,10 +1,9 @@
 import { useState } from "react";
 import "./App.css";
-// eslint-disable-next-line
 import Groups from "./components/Groups";
 import AllMatches from "./components/AllMatches2";
 import OneMatch from "./components/OneMatch";
-// eslint-disable-next-line
+import Chat from "./components/chat/Chat";
 import "antd/dist/antd.css";
 
 import {
@@ -54,6 +53,9 @@ export default function App() {
           <Link to="/rules" style={{ fontSize: "15px" }}>
             Регламент
           </Link>
+          <Link to="/chat" style={{ fontSize: "15px" }}>
+            Чат
+          </Link>
         </Space>
       </div>
       <Switch>
@@ -61,6 +63,10 @@ export default function App() {
         <Route path="/groups/:groupName" exact component={Groups}></Route>
         <Route path="/rules" exact component={Rules}></Route>
         <Route path="/addbet" exact component={AddNewBet}></Route>
+        <Route path="/chat" exact component={Chat} />
+        {/* <Route path="/">
+          <Redirect to="/chat" />
+        </Route> */}
         <Route path="/" exact>
           <AllMatches refresh={refresh} />
         </Route>
