@@ -117,6 +117,8 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
     if (AutoRefreshInterval >= 1 && AutoRefreshInterval !== "disable") {
       intervalRef.current = setInterval(() => {
         reloadData();
+        // getAllMatches();
+        // getAllUsers();
       }, AutoRefreshInterval * 1000);
     }
 
@@ -445,6 +447,8 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
   };
 
   const oneMatchTable = (AllMatches: MatchType[]) => {
+    // eslint-disable-next-line
+    let windowHeight = window.innerHeight;
     let columnWidth = 150;
 
     const renderColumnForUser = (

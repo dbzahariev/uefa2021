@@ -4,6 +4,7 @@ import { selectedCompetition } from "../App";
 import { translateTeamsName } from "../helpers/Translate";
 
 export default function AllCompetition() {
+  // eslint-disable-next-line
   const getAllFetch = () => {
     let myHeaders: Headers = new Headers();
     myHeaders.append("X-Auth-Token", "35261f5a038d45029fa4ae0abc1f2f7a");
@@ -19,10 +20,12 @@ export default function AllCompetition() {
       .catch((error) => console.log("error", error));
   };
 
+  // eslint-disable-next-line
   const convertDate = (utcDate: Date) => {
     return new Date(utcDate).toLocaleString(window.navigator.language);
   };
 
+  // eslint-disable-next-line
   const getAllTeams = () => {
     var config: AxiosRequestConfig = {
       method: "GET",
@@ -56,6 +59,7 @@ export default function AllCompetition() {
       });
   };
 
+  // eslint-disable-next-line
   const getAllMatches = () => {
     var config: AxiosRequestConfig = {
       method: "GET",
@@ -78,6 +82,7 @@ export default function AllCompetition() {
       });
   };
 
+  // eslint-disable-next-line
   const getAllAxios = () => {
     var config: AxiosRequestConfig = {
       method: "GET",
@@ -102,6 +107,7 @@ export default function AllCompetition() {
 
   useEffect(() => {
     getAllMatches();
+    // eslint-disable-next-line
   }, []);
 
   return (
