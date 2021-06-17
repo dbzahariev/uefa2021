@@ -3,11 +3,23 @@ const express = require("express");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 const path = require("path");
+
 const app = express();
 const PORT = process.env.PORT || 8080; // Step 1
 
+//Chat
+const http = require("http").createServer(app);
+const io = require("socket.io")(http);
+
+io.on("connection", (socket) => {
+  socket.on("message", ({ name, message }) => {
+    io.emit("message", { name, message });
+  });
+});
+
+//End chat
+
 const routes = require("./routes/api");
-const routesChat = require("./routes/chat");
 
 require("dotenv").config();
 
@@ -42,6 +54,12 @@ if (process.env.NODE_ENV === "production") {
 // HTTP request logger
 app.use(morgan("tiny"));
 app.use("/api", routes);
-app.use("/chat", routesChat);
 
 app.listen(PORT, console.log(`Server is starting at ${PORT}`));
+
+//Chat
+const PORTCHAT = Number(Number(PORT) + 1);
+http.listen(PORTCHAT, () => {
+  console.log(`hi chat ${PORTCHAT}`);
+});
+//End chat
