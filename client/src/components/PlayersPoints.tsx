@@ -25,7 +25,6 @@ export default function PlayersPoints() {
 
   useEffect(() => {
     getPointsFromDB();
-    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
@@ -102,7 +101,6 @@ export default function PlayersPoints() {
     return res;
   };
 
-  // eslint-disable-next-line
   const getMatchesFromDB = async () => {
     let response;
     try {
@@ -142,7 +140,6 @@ export default function PlayersPoints() {
     }
   };
 
-  // eslint-disable-next-line
   const getUsersFromDB = async () => {
     let res;
     try {

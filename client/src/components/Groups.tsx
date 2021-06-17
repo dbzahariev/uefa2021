@@ -87,11 +87,7 @@ export default function Groups() {
         el.scrollIntoView({ behavior: "smooth" });
       }
     }
-    // if (document.getElementById("title") !== null) {
-    //   document.getElementById("title").scrollIntoView();
-    // }
-    // eslint-disable-next-line
-  }, [groups]);
+  }, [groups, params.groupName]);
 
   const renderGroups = () => {
     const oneGroupTable = (oneGroup: OneGroup) => {

@@ -91,7 +91,6 @@ const convertResult = (score: {
 };
 
 export default function OneMatch({ matchId }: { matchId: string }) {
-  // eslint-disable-next-line
   const [data, setData] = useState(null);
   const [time, setTime] = useState(0);
   const [score, setScore] = useState<ScoreType | null>(null);
@@ -114,7 +113,6 @@ export default function OneMatch({ matchId }: { matchId: string }) {
     return () => {
       clearTimeout(timer);
     };
-    // eslint-disable-next-line
   }, [time]);
 
   useEffect(() => {

@@ -85,14 +85,6 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
   const [matches, setMatches] = useState<MatchType[]>([]);
   const [users, setUsers] = useState<UsersType[]>([]);
   const [loading, setLoading] = useState(false);
-  const [finalWinnerForUsers, setFinalWinnerForUsers] = useState<
-    { name: string; finalWinner: string }[]
-  >([]);
-  // eslint-disable-next-line
-  const [dimensions, setDimensions] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
-  });
 
   let intervalRef = useRef<any>();
 
@@ -100,8 +92,6 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
     if (AutoRefreshInterval >= 1 && AutoRefreshInterval !== "disable") {
       intervalRef.current = setInterval(() => {
         reloadData();
-        // getAllMatches();
-        // getAllUsers();
       }, AutoRefreshInterval * 1000);
     }
 
@@ -117,12 +107,6 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
 
   useEffect(() => {
     getAllUsers();
-
-    const updateWindowDimensions = () => {
-      setDimensions({ width: window.innerWidth, height: window.innerHeight });
-    };
-
-    window.addEventListener("resize", updateWindowDimensions);
   }, []);
 
   useEffect(() => {
@@ -164,7 +148,6 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
       return result;
     };
 
-    // let colors = ["10", "180", "50", "80", "203", "284", "129"];
     for (let i = 0; i < users.length; i++) {
       let selector1 = getSelector1(i + 1);
       $(selector1).css(
@@ -197,7 +180,6 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
     users.forEach((user) => {
       foo.push({ name: user.name, finalWinner: user.finalWinner });
     });
-    setFinalWinnerForUsers(foo);
   };
 
   const setBetsToDB = (userProp: UsersType) => {
@@ -307,8 +289,6 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
           }
           newUsers.push(userToAdd);
         });
-
-        // newUsers.sort((a, b) => a.index - b.index);
 
         setUsers(newUsers);
       })
@@ -450,70 +430,17 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
     }
     res.total = ttp;
 
-    // user.bets.forEach((el) => {
-    //   ttp += el.point;
-    // });
-    // res.total = ttp;
-
-    // if (user.totalPoints) {
-    //   user.totalPoints += res.current;
-    // } else {
-    //   user.totalPoints = res.current;
-    // }
-
-    // res.total = user.totalPoints;
-
     return res;
   };
 
   const oneMatchTable = (AllMatches: MatchType[]) => {
-    // eslint-disable-next-line
-    let windowHeight = window.innerHeight;
     let columnWidth = 150;
-
-    // eslint-disable-next-line
-    const handleChangeFinal = (
-      ev: React.ChangeEvent<HTMLInputElement>,
-      user: UsersType
-    ) => {
-      let newFinalWinner: string = ev.target.value;
-
-      let foo = [...finalWinnerForUsers];
-      let kk = foo.find((el) => el.name === user.name);
-      if (kk) {
-        kk.finalWinner = newFinalWinner;
-      }
-      setFinalWinnerForUsers(foo);
-
-      axios({
-        method: "POST",
-        data: { finalWinner: newFinalWinner },
-        withCredentials: true,
-        url: `/api/update?id=${user.id}`,
-      })
-        .then((res) => {})
-        .catch((err) => {
-          notification.open({
-            message: `Грешка`,
-            type: "error",
-          });
-        });
-    };
-
-    // eslint-disable-next-line
-    const getFinalWinner = (user: UsersType) => {
-      let foo = finalWinnerForUsers.find((el) => el.name === user.name);
-      if (foo?.finalWinner) {
-        return foo.finalWinner;
-      } else return "";
-    };
 
     return (
       <Table
         dataSource={AllMatches}
         pagination={false}
         bordered
-        // scroll={{ y: windowHeight * 0.2 }}
         expandable={{
           expandedRowRender: (record: MatchType) => {
             let date = new Date(record.utcDate).toLocaleString("bg-bg");
@@ -524,48 +451,6 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
           rowExpandable: () => true,
           defaultExpandedRowKeys: ["1"],
         }}
-        // footer={() => {
-        //   $("div.ant-table-footer").css("padding-right", 0);
-
-        //   let headerWidth =
-        //     $("tr:nth-child(1) > th:nth-child(7)").width() || 330.31633;
-
-        //   return (
-        //     <div
-        //       style={{
-        //         display: "flex",
-        //         justifyContent: "space-between",
-        //         alignItems: "center",
-        //       }}
-        //     >
-        //       <span>Последният оцелял:</span>
-        //       <div
-        //         style={{
-        //           alignSelf: "flex-end",
-        //           display: "flex",
-        //         }}
-        //       >
-        //         {users.map((user, index) => {
-        //           return (
-        //             <div
-        //               key={index}
-        //               style={{
-        //                 width: headerWidth + (363.38 - headerWidth),
-        //               }}
-        //             >
-        //               <Input
-        //                 placeholder=""
-        //                 defaultValue={getFinalWinner(user)}
-        //                 value={getFinalWinner(user)}
-        //                 onChange={(el) => handleChangeFinal(el, user)}
-        //               />
-        //             </div>
-        //           );
-        //         })}
-        //       </div>
-        //     </div>
-        //   );
-        // }}
       >
         <Column
           title="Н"
@@ -624,7 +509,6 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
                 {translateTeamsName(el) || "Ще се реши"}
               </Link>
             );
-            // return <a href={`/groups/${el}`}></a>;
           }}
         />
         {users.map((user: UsersType) => {
@@ -691,8 +575,6 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
     return (
       <div
         style={{
-          // height: window.innerHeight * 0.4,
-          // width: window.innerWidth,
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
