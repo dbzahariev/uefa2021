@@ -117,8 +117,6 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
     if (AutoRefreshInterval >= 1 && AutoRefreshInterval !== "disable") {
       intervalRef.current = setInterval(() => {
         reloadData();
-        // getAllMatches();
-        // getAllUsers();
       }, AutoRefreshInterval * 1000);
     }
 

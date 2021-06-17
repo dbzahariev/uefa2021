@@ -1,7 +1,7 @@
 import { Button, notification, Select, Space } from "antd";
 import TextArea from "antd/lib/input/TextArea";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { UsersType } from "../AllMatches2";
 import OneMessage, { MessageType } from "./OneMessage";
 import $ from "jquery";
@@ -30,6 +30,22 @@ export default function Chat() {
     message: "",
     date: new Date(),
   });
+  let AutoRefreshInterval: number = Number(
+    process.env.SECONDSAUTORELOADCHAT || 5
+  );
+
+  let intervalRef = useRef<any>();
+
+  useEffect(() => {
+    if (AutoRefreshInterval >= 1) {
+      intervalRef.current = setInterval(() => {
+        getChats();
+      }, AutoRefreshInterval * 1000);
+    }
+
+    return () => clearInterval(intervalRef.current);
+    // eslint-disable-next-line
+  }, [AutoRefreshInterval]);
 
   useEffect(() => {
     getAllUsersNames();
@@ -188,14 +204,6 @@ export default function Chat() {
         fullUsers={fullUsers}
       />
     );
-    // return (
-    //   <div key={index}>
-    //     <span style={{ color: "red" }}>{`(${message.date}) `}</span>
-    //     <span>{message.user}</span>
-    //     <span>{": "}</span>
-    //     <span style={{ color: "yellow" }}>{message.msg}</span>
-    //   </div>
-    // );
   };
 
   if ($("#ChatBox") !== undefined) {

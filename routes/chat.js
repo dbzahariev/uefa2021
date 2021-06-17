@@ -42,7 +42,6 @@ router.post("/update", (req, res) => {
     res.status(404).json({ msg: `Not found id (${id})` });
     return;
   }
-  console.log("hi", id, data);
   Chats.findOneAndUpdate(
     { user: id },
     { messages: data.messages },
