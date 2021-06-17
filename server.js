@@ -58,7 +58,7 @@ app.use("/api", routes);
 app.listen(PORT, console.log(`Server is starting at ${PORT}`));
 
 //Chat
-http.listen(4000, () => {
+http.listen(PORT + 1, () => {
   console.log(`hi chat ${PORT + 1}`);
 });
 //End chat
