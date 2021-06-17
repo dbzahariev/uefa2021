@@ -8,6 +8,7 @@ const app = express();
 const PORT = process.env.PORT || 8080; // Step 1
 
 const routes = require("./routes/api");
+const routesChat = require("./routes/chat");
 
 require("dotenv").config();
 
@@ -42,5 +43,6 @@ if (process.env.NODE_ENV === "production") {
 // HTTP request logger
 app.use(morgan("tiny"));
 app.use("/api", routes);
+app.use("/chat", routesChat);
 
 app.listen(PORT, console.log(`Server is starting at ${PORT}`));
