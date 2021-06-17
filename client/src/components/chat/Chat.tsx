@@ -33,6 +33,10 @@ export default function Chat() {
   let AutoRefreshInterval: number = Number(
     process.env.SECONDSAUTORELOADCHAT || 5
   );
+  const [dimensions, setDimensions] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
 
   let intervalRef = useRef<any>();
 
@@ -49,6 +53,12 @@ export default function Chat() {
 
   useEffect(() => {
     getAllUsersNames();
+
+    const updateWindowDimensions = () => {
+      setDimensions({ width: window.innerWidth, height: window.innerHeight });
+    };
+
+    window.addEventListener("resize", updateWindowDimensions);
   }, []);
 
   const getAllUsersNames = () => {
@@ -240,12 +250,14 @@ export default function Chat() {
       <div
         id={"ChatBox"}
         style={{
-          height: window.innerHeight * 0.75,
           border: "3px solid black",
           overflowY: "scroll",
           borderRadius: 15,
           borderTopRightRadius: 0,
           borderBottomRightRadius: 0,
+          height: checkMobile()
+            ? dimensions.height * 0.6
+            : dimensions.height * 0.75,
         }}
       >
         {massages.map((message, index: number) => oneChat(message, index))}
@@ -259,8 +271,8 @@ export default function Chat() {
             margin: 10,
             borderRadius: 15,
             width: checkMobile()
-              ? window.innerWidth * 0.88
-              : window.innerWidth * 0.86,
+              ? dimensions.width * 0.88
+              : dimensions.width * 0.86,
           }}
           rows={3}
           placeholder="Съобщение"
