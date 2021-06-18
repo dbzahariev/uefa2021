@@ -104,13 +104,15 @@ export default function Chat() {
     }
   }, [chats]);
 
-  useEffect(() => {
-    if ($("#ChatBox") !== undefined) {
-      if ($("#ChatBox")[0] !== undefined) {
-        $("#ChatBox").scrollTop($("#ChatBox")[0].scrollHeight);
-      }
+  const scrollToNewMessages = () => {
+    if ($("#ChatBox") !== undefined && $("#ChatBox")[0] !== undefined) {
+      $("#ChatBox").scrollTop($("#ChatBox")[0].scrollHeight);
     }
-  }, [massages]);
+  };
+
+  useEffect(() => {
+    scrollToNewMessages();
+  }, [massages.length]);
 
   const createUser = (username: string) => {
     axios({
@@ -215,11 +217,11 @@ export default function Chat() {
     );
   };
 
-  if ($("#ChatBox") !== undefined) {
-    if ($("#ChatBox")[0] !== undefined) {
-      $("#ChatBox").scrollTop($("#ChatBox")[0].scrollHeight);
-    }
-  }
+  // if ($("#ChatBox") !== undefined) {
+  //   if ($("#ChatBox")[0] !== undefined) {
+  //     $("#ChatBox").scrollTop($("#ChatBox")[0].scrollHeight);
+  //   }
+  // }
 
   const checkMobile = () => {
     return navigator.maxTouchPoints > 0;
