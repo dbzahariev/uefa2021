@@ -19,6 +19,7 @@ interface ChatType {
   __v: number;
   _id: string;
 }
+const AutoRefreshInterval = 5;
 
 export default function Chat() {
   const [chats, setChats] = useState<ChatType[]>([]);
@@ -30,9 +31,7 @@ export default function Chat() {
     message: "",
     date: new Date(),
   });
-  let AutoRefreshInterval: number = Number(
-    process.env.SECONDSAUTORELOADCHAT || 5
-  );
+
   const [dimensions, setDimensions] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
