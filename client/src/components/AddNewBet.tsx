@@ -146,22 +146,55 @@ export default function AddNewBet() {
   }, [selectedUserName]);
 
   const checkDisabledInput = (fullMatch: MatchType, user: UsersType) => {
+    const haveGest = (fullMatch: MatchType, user: UsersType) => {
+      let myBet = user.bets.find((el) => el.matchId === fullMatch.id);
+
+      let awayTeamScore = -1;
+      let homeTeamScore = -1;
+      let haveBet = false;
+      if (myBet?.awayTeamScore !== undefined)
+        awayTeamScore = myBet.awayTeamScore;
+      if (myBet?.homeTeamScore !== undefined)
+        homeTeamScore = myBet.homeTeamScore;
+
+      haveBet = awayTeamScore + homeTeamScore >= 0;
+      return haveBet;
+    };
+
     let result = false;
     let now = new Date();
     let matchDate = new Date(fullMatch.utcDate);
     let difference = now.getTime() - matchDate.getTime();
     let differenceMin = Math.round(difference / 1000 / 60);
 
-    let dd = user.bets.find((el) => el.matchId === fullMatch.id);
+    let haveBet = haveGest(fullMatch, user);
 
-    if (differenceMin > 0 && differenceMin <= 15) {
-      result = dd !== undefined;
-    } else {
+    if (differenceMin >= 0 && differenceMin <= 15 && haveBet) {
       result = true;
-    }
-    if (differenceMin <= 0) {
+    } else {
       result = false;
     }
+    // if (resGest().have === false) {
+    //   result = false;
+    // }
+    // if (differenceMin > 0 && differenceMin <= 15) {
+    //   result = dd !== undefined;
+    // } else {
+    //   result = true;
+    // }
+    // if (differenceMin <= 0) {
+    //   result = false;
+    // }
+
+    // let kk = (dd?.awayTeamScore || -1) + (dd?.homeTeamScore || -1);
+    // if (fullMatch.id === 285450) {
+    //   if (user.name === "Митко") {
+    //     // debugger;
+    //   }
+    // }
+    // if (kk >= 0 && differenceMin <= 15) {
+    //   result = false;
+    // }
 
     return result;
   };
