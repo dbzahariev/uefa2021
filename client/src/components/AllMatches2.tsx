@@ -132,6 +132,7 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
 
   useEffect(() => {
     getAllUsers();
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
@@ -142,12 +143,52 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
   useEffect(() => {
     if (users.length > 0 && matches.length > 0) {
       setLoading(false);
+      let res = getPoints2(users);
+      res.sort((a, b) => (b.totalPoints || 0) - (a.totalPoints || 0));
+      setUsers(res);
     } else {
       setLoading(true);
     }
+    // eslint-disable-next-line
   }, [users.length, matches.length]);
 
-  useEffect(() => {
+  const getPoints2 = (newUsers: UsersType[]) => {
+    let res = newUsers.slice();
+
+    for (let i = 0; i < res.length; i++) {
+      let oneUser = res[i];
+      for (let j = 0; j < oneUser.bets.length; j++) {
+        let oneBet = oneUser.bets[j];
+        let selectedMatch = matches.find((el) => el.id === oneBet.matchId);
+        if (selectedMatch && selectedMatch.status === "FINISHED") {
+          let kk = getPointForEvent(selectedMatch, oneUser);
+          oneUser.totalPoints = (oneUser.totalPoints || 0) + kk;
+          oneBet.point = kk;
+        }
+      }
+      const getMatchDate = (bet: any) => {
+        let res = 0;
+        let selectedMatch = matches.find((el) => el.id === bet.matchId);
+        if (selectedMatch) res = new Date(selectedMatch?.utcDate).getTime();
+        return res;
+      };
+      oneUser.bets.sort((a, b) => getMatchDate(a) - getMatchDate(b));
+      axios({
+        method: "POST",
+        data: { bets: oneUser.bets },
+        withCredentials: true,
+        url: `/api/update?id=${oneUser.id}`,
+      })
+        .then((res) => {
+          console.log("ok");
+        })
+        .catch((err) => {});
+    }
+
+    return res;
+  };
+
+  const stylingTable = () => {
     const getSelector1 = (index: number) => {
       let res = "";
       res += `tr:nth-child(1) > th:nth-child(${index + 5}), `;
@@ -254,11 +295,19 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
     ).css("top", "0");
 
     $(`#root > div:nth-child(3)`).css("display", "inline");
+  };
+
+  useEffect(() => {
+    stylingTable();
+    // eslint-disable-next-line
   }, [loading, users]);
 
   const reloadData = () => {
     getAllMatches();
     getAllUsers();
+    let res = getPoints2(users);
+    res.sort((a, b) => (b.totalPoints || 0) - (a.totalPoints || 0));
+    setUsers(res);
   };
 
   const getAllFinalWinner = () => {
@@ -404,46 +453,6 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
     return res;
   };
 
-  const getPoints = (user: UsersType, match: MatchType) => {
-    let res: {
-      current: number | string;
-      currentNumber: number;
-      total: number | string;
-      totalNumber: number;
-    } = { current: 5, currentNumber: 5, total: 7, totalNumber: 7 };
-    res.current = getPointForEvent(match, user);
-    res.currentNumber = res.current;
-
-    let dd = user.bets.find((el) => el.matchId === match.id);
-    if (dd) {
-      dd.point = res.current;
-    }
-    let ttp = 0;
-    for (let i = 0; i < user.bets.length; i++) {
-      let cBet = user.bets[i];
-      ttp += cBet.point;
-      if (cBet.matchId === match.id) {
-        break;
-      }
-    }
-    res.total = ttp;
-    res.totalNumber = ttp;
-
-    if (match.winner === "") {
-      if (dd) {
-        res.current = "?";
-      } else {
-        res.current = "";
-      }
-    }
-
-    if (match.status === "IN_PLAY" || match.status === "PAUSED") {
-      res.current = "?";
-    }
-
-    return res;
-  };
-
   const oneMatchTable = (AllMatches: MatchType[]) => {
     // eslint-disable-next-line
     let windowHeight = window.innerHeight;
@@ -473,31 +482,6 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
         dd = "?";
       }
       return dd;
-    };
-
-    const getTotalPointByName = (user: UsersType) => {
-      let totalPoints: string | number = "?";
-      let haveInPlay = false;
-      let indexPlayedMatch = -1;
-      matches.forEach((match, index) => {
-        if (
-          !haveInPlay &&
-          (match.status === "IN_PLAY" || match.status === "PAUSED")
-        ) {
-          indexPlayedMatch = index;
-          haveInPlay = true;
-        }
-
-        if (!haveInPlay) {
-          totalPoints = getPoints(user, match).totalNumber;
-        }
-      });
-      if (haveInPlay) {
-        let indexPrevMatch = Math.max(0, indexPlayedMatch - 1);
-        totalPoints = getPoints(user, matches[indexPrevMatch]).totalNumber;
-      }
-
-      return totalPoints;
     };
 
     return (
@@ -579,11 +563,10 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
           )}
         />
         {users.map((user: UsersType) => {
-          let totalPoints = getTotalPointByName(user);
           return (
             <ColumnGroup
               key={user.name}
-              title={`${user.name} (${totalPoints})`}
+              title={`${user.name} (${user.totalPoints || 0})`}
             >
               <Column
                 title="Д"
@@ -621,7 +604,24 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
                 key="points"
                 width={40}
                 render={(_, record: MatchType) => {
-                  return getPoints(user, record).current;
+                  const getCurrentPoints = () => {
+                    let res = "";
+                    let selectedMatchBet = user.bets.find(
+                      (el) => el.matchId === record.id
+                    );
+                    if (record.status === "FINISHED") {
+                      res = (selectedMatchBet?.point || 0).toString();
+                    } else if (
+                      record.status === "IN_PLAY" ||
+                      record.status === "PAUSED"
+                    ) {
+                      res = "?";
+                    }
+
+                    return res;
+                  };
+
+                  return getCurrentPoints();
                 }}
               />
             </ColumnGroup>

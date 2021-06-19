@@ -115,6 +115,71 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
     }
   }, [matches.length]);
 
+  // const getPoints = (user: UsersType, match: MatchType) => {
+  //   let res: {
+  //     current: number | string;
+  //     currentNumber: number;
+  //     // total: number | string;
+  //     // totalNumber: number;
+  //   } = { current: 5, currentNumber: 5 };
+  //   res.current = getPointForEvent(match, user);
+  //   res.currentNumber = res.current;
+
+  //   let dd = user.bets.find((el) => el.matchId === match.id);
+  //   if (dd) {
+  //     dd.point = res.current;
+  //   }
+  //   // let ttp = 0;
+  //   for (let i = 0; i < user.bets.length; i++) {
+  //     let cBet = user.bets[i];
+  //     // ttp += cBet.point;
+  //     if (cBet.matchId === match.id) {
+  //       break;
+  //     }
+  //   }
+  //   // res.total = ttp;
+  //   // res.totalNumber = ttp;
+
+  //   if (match.winner === "") {
+  //     if (dd) {
+  //       res.current = "?";
+  //     } else {
+  //       res.current = "";
+  //     }
+  //   }
+
+  //   if (match.status === "IN_PLAY" || match.status === "PAUSED") {
+  //     res.current = "?";
+  //   }
+
+  //   return res;
+  // };
+
+  // const getTotalPointByName = (user: UsersType) => {
+  //   let totalPoints: string | number = "?";
+  //   let haveInPlay = false;
+  //   let indexPlayedMatch = -1;
+  //   matches.forEach((match, index) => {
+  //     if (
+  //       !haveInPlay &&
+  //       (match.status === "IN_PLAY" || match.status === "PAUSED")
+  //     ) {
+  //       indexPlayedMatch = index;
+  //       haveInPlay = true;
+  //     }
+
+  //     if (!haveInPlay) {
+  //       totalPoints = getPoints(user, match).totalNumber;
+  //     }
+  //   });
+  //   if (haveInPlay) {
+  //     let indexPrevMatch = Math.max(0, indexPlayedMatch - 1);
+  //     totalPoints = getPoints(user, matches[indexPrevMatch]).totalNumber;
+  //   }
+
+  //   return totalPoints;
+  // };
+
   useEffect(() => {
     getAllUsers();
 
