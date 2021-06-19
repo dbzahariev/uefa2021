@@ -164,6 +164,8 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
           let kk = getPointForEvent(selectedMatch, oneUser);
           oneUser.totalPoints = (oneUser.totalPoints || 0) + kk;
           oneBet.point = kk;
+        } else {
+          oneBet.point = 0;
         }
       }
       const getMatchDate = (bet: any) => {
@@ -616,6 +618,13 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
                       record.status === "PAUSED"
                     ) {
                       res = "?";
+                    } else {
+                      let fff = user.bets.find(
+                        (el) => el.matchId === record.id
+                      );
+                      if (fff !== undefined) {
+                        res = "?";
+                      }
                     }
 
                     return res;
