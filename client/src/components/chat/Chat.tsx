@@ -43,6 +43,7 @@ export const returnedEmojiText = (text: string) => {
   res = res.replaceAll("</3", "💔");
   res = res.replaceAll("<\\3", "💔");
   res = res.replaceAll("<3", "❤️");
+  res = res.replaceAll(":ball", "⚽️");
 
   return res;
 };
@@ -345,7 +346,7 @@ export default function Chat() {
             borderRadius: 15,
             width: checkMobile()
               ? dimensions.width * 0.88
-              : dimensions.width * 0.8,
+              : dimensions.width * 0.86,
           }}
           rows={3}
           placeholder="Съобщение"
