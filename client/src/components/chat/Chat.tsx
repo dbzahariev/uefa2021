@@ -1,10 +1,11 @@
-import { Button, message, notification, Select, Space } from "antd";
+import { Button, notification, Select, Space } from "antd";
 import TextArea from "antd/lib/input/TextArea";
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import { UsersType } from "../AllMatches2";
 import OneMessage, { MessageType } from "./OneMessage";
 import $ from "jquery";
+import EmojiPopup from "./EmojiPopup";
 
 const { Option } = Select;
 
@@ -19,6 +20,33 @@ interface ChatType {
   __v: number;
   _id: string;
 }
+
+export const returnedEmojiText = (text: string) => {
+  let res = text + "";
+
+  res = res.replaceAll(":)", "😊");
+  res = res.replaceAll(":D", "😄");
+  res = res.replaceAll(":d", "😄");
+  res = res.replaceAll(":(", "🙁");
+  res = res.replaceAll(":'(", "😢");
+  res = res.replaceAll(";(", "😢");
+  res = res.replaceAll(":')", "😂");
+  res = res.replaceAll(";)", "😂");
+  res = res.replaceAll(":о", "😮");
+  res = res.replaceAll(":О", "😮");
+  res = res.replaceAll(":0", "😮");
+  res = res.replaceAll(":*", "😘");
+  res = res.replaceAll(";)", "😉");
+  res = res.replaceAll(":P", "😛");
+  res = res.replaceAll(":p", "😛");
+  res = res.replaceAll(":|", "😐");
+  res = res.replaceAll("</3", "💔");
+  res = res.replaceAll("<\\3", "💔");
+  res = res.replaceAll("<3", "❤️");
+
+  return res;
+};
+
 const AutoRefreshInterval = 2;
 export const checkMobile = () => {
   return navigator.maxTouchPoints > 0;
@@ -36,8 +64,8 @@ export default function Chat() {
   });
 
   const [dimensions, setDimensions] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
+    width: window.outerWidth,
+    height: window.outerHeight,
   });
 
   let intervalRef = useRef<any>();
@@ -58,7 +86,7 @@ export default function Chat() {
     getAllUsersNames();
 
     const updateWindowDimensions = () => {
-      setDimensions({ width: window.innerWidth, height: window.innerHeight });
+      setDimensions({ width: window.outerWidth, height: window.outerWidth });
     };
 
     window.addEventListener("resize", updateWindowDimensions);
@@ -163,6 +191,7 @@ export default function Chat() {
       });
       return;
     }
+
     addMessage(newMsg);
     setNewMsg({ ...newMsg, message: "" });
   };
@@ -209,7 +238,8 @@ export default function Chat() {
   };
 
   const onInput = (foo1: any) => {
-    let newValue = foo1.target.value;
+    let newValue = returnedEmojiText(foo1.target.value);
+
     setNewMsg({ ...newMsg, message: newValue, date: new Date() });
   };
 
@@ -250,7 +280,6 @@ export default function Chat() {
       getChats();
       getMesses();
     });
-    debugger;
   };
 
   const oneChat = (message: MessageType, index: number) => {
@@ -301,7 +330,7 @@ export default function Chat() {
           borderBottomRightRadius: 0,
           height: checkMobile()
             ? dimensions.height * 0.6
-            : dimensions.height * 0.8,
+            : dimensions.height * 0.65,
         }}
       >
         {massages.map((message, index: number) => oneChat(message, index))}
@@ -316,7 +345,7 @@ export default function Chat() {
             borderRadius: 15,
             width: checkMobile()
               ? dimensions.width * 0.88
-              : dimensions.width * 0.86,
+              : dimensions.width * 0.8,
           }}
           rows={3}
           placeholder="Съобщение"
@@ -335,6 +364,17 @@ export default function Chat() {
           Изпрати съобщение
         </Button>
       </Space>
+      <EmojiPopup
+        onSelectEmoji={(emoji: string) => {
+          let val = checkMobile()
+            ? dimensions.height * 1.1
+            : dimensions.height * 0.65;
+
+          $("#ChatBox").height(val);
+
+          newMsg.message += emoji;
+        }}
+      />
     </div>
   );
 }
