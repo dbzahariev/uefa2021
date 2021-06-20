@@ -1,4 +1,4 @@
-import { Button, notification, Select, Space } from "antd";
+import { Button, message, notification, Select, Space } from "antd";
 import TextArea from "antd/lib/input/TextArea";
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
@@ -119,7 +119,7 @@ export default function Chat() {
         $("#ChatBox").scrollTop($("#ChatBox")[0].scrollHeight);
       }
     }
-  }, [massages]);
+  }, [massages.length]);
 
   const createUser = (username: string) => {
     axios({
@@ -235,7 +235,27 @@ export default function Chat() {
     });
   };
 
+  const removeMessage = (message: MessageType) => {
+    let newMessages = chats.filter((el) => el.user === message.user).slice()[0];
+    newMessages.messages = newMessages.messages.filter(
+      (msg) => msg.message !== message.message && msg.date !== message.date
+    );
+
+    axios({
+      method: "POST",
+      data: { messages: newMessages.messages },
+      withCredentials: true,
+      url: `/chat/update?id=${message.user}`,
+    }).then(() => {
+      getChats();
+      getMesses();
+    });
+    debugger;
+  };
+
   const oneChat = (message: MessageType, index: number) => {
+    let selectedUser = newMsg.user;
+
     return (
       <OneMessage
         key={index}
@@ -243,15 +263,11 @@ export default function Chat() {
         message={message}
         fullUsers={fullUsers}
         editMessage={editMessage}
+        removeMessage={removeMessage}
+        selectedUser={selectedUser}
       />
     );
   };
-
-  if ($("#ChatBox") !== undefined) {
-    if ($("#ChatBox")[0] !== undefined) {
-      $("#ChatBox").scrollTop($("#ChatBox")[0].scrollHeight);
-    }
-  }
 
   return (
     <div style={{ margin: 10 }}>
@@ -308,6 +324,7 @@ export default function Chat() {
           value={newMsg.message}
         />
         <Button
+          disabled={newMsg.user.length === 0}
           type="primary"
           onClick={sendMsg}
           style={{

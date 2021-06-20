@@ -1,4 +1,4 @@
-import { Button } from "antd";
+import { Button, Popconfirm, Space } from "antd";
 import TextArea from "antd/lib/input/TextArea";
 import { Key, useEffect, useState } from "react";
 import { UsersType } from "../AllMatches2";
@@ -15,11 +15,15 @@ export default function OneMessage({
   index,
   fullUsers,
   editMessage,
+  removeMessage,
+  selectedUser,
 }: {
   message: MessageType;
   index: Key;
   fullUsers: UsersType[];
   editMessage: Function;
+  removeMessage: Function;
+  selectedUser: string;
 }) {
   let selUser = fullUsers.find((el) => el.name === message.user);
 
@@ -45,11 +49,6 @@ export default function OneMessage({
       editMessage(newMessage, message);
     }
   };
-  const remove = () => {};
-  const changeMes = (foo1: any) => {
-    let fff = foo1.target.value;
-    setNewMessage(fff);
-  };
 
   return (
     <div
@@ -59,21 +58,34 @@ export default function OneMessage({
         margin: 10,
         padding: 5,
         fontSize: 18,
+        borderRadius: 5,
       }}
     >
-      <div
+      <Space
+        direction={"horizontal"}
         style={{
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "red",
           float: "right",
           height: "200%",
         }}
       >
-        <Button onClick={enableEdit}>Редактиране</Button>
-        <Button onClick={remove}>Премахване</Button>
-      </div>
+        <Button onClick={enableEdit} disabled={selectedUser !== message.user}>
+          Редактиране
+        </Button>
+
+        <Popconfirm
+          title="Потвърждаване"
+          icon={false}
+          onConfirm={() => removeMessage(message)}
+          onCancel={() => {}}
+          okText="Да"
+          cancelText="Не"
+        >
+          <Button disabled={selectedUser !== message.user}>Премахване</Button>
+        </Popconfirm>
+      </Space>
       <div>
         <div>
           <span style={{ color: "hsl(360, 100%, 67%)" }}>{`(${new Date(
@@ -99,7 +111,7 @@ export default function OneMessage({
             }}
             rows={3}
             placeholder="Съобщение"
-            onChange={changeMes}
+            onChange={(ev) => setNewMessage(ev.target.value)}
             value={newMessage}
           />
         ) : (
