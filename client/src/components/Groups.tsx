@@ -87,9 +87,6 @@ export default function Groups() {
         el.scrollIntoView({ behavior: "smooth" });
       }
     }
-    // if (document.getElementById("title") !== null) {
-    //   document.getElementById("title").scrollIntoView();
-    // }
     // eslint-disable-next-line
   }, [groups]);
 
@@ -173,14 +170,7 @@ export default function Groups() {
             </div>
           );
         })}
-        <Button
-          onClick={() => {
-            window.scrollTo(0, 0);
-            // $("body").scrollTop(0);
-          }}
-        >
-          Начало
-        </Button>
+        <Button onClick={() => window.scrollTo(0, 0)}>Начало</Button>
       </div>
     );
   };

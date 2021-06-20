@@ -1,11 +1,6 @@
 import { Space } from "antd";
 import React from "react";
 
-export const coefficientEighthFinal = 1;
-export const coefficientQuarterFinals = 1.5;
-export const coefficientSemiFinal = 2;
-export const coefficientFinal = 3;
-
 export default function Rules() {
   const styleHeader: React.CSSProperties = {
     fontSize: 20,
@@ -38,25 +33,24 @@ export default function Rules() {
         <p style={styleHeader}>Регламент</p>
         <p style={styleNormal}>
           Прогнози за всички мачове се дават на сайта{" "}
-          <a href="https://deuro.herokuapp.com/">www.deuro.herokuapp.com</a> в
-          таба Прогнози.
+          <a href="https://deuro.herokuapp.com/">www.deuro.herokuapp.com</a>.
           <br />
-          Ако не е въведена прогноза до началото на срещата, тя може да се даде
+          Ако не е въведена прогноза до началото на сррещата, тя може да се даде
           до 15 мин след началото на срещата, но тогава се получават 50% от
           полащите се точки.
           <br />
-          По уважителни причини може да се обадите на Митко и той ще ги въведе в
-          системата.
+          По уважителни причини може да се обадите на Димитър и той ще ги въведе
+          в системата.
         </p>
         <p style={styleHeader}>Точкуване</p>
         <p style={styleMiniHeader}>Групова фаза:</p>
         <p style={styleNormal}>
-          1 точка за познат знак.
+          1 точка за познат знак
           <br />
           2 точки за позната голова разлика или за познат равен резултат –
           например при залог 2:1, резултат от мача 1:0 се дават 2 точки, както и
-          при залог 1:1 и резултат от мача 2:2.
-          <br />3 точки за познат точен резултат.
+          при залог 1:1 и резултат от мача 2:2
+          <br />3 точки за познат точен резултат
         </p>
         <p style={styleNormal}>
           След груповата фаза се дава прогноза и за победител от двубоя след
@@ -73,21 +67,21 @@ export default function Rules() {
         <span>
           <span style={styleMiniHeader}>Четвъртфинали</span>
           <span style={styleNormal}>
-            - полученият брой точки се умножава по {coefficientQuarterFinals}.
+            - полученият брой точки се умножава по {1.5}
           </span>
         </span>
 
         <span>
           <span style={styleMiniHeader}>Полуфинали</span>
           <span style={styleNormal}>
-            - полученият брой точки се умножава по {coefficientSemiFinal}
+            - полученият брой точки се умножава по {2}
           </span>
         </span>
 
         <span>
           <span style={styleMiniHeader}>Финал</span>
           <span style={styleNormal}>
-            - полученият брой точки се умножава по {coefficientFinal}
+            - полученият брой точки се умножава по {3}
           </span>
         </span>
         <br />

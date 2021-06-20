@@ -19,7 +19,10 @@ interface ChatType {
   __v: number;
   _id: string;
 }
-const AutoRefreshInterval = 5;
+const AutoRefreshInterval = 2;
+export const checkMobile = () => {
+  return navigator.maxTouchPoints > 0;
+};
 
 export default function Chat() {
   const [chats, setChats] = useState<ChatType[]>([]);
@@ -43,6 +46,7 @@ export default function Chat() {
     if (AutoRefreshInterval >= 1) {
       intervalRef.current = setInterval(() => {
         getChats();
+        getMesses();
       }, AutoRefreshInterval * 1000);
     }
 
@@ -90,6 +94,11 @@ export default function Chat() {
   };
 
   useEffect(() => {
+    getMesses();
+    // eslint-disable-next-line
+  }, [chats]);
+
+  const getMesses = () => {
     if (chats.length > 0) {
       let newMsgs: MessageType[] = [];
       chats.forEach((ch) => {
@@ -102,17 +111,15 @@ export default function Chat() {
       );
       setMassages(newMsgs);
     }
-  }, [chats]);
-
-  const scrollToNewMessages = () => {
-    if ($("#ChatBox") !== undefined && $("#ChatBox")[0] !== undefined) {
-      $("#ChatBox").scrollTop($("#ChatBox")[0].scrollHeight);
-    }
   };
 
   useEffect(() => {
-    scrollToNewMessages();
-  }, [massages.length]);
+    if ($("#ChatBox") !== undefined) {
+      if ($("#ChatBox")[0] !== undefined) {
+        $("#ChatBox").scrollTop($("#ChatBox")[0].scrollHeight);
+      }
+    }
+  }, [massages]);
 
   const createUser = (username: string) => {
     axios({
@@ -206,6 +213,28 @@ export default function Chat() {
     setNewMsg({ ...newMsg, message: newValue, date: new Date() });
   };
 
+  const editMessage = (newMessage: String, oldMessage: MessageType) => {
+    let user = oldMessage.user;
+    let oldMyMsgs: ChatType[] = chats.filter((el) => el.user === user);
+    let oldMyMsgs2 = oldMyMsgs[0];
+    let newMessages: MessageTypeFoeChat[] = [...oldMyMsgs2.messages];
+    for (let i = 0; i < newMessages.length; i++) {
+      if (newMessages[i].date === oldMessage.date) {
+        newMessages[i].message = newMessage;
+        break;
+      }
+    }
+    axios({
+      method: "POST",
+      data: { messages: newMessages },
+      withCredentials: true,
+      url: `/chat/update?id=${user}`,
+    }).then(() => {
+      getChats();
+      getMesses();
+    });
+  };
+
   const oneChat = (message: MessageType, index: number) => {
     return (
       <OneMessage
@@ -213,19 +242,17 @@ export default function Chat() {
         index={index}
         message={message}
         fullUsers={fullUsers}
+        editMessage={editMessage}
       />
     );
   };
 
-  // if ($("#ChatBox") !== undefined) {
-  //   if ($("#ChatBox")[0] !== undefined) {
-  //     $("#ChatBox").scrollTop($("#ChatBox")[0].scrollHeight);
-  //   }
-  // }
+  if ($("#ChatBox") !== undefined) {
+    if ($("#ChatBox")[0] !== undefined) {
+      $("#ChatBox").scrollTop($("#ChatBox")[0].scrollHeight);
+    }
+  }
 
-  const checkMobile = () => {
-    return navigator.maxTouchPoints > 0;
-  };
   return (
     <div style={{ margin: 10 }}>
       <Select

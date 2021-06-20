@@ -1,10 +1,8 @@
 import { useState } from "react";
 import "./App.css";
-// eslint-disable-next-line
 import Groups from "./components/Groups";
 import AllMatches from "./components/AllMatches2";
 import OneMatch from "./components/OneMatch";
-// eslint-disable-next-line
 import "antd/dist/antd.css";
 
 import {

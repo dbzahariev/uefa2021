@@ -186,27 +186,6 @@ export default function AddNewBet() {
     if (differenceMin < 0) {
       result = false;
     }
-    // if (resGest().have === false) {
-    //   result = false;
-    // }
-    // if (differenceMin > 0 && differenceMin <= 15) {
-    //   result = dd !== undefined;
-    // } else {
-    //   result = true;
-    // }
-    // if (differenceMin <= 0) {
-    //   result = false;
-    // }
-
-    // let kk = (dd?.awayTeamScore || -1) + (dd?.homeTeamScore || -1);
-    // if (fullMatch.id === 285450) {
-    //   if (user.name === "Митко") {
-    //     // debugger;
-    //   }
-    // }
-    // if (kk >= 0 && differenceMin <= 15) {
-    //   result = false;
-    // }
 
     return result;
   };

@@ -137,13 +137,14 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
 
   useEffect(() => {
     getAllFinalWinner();
+    stylingTable();
     // eslint-disable-next-line
   }, [users]);
 
   useEffect(() => {
     if (users.length > 0 && matches.length > 0) {
       setLoading(false);
-      let res = getPoints2(users);
+      let res = getPoints(users);
       res.sort((a, b) => (b.totalPoints || 0) - (a.totalPoints || 0));
       setUsers(res);
     } else {
@@ -152,7 +153,7 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
     // eslint-disable-next-line
   }, [users.length, matches.length]);
 
-  const getPoints2 = (newUsers: UsersType[]) => {
+  const getPoints = (newUsers: UsersType[]) => {
     let res = newUsers.slice();
 
     for (let i = 0; i < res.length; i++) {
@@ -182,9 +183,9 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
         url: `/api/update?id=${oneUser.id}`,
       })
         .then((res) => {
-          console.log("ok");
+          console.log("ok", res);
         })
-        .catch((err) => {});
+        .catch((err) => console.error(err));
     }
 
     return res;
@@ -216,7 +217,6 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
       return result;
     };
 
-    // let colors = ["10", "180", "50", "80", "203", "284", "129"];
     for (let i = 0; i < users.length; i++) {
       let selector1 = getSelector1(i + 1);
       $(selector1).css(
@@ -299,15 +299,10 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
     $(`#root > div:nth-child(3)`).css("display", "inline");
   };
 
-  useEffect(() => {
-    stylingTable();
-    // eslint-disable-next-line
-  }, [loading, users]);
-
   const reloadData = () => {
     getAllMatches();
     getAllUsers();
-    let res = getPoints2(users);
+    let res = getPoints(users);
     res.sort((a, b) => (b.totalPoints || 0) - (a.totalPoints || 0));
     setUsers(res);
   };
@@ -411,7 +406,7 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
 
         setUsers(newUsers);
       })
-      .catch((err) => {});
+      .catch((err) => console.error(err));
   };
 
   const getPointForEvent = (selectedMatch: MatchType, user: UsersType) => {
@@ -456,8 +451,6 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
   };
 
   const oneMatchTable = (AllMatches: MatchType[]) => {
-    // eslint-disable-next-line
-    let windowHeight = window.innerHeight;
     let columnWidth = 150;
 
     const renderColumnForUser = (
@@ -491,7 +484,6 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
         dataSource={AllMatches}
         pagination={false}
         bordered
-        // scroll={{ y: windowHeight * 0.2 }}
         expandable={{
           expandedRowRender: (record: MatchType) => {
             let date = new Date(record.utcDate).toLocaleString("bg-bg");
@@ -644,8 +636,6 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
     return (
       <div
         style={{
-          // height: window.innerHeight * 0.4,
-          // width: window.innerWidth,
           display: "flex",
           justifyContent: "center",
           alignItems: "center",

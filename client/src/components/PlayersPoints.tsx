@@ -58,10 +58,6 @@ export default function PlayersPoints() {
           };
         }
 
-        // const getResult = (match: MatchType) => {
-        //   return `${match.homeTeam.name} : ${match.homeTeamScore} : ${match.awayTeamScore} : ${match.awayTeam.name}`;
-        // };
-
         let newPoint: NewPointType = {
           key: match.key,
           matchId: match.id,
@@ -79,10 +75,8 @@ export default function PlayersPoints() {
         }
       });
     });
-    // points.sort((a, b) => b.totalPoints - a.totalPoints);
     setPoints(points);
     setLoading(false);
-    // return points;
   };
 
   const getPointForEvent = (selectedMatch: MatchType, user: UsersType) => {
