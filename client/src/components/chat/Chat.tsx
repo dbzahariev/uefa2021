@@ -356,7 +356,7 @@ export default function Chat() {
             borderRadius: 15,
             width: checkMobile()
               ? dimensions.width * 0.88
-              : dimensions.width * 0.86,
+              : dimensions.width * 0.861,
           }}
           rows={3}
           placeholder="Съобщение"

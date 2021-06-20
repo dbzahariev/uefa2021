@@ -26,7 +26,7 @@ export default function EmojiPopup({
         disabled={disabled || false}
         onClick={() => setShowEmojiPopup(!showEmojiPopup)}
       >
-        emoji
+        {"😊"}
       </Button>
       {showEmojiPopup ? (
         <div>
