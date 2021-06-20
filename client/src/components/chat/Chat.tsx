@@ -40,10 +40,20 @@ export const returnedEmojiText = (text: string) => {
   res = res.replaceAll(":P", "😛");
   res = res.replaceAll(":p", "😛");
   res = res.replaceAll(":|", "😐");
+  res = res.replaceAll(":$", "😳");
+  res = res.replaceAll(":shame", "😳");
+  res = res.replaceAll(":shame:", "😳");
   res = res.replaceAll("</3", "💔");
   res = res.replaceAll("<\\3", "💔");
   res = res.replaceAll("<3", "❤️");
   res = res.replaceAll(":ball", "⚽️");
+  res = res.replaceAll(":ball:", "⚽️");
+  res = res.replaceAll(":see_no_evil", "🙈");
+  res = res.replaceAll(":see_no_evil:", "🙈");
+  res = res.replaceAll(":hear_no_evil", "🙉");
+  res = res.replaceAll(":hear_no_evil:", "🙉");
+  res = res.replaceAll(":speak_no_evil", "🙊");
+  res = res.replaceAll(":speak_no_evil:", "🙊");
 
   return res;
 };
