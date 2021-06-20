@@ -301,7 +301,7 @@ export default function Chat() {
           borderBottomRightRadius: 0,
           height: checkMobile()
             ? dimensions.height * 0.6
-            : dimensions.height * 0.75,
+            : dimensions.height * 0.8,
         }}
       >
         {massages.map((message, index: number) => oneChat(message, index))}
@@ -322,6 +322,7 @@ export default function Chat() {
           placeholder="Съобщение"
           onChange={onInput}
           value={newMsg.message}
+          autoSize
         />
         <Button
           disabled={newMsg.user.length === 0}

@@ -102,6 +102,7 @@ export default function OneMessage({
         </div>
         {isEdit ? (
           <TextArea
+            autoSize
             style={{
               margin: 10,
               borderRadius: 15,
