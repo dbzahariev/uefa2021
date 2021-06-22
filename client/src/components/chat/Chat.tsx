@@ -75,8 +75,10 @@ export default function Chat() {
   });
 
   const [dimensions, setDimensions] = useState({
-    width: window.outerWidth,
-    height: window.outerHeight,
+    widthI: window.innerWidth,
+    heightI: window.innerHeight,
+    widthO: window.outerWidth,
+    heightO: window.outerHeight,
   });
 
   let intervalRef = useRef<any>();
@@ -97,7 +99,12 @@ export default function Chat() {
     getAllUsersNames();
 
     const updateWindowDimensions = () => {
-      setDimensions({ width: window.outerWidth, height: window.outerWidth });
+      setDimensions({
+        widthI: window.innerWidth,
+        heightI: window.innerWidth,
+        widthO: window.outerWidth,
+        heightO: window.outerWidth,
+      });
     };
 
     window.addEventListener("resize", updateWindowDimensions);
@@ -340,8 +347,8 @@ export default function Chat() {
           borderTopRightRadius: 0,
           borderBottomRightRadius: 0,
           height: checkMobile()
-            ? dimensions.height * 0.6
-            : dimensions.height * 0.65,
+            ? dimensions.heightO * 0.6
+            : dimensions.heightI * 0.77,
         }}
       >
         {massages.map((message, index: number) => oneChat(message, index))}
@@ -355,8 +362,8 @@ export default function Chat() {
             margin: 10,
             borderRadius: 15,
             width: checkMobile()
-              ? dimensions.width * 0.88
-              : dimensions.width * 0.861,
+              ? dimensions.widthI * 0.88
+              : dimensions.widthI * 0.869,
           }}
           rows={3}
           placeholder="Съобщение"
@@ -378,8 +385,8 @@ export default function Chat() {
       <EmojiPopup
         onSelectEmoji={(emoji: string) => {
           let val = checkMobile()
-            ? dimensions.height * 1.1
-            : dimensions.height * 0.65;
+            ? dimensions.heightI * 1.1
+            : dimensions.heightI * 0.65;
 
           $("#ChatBox").height(val);
 

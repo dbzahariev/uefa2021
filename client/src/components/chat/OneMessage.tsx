@@ -3,8 +3,6 @@ import TextArea from "antd/lib/input/TextArea";
 import { Key, useEffect, useState } from "react";
 import { UsersType } from "../AllMatches2";
 import { checkMobile, returnedEmojiText } from "./Chat";
-import EmojiPopup from "./EmojiPopup";
-import $ from "jquery";
 
 export interface MessageType {
   user: string;
@@ -89,24 +87,6 @@ export default function OneMessage({
         >
           <Button disabled={selectedUser !== message.user}>Премахване</Button>
         </Popconfirm>
-        <EmojiPopup
-          disabled={!isEdit}
-          onSelectEmoji={(emoji: string) => {
-            let val = checkMobile()
-              ? dimensions.height * 1.1
-              : dimensions.height * 0.65;
-
-            $("#ChatBox").height(val);
-
-            let ffff = $("#inputText").prop("selectionStart");
-
-            let newMsg =
-              newMessage.slice(0, ffff) + emoji + newMessage.slice(ffff);
-            // debugger;
-
-            setNewMessage(returnedEmojiText(newMsg));
-          }}
-        />
       </Space>
       <div>
         <div>
