@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Groups from "./components/Groups";
 import AllMatches from "./components/AllMatches2";
@@ -17,6 +17,7 @@ import Rules from "./components/Rules";
 import AddNewBet from "./components/AddNewBet";
 import Chat from "./components/chat/Chat";
 import Scheme from "./components/scheme/Scheme";
+import $ from "jquery";
 
 const competitionsIds = {
   Uefa: 2018,
@@ -38,26 +39,59 @@ export default function App() {
     setReload(reload + 1);
   };
 
+  let fontSize = "18px";
+
+  const [dimensions, setDimensions] = useState({
+    widthI: window.innerWidth,
+    heightI: window.innerHeight,
+    widthO: window.outerWidth,
+    heightO: window.outerHeight,
+  });
+
+  useEffect(() => {
+    const updateWindowDimensions = () => {
+      setDimensions({
+        widthI: window.innerWidth,
+        heightI: window.innerWidth,
+        widthO: window.outerWidth,
+        heightO: window.outerWidth,
+      });
+    };
+
+    window.addEventListener("resize", updateWindowDimensions);
+  }, []);
+
   return (
     <Router>
-      <div>
-        <Space direction={"horizontal"} size={"large"}>
-          <Link style={{ fontSize: "15px" }} to="/">
+      <div
+        style={{
+          position: "sticky",
+          backgroundColor: "white",
+          width: `${dimensions.widthO * 1.098}px`,
+          zIndex: 2,
+          top: 0,
+        }}
+      >
+        <Space direction={"horizontal"} size={"large"} style={{}}>
+          <Link
+            style={{ fontSize: fontSize, width: 130, display: "block" }}
+            to="/"
+          >
             Всички мачове
           </Link>
-          <Link style={{ fontSize: "15px" }} to="/addbet">
+          <Link style={{ fontSize: fontSize }} to="/addbet">
             Прогнози
           </Link>
-          <Link to="/groups/all" style={{ fontSize: "15px" }}>
+          <Link to="/groups/all" style={{ fontSize: fontSize }}>
             Групи
           </Link>
-          <Link to="/rules" style={{ fontSize: "15px" }}>
+          <Link to="/rules" style={{ fontSize: fontSize }}>
             Регламент
           </Link>
-          <Link to="/chatroom" style={{ fontSize: "15px" }}>
+          <Link to="/chatroom" style={{ fontSize: fontSize }}>
             Чат
           </Link>
-          <Link to="/scheme" style={{ fontSize: "15px" }}>
+          <Link to="/scheme" style={{ fontSize: fontSize }}>
             Схема
           </Link>
         </Space>

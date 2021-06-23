@@ -321,7 +321,7 @@ export default function Chat() {
       <Select
         style={{
           marginLeft: 20,
-          width: "140px",
+          width: "240px",
           marginTop: 10,
           marginBottom: 10,
         }}
@@ -347,8 +347,8 @@ export default function Chat() {
           borderTopRightRadius: 0,
           borderBottomRightRadius: 0,
           height: checkMobile()
-            ? dimensions.heightO * 0.6
-            : dimensions.heightI * 0.77,
+            ? dimensions.heightI * 0.6
+            : dimensions.heightI * 0.73,
         }}
       >
         {massages.map((message, index: number) => oneChat(message, index))}
@@ -362,7 +362,7 @@ export default function Chat() {
             margin: 10,
             borderRadius: 15,
             width: checkMobile()
-              ? dimensions.widthI * 0.88
+              ? dimensions.widthI * 0.9
               : dimensions.widthI * 0.869,
           }}
           rows={3}

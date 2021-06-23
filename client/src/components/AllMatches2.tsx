@@ -294,7 +294,7 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
 
     $(
       `#root > div:nth-child(3) > div > div > div > div > div > div > div > div > table > thead`
-    ).css("top", "0");
+    ).css("top", "28px");
 
     $(`#root > div:nth-child(3)`).css("display", "inline");
   };
@@ -505,7 +505,7 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
           dataIndex="number"
           key="number"
           width={56}
-          fixed={true}
+          // fixed={true}
         />
         <Column
           title="Домакин"
