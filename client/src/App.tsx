@@ -16,6 +16,7 @@ import { Space } from "antd";
 import Rules from "./components/Rules";
 import AddNewBet from "./components/AddNewBet";
 import Chat from "./components/chat/Chat";
+import Scheme from "./components/scheme/Scheme";
 
 const competitionsIds = {
   Uefa: 2018,
@@ -56,6 +57,9 @@ export default function App() {
           <Link to="/chatroom" style={{ fontSize: "15px" }}>
             Чат
           </Link>
+          <Link to="/scheme" style={{ fontSize: "15px" }}>
+            Схема
+          </Link>
         </Space>
       </div>
       <Switch>
@@ -64,6 +68,7 @@ export default function App() {
         <Route path="/rules" exact component={Rules}></Route>
         <Route path="/addbet" exact component={AddNewBet}></Route>
         <Route path="/chatroom" exact component={Chat} />
+        <Route path="/scheme" exact component={Scheme} />
         <Route path="/" exact>
           <AllMatches refresh={refresh} />
         </Route>
