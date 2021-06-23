@@ -426,6 +426,12 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
       let difSM: number | undefined = undefined;
       let difBet: number | undefined = undefined;
 
+      if (user.name === "Бен") {
+        if (selectedMatch.number === 36) {
+          debugger;
+        }
+      }
+
       if (
         selectedMatch.homeTeamScore !== undefined &&
         selectedMatch.awayTeamScore !== undefined
@@ -435,7 +441,12 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
       if (bet.homeTeamScore !== undefined && bet.awayTeamScore !== undefined) {
         difBet = bet.homeTeamScore - bet.awayTeamScore;
       }
-      if (res < 3 && difSM && difBet && difSM === difBet) {
+      if (
+        res < 3 &&
+        difSM !== undefined &&
+        difBet !== undefined &&
+        difSM === difBet
+      ) {
         res = 2;
       }
 
