@@ -79,9 +79,7 @@ export default function AddNewBet() {
         });
         setMatches(matches);
       })
-      .catch(function (error) {
-        console.log(error);
-      });
+      .catch((error) => console.error(error));
   };
 
   const getAllUsers = (selectedUserName: string) => {
@@ -138,7 +136,6 @@ export default function AddNewBet() {
 
   const handleChangeForSelector = (value: any) => {
     setSelectedUserName(value);
-    console.log(`selected ${value}`);
   };
 
   useEffect(() => {
@@ -148,9 +145,7 @@ export default function AddNewBet() {
   const checkDisabledInput = (fullMatch: MatchType, user: UsersType) => {
     const haveGest = (fullMatch: MatchType, user: UsersType) => {
       let myBet = user.bets.find((el) => el.matchId === fullMatch.id);
-      if (myBet !== undefined) {
-        // debugger;
-      }
+
       let awayTeamScore = -1;
       let homeTeamScore = -1;
       let haveBet = false;

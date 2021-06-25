@@ -88,9 +88,7 @@ export default function Groups() {
         });
         setMatches(matches);
       })
-      .catch(function (error) {
-        console.log(error);
-      });
+      .catch((error) => console.error(error));
   };
 
   let params: any = useParams();
@@ -175,7 +173,7 @@ export default function Groups() {
         }
         setGroups(allGroups);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.error(error));
   };
 
   useEffect(() => {

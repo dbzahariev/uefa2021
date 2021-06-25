@@ -132,7 +132,6 @@ export default function Chat() {
   };
 
   const handleChangeForSelector = (value: any) => {
-    console.log(`selected ${value}`);
     setNewMsg({ ...newMsg, user: value });
     if (chats.findIndex((el) => el.user === value) === -1) {
       createUser(value);
@@ -174,10 +173,8 @@ export default function Chat() {
       withCredentials: true,
       url: "/chat/save",
     })
-      .then((res) => {
-        console.log("ffff", res);
-      })
-      .catch((err) => {});
+      .then((res) => {})
+      .catch((err) => console.error(err));
   };
 
   const getChats = () => {

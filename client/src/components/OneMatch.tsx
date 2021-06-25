@@ -91,7 +91,6 @@ const convertResult = (score: {
 };
 
 export default function OneMatch({ matchId }: { matchId: string }) {
-  const [data, setData] = useState(null);
   const [time, setTime] = useState(0);
   const [score, setScore] = useState<ScoreType | null>(null);
 
@@ -116,12 +115,6 @@ export default function OneMatch({ matchId }: { matchId: string }) {
     // eslint-disable-next-line
   }, [time]);
 
-  useEffect(() => {
-    if (data !== null) {
-      console.log("new Data:", data);
-    }
-  }, [data]);
-
   const getOneMatch = () => {
     var config: AxiosRequestConfig = {
       method: "GET",
@@ -137,14 +130,9 @@ export default function OneMatch({ matchId }: { matchId: string }) {
       newScore.homeTeam = foo.match.homeTeam;
       newScore.awayTeam = foo.match.awayTeam;
 
-      setData(foo);
       setScore(newScore);
     });
   };
-
-  useEffect(() => {
-    console.log("new score:", score);
-  }, [score]);
 
   if (score === null) {
     return null;

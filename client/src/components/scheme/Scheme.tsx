@@ -72,7 +72,7 @@ export default function Scheme() {
 
         setMatches(matches);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.error(error));
   };
 
   if (matches.length === 0) {

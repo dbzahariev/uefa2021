@@ -28,12 +28,6 @@ export default function PlayersPoints() {
     // eslint-disable-next-line
   }, []);
 
-  useEffect(() => {
-    if (points) {
-      console.log(points);
-    }
-  }, [points]);
-
   const getPointsFromDB = async () => {
     let users = (await getUsersFromDB()) || [];
     let matches = (await getMatchesFromDB()) || [];
