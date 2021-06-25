@@ -4,7 +4,6 @@ import { selectedCompetition } from "../../App";
 import { MatchType } from "../AllMatches2";
 import OneMatchInScheme from "./OneMatchInScheme";
 import Separator from "./separator.svg";
-import $ from "jquery";
 
 export default function Scheme() {
   const [matches, setMatches] = useState<MatchType[]>([]);

@@ -1,9 +1,9 @@
 import React from "react";
+import { translateTeamsName } from "../../helpers/Translate";
 import { MatchType } from "../AllMatches2";
+import { getFlag } from "../../helpers/GetFlags";
 
 export default function OneMatchInScheme({ match }: { match: MatchType }) {
-  // match.homeTeamScore = 1;
-  // match.awayTeamScore = 2;
   let months = [
     "Януари",
     "Февруари",
@@ -78,7 +78,12 @@ export default function OneMatchInScheme({ match }: { match: MatchType }) {
             backgroundColor: "#eeeeee",
           }}
         >
-          {position === "first" ? match.homeTeam.name : match.awayTeam.name}
+          {position === "first"
+            ? translateTeamsName(match.homeTeam.name)
+            : translateTeamsName(match.awayTeam.name)}
+          {getFlag(
+            position === "first" ? match.homeTeam.name : match.awayTeam.name
+          )}
         </div>
         <div
           style={{

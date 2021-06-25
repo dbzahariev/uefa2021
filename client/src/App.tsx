@@ -17,7 +17,6 @@ import Rules from "./components/Rules";
 import AddNewBet from "./components/AddNewBet";
 import Chat from "./components/chat/Chat";
 import Scheme from "./components/scheme/Scheme";
-import $ from "jquery";
 
 const competitionsIds = {
   Uefa: 2018,
