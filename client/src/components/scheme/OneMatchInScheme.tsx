@@ -23,7 +23,7 @@ export default function OneMatchInScheme({ match }: { match: MatchType }) {
     <div style={{ color: "blue" }}>
       {`${new Date(match.utcDate).getDate()} ${
         months[new Date(match.utcDate).getMonth() - 0]
-      }`}
+      } - ${new Date(match.utcDate).toLocaleTimeString("bg-bg")}`}
     </div>
   );
 
@@ -31,7 +31,7 @@ export default function OneMatchInScheme({ match }: { match: MatchType }) {
     let res: number | string | undefined = 0;
     if (team === "home") res = match.homeTeamScore;
     if (team === "away") res = match.awayTeamScore;
-    if (res === undefined) {
+    if (match.status !== "FINISHED" || res === undefined) {
       res = "";
     }
 
