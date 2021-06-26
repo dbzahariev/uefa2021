@@ -13,7 +13,7 @@ export default function oneMatchTable({
   AllMatches: MatchType[];
   users: UsersType[];
 }) {
-  let columnWidth = 150;
+  let columnWidth = 50;
 
   const renderColumnForUser = (
     el: any,
@@ -39,6 +39,23 @@ export default function oneMatchTable({
       dd = "?";
     }
     return dd;
+  };
+
+  const getFullScore = (
+    match: MatchType,
+    type: "homeTeam" | "awayTeam",
+    ad: any
+  ) => {
+    let res = `${ad}`;
+    if (ad === null || ad === undefined) {
+      return "";
+    }
+
+    if (match.score?.duration !== "REGULAR") {
+      res = `${ad} (${match.score?.fullTime[type]})`;
+    }
+
+    return res;
   };
 
   return (
@@ -83,19 +100,35 @@ export default function oneMatchTable({
           title="Д"
           dataIndex="homeTeamScore"
           key="homeTeamScore"
-          width={40}
-          render={(el: any, record: MatchType) =>
-            record.status === "IN_PLAY" || record.status === "PAUSED" ? "?" : el
-          }
+          width={100}
+          render={(el: any, record: MatchType) => (
+            <div
+              style={{
+                width: "30px",
+              }}
+            >
+              {record.status === "IN_PLAY" || record.status === "PAUSED"
+                ? "?"
+                : `${getFullScore(record, "homeTeam", el)}`}
+            </div>
+          )}
         />
         <Column
           title="Г"
           dataIndex="awayTeamScore"
           key="awayTeamScore"
-          width={40}
-          render={(el: any, record: MatchType) =>
-            record.status === "IN_PLAY" || record.status === "PAUSED" ? "?" : el
-          }
+          width={100}
+          render={(el: any, record: MatchType) => (
+            <div
+              style={{
+                width: "30px",
+              }}
+            >
+              {record.status === "IN_PLAY" || record.status === "PAUSED"
+                ? "?"
+                : `${getFullScore(record, "awayTeam", el)}`}
+            </div>
+          )}
         />
         <Column
           title="П"

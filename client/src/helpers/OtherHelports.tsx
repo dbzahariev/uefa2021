@@ -349,6 +349,7 @@ export const getAllMatches = (setMatches: Function) => {
           homeTeamScore: calculatedScore.ht,
           awayTeamScore: calculatedScore.at,
           status: el.status,
+          score: el.score,
         };
         matches.push(matchToAdd);
       });
