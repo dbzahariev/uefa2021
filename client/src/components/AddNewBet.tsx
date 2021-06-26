@@ -394,7 +394,6 @@ export default function AddNewBet() {
 
       const checkDisablePredWinner = (vall: any) => {
         let res = false;
-        let kk = vall;
         let bet = user.bets.find((el) => el.matchId === vall.id);
         if (bet !== undefined) {
           if (bet.homeTeamScore === bet.awayTeamScore) {
@@ -487,7 +486,7 @@ export default function AddNewBet() {
           return (
             <ColumnGroup key={user.name} title={user.name}>
               <Column
-                title="Г"
+                title="Д"
                 dataIndex="homeTeamScore"
                 key="homeTeamScore"
                 width={80}
@@ -496,7 +495,7 @@ export default function AddNewBet() {
                 }
               />
               <Column
-                title="Д"
+                title="Г"
                 dataIndex="awayTeamScore"
                 key="awayTeamScore"
                 width={80}
