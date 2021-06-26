@@ -306,12 +306,12 @@ export const getAllMatches = (setMatches: Function) => {
       data = data.slice(0, 55); // limit First 3
       let matches: MatchType[] = [];
 
-      data.forEach((el: any, index) => {
+      data.forEach((el: MatchType, index) => {
         if (el.id === 325091) {
         }
         let score = el.score;
 
-        const calcScore = (match: any) => {
+        const calcScore = (match: MatchType) => {
           let res: {
             ht: number | undefined;
             at: number | undefined;
@@ -324,6 +324,13 @@ export const getAllMatches = (setMatches: Function) => {
           }
           if (at !== null) {
             res.at = score?.fullTime?.awayTeam;
+          }
+
+          if (res.ht !== undefined) {
+            res.ht -= match.score?.extraTime.homeTeam || 0;
+          }
+          if (res.at !== undefined) {
+            res.at -= match.score?.extraTime.awayTeam || 0;
           }
 
           return res;

@@ -28,6 +28,7 @@ export interface MatchType {
   };
   utcDate: Date;
   group?: string | undefined;
+  stage?: string | undefined;
   score?: {
     duration: string;
     extraTime: {

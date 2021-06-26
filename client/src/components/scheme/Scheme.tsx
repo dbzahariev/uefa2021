@@ -33,7 +33,7 @@ export default function Scheme() {
           }
           let score = el.score;
 
-          const calcScore = (match: any) => {
+          const calcScore = (match: MatchType) => {
             let res: {
               ht: number | undefined;
               at: number | undefined;
@@ -46,6 +46,13 @@ export default function Scheme() {
             }
             if (at !== null) {
               res.at = score?.fullTime?.awayTeam;
+            }
+
+            if (res.ht !== undefined) {
+              res.ht -= match.score?.extraTime.homeTeam || 0;
+            }
+            if (res.at !== undefined) {
+              res.at -= match.score?.extraTime.awayTeam || 0;
             }
 
             return res;
