@@ -67,7 +67,7 @@ export interface UsersType {
   colorTable: string;
 }
 
-export const renderP = (el: string) => {
+export const renderP = (el: string, plainText = false) => {
   let result = "";
   if (el === "HOME_TEAM") {
     result = "Д";
@@ -77,6 +77,9 @@ export const renderP = (el: string) => {
     result = "Р";
   } else {
     result = "";
+  }
+  if (plainText) {
+    return result;
   }
   return <span>{result}</span>;
 };

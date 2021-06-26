@@ -1,4 +1,4 @@
-import { InputNumber, notification, Select, Space, Table } from "antd";
+import { Input, InputNumber, notification, Select, Space, Table } from "antd";
 import Column from "antd/lib/table/Column";
 import ColumnGroup from "antd/lib/table/ColumnGroup";
 import axios, { AxiosRequestConfig } from "axios";
@@ -185,14 +185,18 @@ export default function AddNewBet() {
     return result;
   };
 
-  const calcWinner = (homeScore: number, awayScore: number) => {
+  const calcWinner = (
+    homeScore: number,
+    awayScore: number,
+    forW: number = 0
+  ) => {
     let res: string = "";
-    if (homeScore > awayScore) {
+    if (homeScore > awayScore || forW === 1) {
       res = "HOME_TEAM";
-    } else if (awayScore > homeScore) {
+    } else if (awayScore > homeScore || forW === 2) {
       res = "AWAY_TEAM";
     } else {
-      res = "DRAW";
+      res = "";
     }
     if (homeScore === -1 || awayScore === -1) {
       res = "";
@@ -233,9 +237,10 @@ export default function AddNewBet() {
     el1: any,
     user: UsersType,
     fullMatch: MatchType,
-    type: "homeTeamScore" | "awayTeamScore"
+    type: "homeTeamScore" | "awayTeamScore" | "winner"
   ) => {
-    let newValue = el1;
+    let newValue: string | number = el1;
+
     let newUsers = [...users];
     let curUser = newUsers.find((userSel) => userSel.name === user.name);
 
@@ -257,14 +262,77 @@ export default function AddNewBet() {
         point: 0,
         date: new Date(),
       };
-      newBet.winner = calcWinner(newBet.homeTeamScore, newBet.awayTeamScore);
+
+      if (type === "winner") {
+        let kk = el1.target.value.toString().toLowerCase();
+        if (
+          kk === "1" ||
+          kk === "h" ||
+          kk === "home" ||
+          kk === "домакин" ||
+          kk === "д"
+        ) {
+          newValue = 1;
+        } else if (
+          kk === "2" ||
+          kk === "a" ||
+          kk === "away" ||
+          kk === "гост" ||
+          kk === "г"
+        ) {
+          newValue = 2;
+        } else {
+          console.log("Грешка при въвеждане!!!", kk);
+        }
+
+        newBet.winner = calcWinner(
+          newBet.homeTeamScore,
+          newBet.awayTeamScore,
+          Number(newValue)
+        );
+      } else {
+        newBet.winner = calcWinner(newBet.homeTeamScore, newBet.awayTeamScore);
+      }
       bet = newBet;
 
       curUser.bets.push(newBet);
     } else {
-      bet[type] = Number(newValue);
-      bet.winner = calcWinner(bet.homeTeamScore, bet.awayTeamScore);
+      if (type === "awayTeamScore" || type === "homeTeamScore") {
+        bet[type] = Number(newValue);
+      }
+
+      if (type === "winner") {
+        let kk = el1.target.value.toString().toLowerCase();
+        if (
+          kk === "1" ||
+          kk === "h" ||
+          kk === "home" ||
+          kk === "домакин" ||
+          kk === "д"
+        ) {
+          newValue = 1;
+        } else if (
+          kk === "2" ||
+          kk === "a" ||
+          kk === "away" ||
+          kk === "гост" ||
+          kk === "г"
+        ) {
+          newValue = 2;
+        } else {
+          console.log("Грешка при въвеждане!!!", kk);
+        }
+
+        bet.winner = calcWinner(
+          bet.homeTeamScore,
+          bet.awayTeamScore,
+          Number(newValue)
+        );
+      } else {
+        bet.winner = calcWinner(bet.homeTeamScore, bet.awayTeamScore);
+      }
     }
+
     bet.date = new Date();
 
     setUsers(newUsers);
@@ -275,9 +343,11 @@ export default function AddNewBet() {
   const getValue = (
     user: UsersType,
     type: "homeTeamScore" | "awayTeamScore",
-    fullMatch: MatchType
+    fullMatch: MatchType,
+    isWinner: boolean
   ) => {
     let selectedMatch = user.bets.find((el) => el.matchId === fullMatch.id);
+
     let res: string | number = "";
     if (selectedMatch) {
       let foo = selectedMatch[type];
@@ -285,7 +355,14 @@ export default function AddNewBet() {
         res = foo;
       }
     }
+    if (isWinner && selectedMatch !== undefined) {
+      let foo = selectedMatch.winner;
+      res = foo;
+    }
 
+    // if (res === "DRAW") {
+    //   res = "";
+    // }
     return res;
   };
 
@@ -305,11 +382,53 @@ export default function AddNewBet() {
           disabled={checkDisabledInput(fullMatch, user)}
           placeholder=""
           defaultValue={""}
-          value={getValue(user, type, fullMatch)}
-          // value={""}
+          value={getValue(user, type, fullMatch, false)}
           onChange={(el) => handleChange(el, user, fullMatch, type)}
         />
       );
+    };
+
+    const renderWinner = (user: UsersType, record: MatchType) => {
+      let selectedMatchWinner =
+        user.bets.find((el) => el.matchId === record.id)?.winner || "";
+
+      const checkDisablePredWinner = (vall: any) => {
+        let res = false;
+        let kk = vall;
+        let bet = user.bets.find((el) => el.matchId === vall.id);
+        if (bet !== undefined) {
+          if (bet.homeTeamScore === bet.awayTeamScore) {
+            res = false;
+          } else {
+            res = true;
+          }
+        }
+
+        return res;
+      };
+
+      let res = renderP(selectedMatchWinner);
+      // if (selectedMatchWinner === "DRAW") {
+      // res = <span>1</span>;
+      let vall: string = getValue(
+        user,
+        "awayTeamScore",
+        record,
+        true
+      ).toString();
+      vall = renderP(vall, true).toString();
+
+      res = (
+        <Input
+          disabled={checkDisablePredWinner(record)}
+          style={{ width: 100 }}
+          placeholder=""
+          value={vall}
+          onChange={(el) => handleChange(el, user, record, "winner")}
+        />
+      );
+      // }
+      return res;
     };
 
     return (
@@ -391,10 +510,7 @@ export default function AddNewBet() {
                 key="winner"
                 width={40}
                 render={(_, record: MatchType) => {
-                  let selectedMatchWinner =
-                    user.bets.find((el) => el.matchId === record.id)?.winner ||
-                    "";
-                  return renderP(selectedMatchWinner);
+                  return renderWinner(user, record);
                 }}
               />
             </ColumnGroup>
