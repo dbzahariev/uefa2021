@@ -122,6 +122,14 @@ export const getPoints = (newUsers: UsersType[], matches: MatchType[]) => {
         res = 2;
       }
 
+      if (
+        (selectedMatch.group || "").indexOf("Group") === -1 &&
+        selectedMatch.status === "FINISHED" &&
+        selectedMatch.winner === bet.winner
+      ) {
+        res += 1;
+      }
+
       let betDate = new Date(bet.date);
       let matchDate = new Date(selectedMatch.utcDate);
       let diff = betDate.getTime() - matchDate.getTime();
