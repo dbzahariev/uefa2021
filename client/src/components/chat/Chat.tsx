@@ -12,6 +12,7 @@ const { Option } = Select;
 interface MessageTypeFoeChat {
   date: Date;
   message: String;
+  likes: any[];
 }
 
 interface ChatType {
@@ -148,7 +149,12 @@ export default function Chat() {
       let newMsgs: MessageType[] = [];
       chats.forEach((ch) => {
         ch.messages.forEach((msg) => {
-          newMsgs.push({ user: ch.user, date: msg.date, message: msg.message });
+          newMsgs.push({
+            user: ch.user,
+            date: msg.date,
+            message: msg.message,
+            likes: msg.likes,
+          });
         });
       });
       newMsgs = newMsgs.sort(
@@ -183,7 +189,9 @@ export default function Chat() {
       withCredentials: true,
       url: "/chat",
     })
-      .then((res) => setChats(res.data))
+      .then((res) => {
+        setChats(res.data);
+      })
       .catch((err) => console.error(err));
   };
 
@@ -223,9 +231,10 @@ export default function Chat() {
     let oldMyMsgs: ChatType[] = chats.filter((el) => el.user === user);
     if (oldMyMsgs.length > 0) {
       let oldMyMsgs2 = oldMyMsgs[0];
+
       let newMessages: MessageTypeFoeChat[] = [
         ...oldMyMsgs2.messages,
-        { message: message, date: date },
+        { message: message, date: date, likes: [] },
       ];
 
       axios({
@@ -280,6 +289,41 @@ export default function Chat() {
     });
   };
 
+  const likeMessage = (
+    newMessage: String,
+    oldMessage: MessageType,
+    isLike: boolean
+  ) => {
+    let user = oldMessage.user;
+    let selectedUser = newMsg.user;
+    let oldMyMsgs: ChatType[] = chats.filter((el) => el.user === user);
+    let oldMyMsgs2 = oldMyMsgs[0];
+    let newMessages: MessageTypeFoeChat[] = [...oldMyMsgs2.messages];
+    for (let i = 0; i < newMessages.length; i++) {
+      if (newMessages[i].date === oldMessage.date) {
+        if (isLike) {
+          newMessages[i].likes = (newMessages[i].likes || []).filter(
+            (el) => el !== selectedUser
+          );
+        } else {
+          newMessages[i].likes = [
+            ...(newMessages[i].likes || []),
+            selectedUser,
+          ];
+        }
+      }
+    }
+    axios({
+      method: "POST",
+      data: { messages: newMessages },
+      withCredentials: true,
+      url: `/chat/update?id=${user}`,
+    }).then(() => {
+      getChats();
+      getMesses();
+    });
+  };
+
   const removeMessage = (message: MessageType) => {
     let newMessages = chats.filter((el) => el.user === message.user).slice()[0];
     newMessages.messages = newMessages.messages.filter(
@@ -308,6 +352,7 @@ export default function Chat() {
         fullUsers={fullUsers}
         editMessage={editMessage}
         removeMessage={removeMessage}
+        likeMessage={likeMessage}
         selectedUser={selectedUser}
       />
     );

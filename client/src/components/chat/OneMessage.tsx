@@ -8,6 +8,7 @@ export interface MessageType {
   user: string;
   date: Date;
   message: String;
+  likes?: any[];
 }
 
 export default function OneMessage({
@@ -16,6 +17,7 @@ export default function OneMessage({
   fullUsers,
   editMessage,
   removeMessage,
+  likeMessage,
   selectedUser,
 }: {
   message: MessageType;
@@ -23,6 +25,7 @@ export default function OneMessage({
   fullUsers: UsersType[];
   editMessage: Function;
   removeMessage: Function;
+  likeMessage: Function;
   selectedUser: string;
 }) {
   let selUser = fullUsers.find((el) => el.name === message.user);
@@ -52,6 +55,49 @@ export default function OneMessage({
     }
   };
 
+  const like = () => {
+    console.log("ok");
+    likeMessage(message.user, message, ifLiked());
+  };
+
+  const ifLiked = () => {
+    let res = false;
+    let kk = message;
+    if (kk?.likes !== undefined) {
+      kk.likes.forEach((like) => {
+        let foo = selectedUser;
+        if (foo.length > 0) {
+          if (like === foo) {
+            res = true;
+          }
+        }
+      });
+    }
+    return res;
+  };
+  const getColorLiked = () => {
+    let res = ifLiked() ? "silver" : "red";
+    return res;
+  };
+
+  const getLikedText = () => {
+    let res = ifLiked() ? "Отмяна харесване" : "Харесване 👍";
+
+    let likedFrom = "(";
+
+    let kk = message;
+    if (kk?.likes !== undefined && kk.likes.length > 0) {
+      kk.likes.sort();
+      likedFrom += kk.likes.join(", ");
+    }
+
+    likedFrom += ")";
+    if (likedFrom !== "()") {
+      res += ` ${likedFrom}`;
+    }
+    return res;
+  };
+
   return (
     <div
       key={index}
@@ -64,29 +110,41 @@ export default function OneMessage({
       }}
     >
       <Space
-        direction={"horizontal"}
+        direction={checkMobile() ? "vertical" : "horizontal"}
         style={{
           display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
+          // alignItems: "center",
+          // justifyContent: "center",
           float: checkMobile() ? "left" : "right",
           height: "200%",
         }}
       >
-        <Button onClick={enableEdit} disabled={selectedUser !== message.user}>
-          Редактиране
-        </Button>
-
-        <Popconfirm
-          title="Потвърждаване"
-          icon={false}
-          onConfirm={() => removeMessage(message)}
-          onCancel={() => {}}
-          okText="Да"
-          cancelText="Не"
+        <Button
+          type={"link"}
+          disabled={selectedUser.length === 0}
+          style={{
+            color: getColorLiked(),
+          }}
+          onClick={like}
         >
-          <Button disabled={selectedUser !== message.user}>Премахване</Button>
-        </Popconfirm>
+          {getLikedText()}
+        </Button>
+        <Space direction={"horizontal"}>
+          <Button onClick={enableEdit} disabled={selectedUser !== message.user}>
+            Редактиране
+          </Button>
+
+          <Popconfirm
+            title="Потвърждаване"
+            icon={false}
+            onConfirm={() => removeMessage(message)}
+            onCancel={() => {}}
+            okText="Да"
+            cancelText="Не"
+          >
+            <Button disabled={selectedUser !== message.user}>Премахване</Button>
+          </Popconfirm>
+        </Space>
       </Space>
       <div>
         <div>
