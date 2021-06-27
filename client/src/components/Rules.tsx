@@ -1,6 +1,10 @@
 import { Space } from "antd";
 import React from "react";
 
+export const coefficientQuarterFinal = 1.5;
+export const coefficientSemiFinal = 2;
+export const coefficientFinal = 3;
+
 export default function Rules() {
   const styleHeader: React.CSSProperties = {
     fontSize: 20,
@@ -67,21 +71,21 @@ export default function Rules() {
         <span>
           <span style={styleMiniHeader}>Четвъртфинали</span>
           <span style={styleNormal}>
-            - полученият брой точки се умножава по {1.5}
+            - полученият брой точки се умножава по {coefficientQuarterFinal}
           </span>
         </span>
 
         <span>
           <span style={styleMiniHeader}>Полуфинали</span>
           <span style={styleNormal}>
-            - полученият брой точки се умножава по {2}
+            - полученият брой точки се умножава по {coefficientSemiFinal}
           </span>
         </span>
 
         <span>
           <span style={styleMiniHeader}>Финал</span>
           <span style={styleNormal}>
-            - полученият брой точки се умножава по {3}
+            - полученият брой точки се умножава по {coefficientFinal}
           </span>
         </span>
         <br />

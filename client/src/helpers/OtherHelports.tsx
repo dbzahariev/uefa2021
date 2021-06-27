@@ -2,6 +2,11 @@ import axios, { AxiosRequestConfig } from "axios";
 import { selectedCompetition } from "../App";
 import { MatchType, UsersType } from "../components/AllMatches2";
 import $ from "jquery";
+import {
+  coefficientFinal,
+  coefficientQuarterFinal,
+  coefficientSemiFinal,
+} from "../components/Rules";
 
 export const getAllUsers = (setUsers: Function) => {
   axios({
@@ -131,11 +136,19 @@ export const getPoints = (newUsers: UsersType[], matches: MatchType[]) => {
         res += 1;
       }
 
+      if (selectedMatch.group === "QUARTER_FINAL") {
+        res *= coefficientQuarterFinal;
+      } else if (selectedMatch.group === "SEMI_FINAL") {
+        res *= coefficientSemiFinal;
+      } else if (selectedMatch.group === "FINAL") {
+        res *= coefficientFinal;
+      }
+
       let betDate = new Date(bet.date);
       let matchDate = new Date(selectedMatch.utcDate);
       let diffTime = betDate.getTime() - matchDate.getTime();
 
-      if (diffTime > 0 && res > 0) {
+      if (diffTime > 0) {
         res = res / 2;
       }
     }
