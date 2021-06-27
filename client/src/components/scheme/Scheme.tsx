@@ -71,6 +71,7 @@ export default function Scheme() {
             homeTeamScore: calculatedScore.ht,
             awayTeamScore: calculatedScore.at,
             status: el.status,
+            score: el.score,
           };
           if ((matchToAdd.group || "").indexOf("Group") === -1) {
             matches.push(matchToAdd);
@@ -90,7 +91,7 @@ export default function Scheme() {
     let matchesIn16 = matches.filter((match) => match.group === "LAST_16");
 
     return (
-      <div style={{ height: "680px" }}>
+      <div>
         <OneMatchInScheme match={matchesIn16[3]} /> {/* 1 */}
         <OneMatchInScheme match={matchesIn16[1]} /> {/* 2 */}
         <OneMatchInScheme match={matchesIn16[5]} /> {/* 3 */}
@@ -107,17 +108,17 @@ export default function Scheme() {
     let matchesIn8 = matches.filter((match) => match.group === "QUARTER_FINAL");
 
     return (
-      <div style={{ height: "680px" }}>
-        <div style={{ marginTop: "23.8%" }}>
+      <div>
+        <div style={{ marginTop: "18.8%" }}>
           <OneMatchInScheme match={matchesIn8[1]} />
         </div>
-        <div style={{ marginTop: "50.9%" }}>
+        <div style={{ marginTop: "38%" }}>
           <OneMatchInScheme match={matchesIn8[0]} />
         </div>
-        <div style={{ marginTop: "50.9%" }}>
+        <div style={{ marginTop: "38%" }}>
           <OneMatchInScheme match={matchesIn8[3]} />
         </div>
-        <div style={{ marginTop: "50.9%" }}>
+        <div style={{ marginTop: "38%" }}>
           <OneMatchInScheme match={matchesIn8[2]} />
         </div>
       </div>
@@ -128,11 +129,11 @@ export default function Scheme() {
     let matchesIn8 = matches.filter((match) => match.group === "SEMI_FINAL");
 
     return (
-      <div style={{ height: "680px" }}>
-        <div style={{ marginTop: "70.9%" }}>
+      <div>
+        <div style={{ marginTop: "55.5%" }}>
           <OneMatchInScheme match={matchesIn8[0]} />
         </div>
-        <div style={{ marginTop: "145.5%" }}>
+        <div style={{ marginTop: "112.5%" }}>
           <OneMatchInScheme match={matchesIn8[1]} />
         </div>
       </div>
@@ -144,7 +145,7 @@ export default function Scheme() {
 
     return (
       <div style={{ height: "680px" }}>
-        <div style={{ marginTop: "165.2%" }}>
+        <div style={{ marginTop: "129%" }}>
           <OneMatchInScheme match={matchesIn8[0]} />
         </div>
       </div>
@@ -153,11 +154,11 @@ export default function Scheme() {
 
   const returnSeparator16 = () => {
     let width = "60px";
-    let height = "86px";
+    let height = "83px";
     return (
       <div
         style={{
-          marginTop: "10.4%",
+          marginTop: "10.3%",
           display: "flex",
           flexDirection: "column",
         }}
@@ -169,7 +170,7 @@ export default function Scheme() {
         />
         <img
           style={{
-            marginTop: "84px",
+            marginTop: "80px",
             height: height,
             width: width,
             objectFit: "fill",
@@ -179,7 +180,7 @@ export default function Scheme() {
         />
         <img
           style={{
-            marginTop: "84px",
+            marginTop: "80px",
             height: height,
             width: width,
             objectFit: "fill",
@@ -189,7 +190,7 @@ export default function Scheme() {
         />
         <img
           style={{
-            marginTop: "84px",
+            marginTop: "80px",
             height: height,
             width: width,
             objectFit: "fill",
@@ -205,7 +206,7 @@ export default function Scheme() {
     return (
       <div
         style={{
-          marginTop: "18.9%",
+          marginTop: "18.5%",
           display: "flex",
           flexDirection: "column",
         }}
@@ -213,14 +214,15 @@ export default function Scheme() {
         <img
           src={Separator}
           alt="Separator"
-          style={{ height: "171.8px", objectFit: "cover" }}
+          style={{ height: "164.5px", width: "120px", objectFit: "cover" }}
         />
         <img
           src={Separator}
           alt="Separator"
           style={{
-            marginTop: "169px",
-            height: "171.8px",
+            marginTop: "161.1px",
+            height: "164.5px",
+            width: "120px",
             objectFit: "cover",
           }}
         />
@@ -232,7 +234,7 @@ export default function Scheme() {
     return (
       <div
         style={{
-          marginTop: "35.6%",
+          marginTop: "34.5%",
           display: "flex",
           flexDirection: "column",
         }}
@@ -240,7 +242,7 @@ export default function Scheme() {
         <img
           src={Separator}
           alt="Separator"
-          style={{ height: "345px", objectFit: "unset" }}
+          style={{ height: "330px", objectFit: "unset" }}
         />
       </div>
     );

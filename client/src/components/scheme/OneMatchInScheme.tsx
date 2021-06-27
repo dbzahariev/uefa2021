@@ -29,8 +29,22 @@ export default function OneMatchInScheme({ match }: { match: MatchType }) {
 
   const getScore = (team: "home" | "away") => {
     let res: number | string | undefined = 0;
-    if (team === "home") res = match.homeTeamScore;
-    if (team === "away") res = match.awayTeamScore;
+
+    if (team === "home") {
+      if (res !== undefined) {
+        if (match.score?.duration !== "REGULAR") {
+          res = `${match.homeTeamScore} (${match.score?.fullTime.homeTeam})`;
+        }
+      }
+    }
+    if (team === "away") {
+      if (res !== undefined) {
+        if (match.score?.duration !== "REGULAR") {
+          res = `${match.awayTeamScore} (${match.score?.fullTime.awayTeam})`;
+        }
+      }
+    }
+
     if (match.status !== "FINISHED" || res === undefined) {
       res = "";
     }
@@ -71,7 +85,7 @@ export default function OneMatchInScheme({ match }: { match: MatchType }) {
         <div
           style={{
             paddingLeft: 5,
-            width: "80%",
+            width: `${100 - 25}%`,
             borderTopLeftRadius: position === "first" ? 10 : 0,
             borderBottomLeftRadius: position === "first" ? 0 : 10,
             border: "1px solid black",
@@ -88,7 +102,7 @@ export default function OneMatchInScheme({ match }: { match: MatchType }) {
         <div
           style={{
             paddingLeft: 5,
-            width: "20%",
+            width: "25%",
             borderTopRightRadius: position === "first" ? 10 : 0,
             borderBottomRightRadius: position === "first" ? 0 : 10,
             border: "1px solid black",
@@ -107,8 +121,8 @@ export default function OneMatchInScheme({ match }: { match: MatchType }) {
   return (
     <div
       style={{
-        width: "180px",
-        height: "12.5%",
+        width: "220px",
+        height: "12.0%",
         fontSize: 16,
       }}
     >
