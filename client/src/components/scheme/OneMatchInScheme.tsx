@@ -30,18 +30,18 @@ export default function OneMatchInScheme({ match }: { match: MatchType }) {
   const getScore = (team: "home" | "away") => {
     let res: number | string | undefined = 0;
 
-    if (team === "home") {
-      if (res !== undefined) {
-        if (match.score?.duration !== "REGULAR") {
-          res = `${match.homeTeamScore} (${match.score?.fullTime.homeTeam})`;
-        }
+    if (team === "home" && res !== undefined) {
+      res = `${match.homeTeamScore}`;
+
+      if (match.score?.duration !== "REGULAR") {
+        res += ` (${match.score?.fullTime.homeTeam})`;
       }
     }
-    if (team === "away") {
-      if (res !== undefined) {
-        if (match.score?.duration !== "REGULAR") {
-          res = `${match.awayTeamScore} (${match.score?.fullTime.awayTeam})`;
-        }
+    if (team === "away" && res !== undefined) {
+      res = `${match.awayTeamScore}`;
+
+      if (match.score?.duration !== "REGULAR") {
+        res += ` (${match.score?.fullTime.awayTeam})`;
       }
     }
 

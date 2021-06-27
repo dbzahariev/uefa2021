@@ -29,8 +29,6 @@ export default function Scheme() {
         let matches: MatchType[] = [];
 
         data.forEach((el: any, index) => {
-          if (el.id === 325091) {
-          }
           let score = el.score;
 
           const calcScore = (match: MatchType) => {
