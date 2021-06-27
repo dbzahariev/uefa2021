@@ -91,14 +91,14 @@ export default function Scheme() {
 
     return (
       <div style={{ height: "680px" }}>
-        <OneMatchInScheme match={matchesIn16[0]} />
-        <OneMatchInScheme match={matchesIn16[1]} />
-        <OneMatchInScheme match={matchesIn16[2]} />
-        <OneMatchInScheme match={matchesIn16[3]} />
-        <OneMatchInScheme match={matchesIn16[4]} />
-        <OneMatchInScheme match={matchesIn16[5]} />
-        <OneMatchInScheme match={matchesIn16[6]} />
-        <OneMatchInScheme match={matchesIn16[7]} />
+        <OneMatchInScheme match={matchesIn16[3]} /> {/* 1 */}
+        <OneMatchInScheme match={matchesIn16[1]} /> {/* 2 */}
+        <OneMatchInScheme match={matchesIn16[5]} /> {/* 3 */}
+        <OneMatchInScheme match={matchesIn16[4]} /> {/* 4 */}
+        <OneMatchInScheme match={matchesIn16[7]} /> {/* 5 */}
+        <OneMatchInScheme match={matchesIn16[6]} /> {/* 6 */}
+        <OneMatchInScheme match={matchesIn16[2]} /> {/* 7 */}
+        <OneMatchInScheme match={matchesIn16[0]} /> {/* 8 */}
       </div>
     );
   };
@@ -109,16 +109,16 @@ export default function Scheme() {
     return (
       <div style={{ height: "680px" }}>
         <div style={{ marginTop: "23.8%" }}>
-          <OneMatchInScheme match={matchesIn8[0]} />
-        </div>
-        <div style={{ marginTop: "50.9%" }}>
           <OneMatchInScheme match={matchesIn8[1]} />
         </div>
         <div style={{ marginTop: "50.9%" }}>
-          <OneMatchInScheme match={matchesIn8[2]} />
+          <OneMatchInScheme match={matchesIn8[0]} />
         </div>
         <div style={{ marginTop: "50.9%" }}>
           <OneMatchInScheme match={matchesIn8[3]} />
+        </div>
+        <div style={{ marginTop: "50.9%" }}>
+          <OneMatchInScheme match={matchesIn8[2]} />
         </div>
       </div>
     );
