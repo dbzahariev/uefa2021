@@ -92,49 +92,50 @@ export const getPoints = (newUsers: UsersType[], matches: MatchType[]) => {
     let res = 0;
 
     if (bet) {
+      const R1 = selectedMatch.homeTeamScore;
+      const R2 = selectedMatch.awayTeamScore;
+      const P1 = bet.homeTeamScore;
+      const P2 = bet.awayTeamScore;
+      const R3 = selectedMatch.winner;
+      const P3 = bet.winner;
       if (
-        selectedMatch.winner === bet.winner &&
-        selectedMatch.homeTeamScore === bet.homeTeamScore &&
-        selectedMatch.awayTeamScore === bet.awayTeamScore
+        R1 === undefined ||
+        R2 === undefined ||
+        P1 === undefined ||
+        P2 === undefined
       ) {
-        res = 3;
-      } else if (selectedMatch.winner === bet.winner) {
-        res = 1;
+        return res;
       }
-      let difSM: number | undefined = undefined;
-      let difBet: number | undefined = undefined;
 
-      if (
-        selectedMatch.homeTeamScore !== undefined &&
-        selectedMatch.awayTeamScore !== undefined
-      ) {
-        difSM = selectedMatch.homeTeamScore - selectedMatch.awayTeamScore;
-      }
-      if (bet.homeTeamScore !== undefined && bet.awayTeamScore !== undefined) {
-        difBet = bet.homeTeamScore - bet.awayTeamScore;
-      }
-      if (
-        res < 3 &&
-        difSM !== undefined &&
-        difBet !== undefined &&
-        difSM === difBet
-      ) {
+      let difSM: number | undefined = R1 - R2;
+
+      let difBet: number | undefined = P1 - P2;
+
+      if (R1 === P1 && R2 === P2) {
+        res = 3;
+      } else if (difSM === difBet) {
         res = 2;
+      } else if (
+        (P1 > P2 && R1 > R2) ||
+        (P1 === P2 && R1 === R2) ||
+        (P1 < P2 && R1 < R2)
+      ) {
+        res = 1;
       }
 
       if (
         (selectedMatch.group || "").indexOf("Group") === -1 &&
         selectedMatch.status === "FINISHED" &&
-        selectedMatch.winner === bet.winner
+        R3 === P3
       ) {
         res += 1;
       }
 
       let betDate = new Date(bet.date);
       let matchDate = new Date(selectedMatch.utcDate);
-      let diff = betDate.getTime() - matchDate.getTime();
+      let diffTime = betDate.getTime() - matchDate.getTime();
 
-      if (diff > 0 && res > 0) {
+      if (diffTime > 0 && res > 0) {
         res = res / 2;
       }
     }
