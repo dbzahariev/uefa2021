@@ -49,6 +49,10 @@ export default function OneMatchInScheme({ match }: { match: MatchType }) {
       res = "";
     }
 
+    if (match.status === "IN_PLAY" || match.status === "PAUSED") {
+      res = "?";
+    }
+
     return res;
   };
 
