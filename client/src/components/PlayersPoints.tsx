@@ -3,8 +3,8 @@ import Column from "antd/lib/table/Column";
 import axios, { AxiosRequestConfig } from "axios";
 import { Key, useEffect, useState } from "react";
 import { selectedCompetition } from "../App";
-import { MatchType, UsersType } from "./AllMatches";
 import { LoadingOutlined } from "@ant-design/icons";
+import { MatchType, UsersType } from "../helpers/OtherHelpers";
 
 interface NewPointType {
   key: Key;
@@ -111,6 +111,7 @@ export default function PlayersPoints() {
       data.forEach((el, index) => {
         let score = el.score;
         let matchToAdd: MatchType = {
+          status: el.status,
           number: index + 1,
           key: matches.length || 0,
           id: el.id,

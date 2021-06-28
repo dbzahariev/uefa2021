@@ -3,8 +3,8 @@ import axios, { AxiosRequestConfig } from "axios";
 import { Button, Space, Table } from "antd";
 import { translateTeamsName } from "../helpers/Translate";
 import { useParams } from "react-router-dom";
-import { MatchType } from "./AllMatches2";
 import { selectedCompetition } from "../App";
+import { calcScore, MatchType } from "../helpers/OtherHelpers";
 
 const competitionsIds = {
   Uefa: 2018,
@@ -52,24 +52,7 @@ export default function Groups() {
           }
           let score = el.score;
 
-          const calcScore = (match: any) => {
-            let res: {
-              ht: number | undefined;
-              at: number | undefined;
-            } = { ht: undefined, at: undefined };
-
-            let ht = score?.fullTime?.homeTeam;
-            let at = score?.fullTime?.awayTeam;
-            if (ht !== null) {
-              res.ht = score?.fullTime?.homeTeam;
-            }
-            if (at !== null) {
-              res.at = score?.fullTime?.awayTeam;
-            }
-
-            return res;
-          };
-          let calculatedScore = calcScore(el);
+          let calculatedScore = calcScore(el, score);
 
           let matchToAdd: MatchType = {
             number: index + 1,

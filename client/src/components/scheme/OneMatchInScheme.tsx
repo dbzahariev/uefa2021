@@ -1,7 +1,7 @@
 import React from "react";
 import { translateTeamsName } from "../../helpers/Translate";
-import { MatchType } from "../AllMatches2";
 import { getFlag } from "../../helpers/GetFlags";
+import { MatchType } from "../../helpers/OtherHelpers";
 
 export default function OneMatchInScheme({ match }: { match: MatchType }) {
   let months = [

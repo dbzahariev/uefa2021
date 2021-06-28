@@ -1,7 +1,7 @@
 import { Button, Popconfirm, Space } from "antd";
 import TextArea from "antd/lib/input/TextArea";
 import { Key, useEffect, useState } from "react";
-import { UsersType } from "../AllMatches2";
+import { UsersType } from "../../helpers/OtherHelpers";
 import { checkMobile, returnedEmojiText } from "./Chat";
 
 export interface MessageType {

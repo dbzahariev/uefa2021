@@ -2,70 +2,14 @@ import { Input, notification, Space, Spin, Table } from "antd";
 import Column from "antd/lib/table/Column";
 import ColumnGroup from "antd/lib/table/ColumnGroup";
 import axios, { AxiosRequestConfig } from "axios";
-import { Key, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { selectedCompetition } from "../App";
 import { translateTeamsName } from "../helpers/Translate";
 import AutoRefresh, { AutoRefreshInterval } from "./AutoRefresh";
 import $ from "jquery";
 import { LoadingOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
-
-export interface MatchType {
-  number: number;
-  key: Key;
-  id: number;
-  homeTeam: {
-    id: number;
-    name: string;
-  };
-  awayTeam: {
-    id: number;
-    name: string;
-  };
-  utcDate: Date;
-  group?: string | undefined;
-  score?: {
-    duration: string;
-    extraTime: {
-      homeTeam: null;
-      awayTeam: null;
-    };
-    fullTime: {
-      homeTeam: number;
-      awayTeam: number;
-    };
-    halfTime: {
-      homeTeam: number;
-      awayTeam: number;
-    };
-    penalties: {
-      homeTeam: null;
-      awayTeam: null;
-    };
-    winner: string;
-  };
-  winner?: string;
-  homeTeamScore?: number | undefined;
-  awayTeamScore?: number | undefined;
-}
-
-export interface UsersType {
-  name: string;
-  bets: {
-    matchId: number;
-    homeTeamScore: number;
-    awayTeamScore: number;
-    winner: string;
-    point: number;
-    date: Date;
-  }[];
-  index: number;
-  _id?: string;
-  id?: string;
-  totalPoints?: number;
-  finalWinner: "string";
-  colorTable: string;
-}
+import { calcScore, MatchType, UsersType } from "../helpers/OtherHelpers";
 
 export const renderP = (el: string, plainText = false) => {
   let result = "";
@@ -313,26 +257,10 @@ export default function AllMatches({ refresh }: { refresh: Function }) {
           }
           let score = el.score;
 
-          const calcScore = (match: any) => {
-            let res: {
-              ht: number | undefined;
-              at: number | undefined;
-            } = { ht: undefined, at: undefined };
-
-            let ht = score?.fullTime?.homeTeam;
-            let at = score?.fullTime?.awayTeam;
-            if (ht !== null) {
-              res.ht = score?.fullTime?.homeTeam;
-            }
-            if (at !== null) {
-              res.at = score?.fullTime?.awayTeam;
-            }
-
-            return res;
-          };
-          let calculatedScore = calcScore(el);
+          let calculatedScore = calcScore(el, score);
 
           let matchToAdd: MatchType = {
+            status: el.status,
             number: index + 1,
             key: matches.length || 0,
             id: el.id,

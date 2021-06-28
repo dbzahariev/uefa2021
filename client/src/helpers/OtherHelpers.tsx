@@ -1,12 +1,73 @@
 import axios, { AxiosRequestConfig } from "axios";
 import { selectedCompetition } from "../App";
-import { MatchType, UsersType } from "../components/AllMatches2";
 import $ from "jquery";
 import {
   coefficientFinal,
   coefficientQuarterFinal,
   coefficientSemiFinal,
 } from "../components/Rules";
+import { Key } from "react";
+
+export interface ScoreType {
+  duration: string;
+  extraTime: {
+    homeTeam: null;
+    awayTeam: null;
+  };
+  fullTime: {
+    homeTeam: number;
+    awayTeam: number;
+  };
+  halfTime: {
+    homeTeam: number;
+    awayTeam: number;
+  };
+  penalties: {
+    homeTeam: null;
+    awayTeam: null;
+  };
+  winner: string;
+}
+
+export interface MatchType {
+  number: number;
+  key: Key;
+  id: number;
+  homeTeam: {
+    id: number;
+    name: string;
+  };
+  awayTeam: {
+    id: number;
+    name: string;
+  };
+  utcDate: Date;
+  group?: string | undefined;
+  stage?: string | undefined;
+  score?: ScoreType;
+  winner?: string;
+  homeTeamScore?: number | undefined;
+  awayTeamScore?: number | undefined;
+  status: string;
+}
+
+export interface UsersType {
+  name: string;
+  bets: {
+    matchId: number;
+    homeTeamScore: number;
+    awayTeamScore: number;
+    winner: string;
+    point: number;
+    date: Date;
+  }[];
+  index: number;
+  _id?: string;
+  id?: string;
+  totalPoints?: number;
+  finalWinner: "string";
+  colorTable: string;
+}
 
 export const getAllUsers = (setUsers: Function) => {
   axios({
@@ -305,6 +366,38 @@ export const stylingTable = (users: UsersType[]) => {
   $(`#root > div:nth-child(3)`).css("display", "inline");
 };
 
+export const calcScore = (match: MatchType, score: any) => {
+  let res: {
+    ht: number | undefined;
+    at: number | undefined;
+  } = { ht: undefined, at: undefined };
+
+  let ht = score?.fullTime?.homeTeam;
+  let at = score?.fullTime?.awayTeam;
+  if (ht !== null) {
+    res.ht = score?.fullTime?.homeTeam;
+  }
+  if (at !== null) {
+    res.at = score?.fullTime?.awayTeam;
+  }
+
+  if (res.ht !== undefined) {
+    res.ht -= match.score?.extraTime.homeTeam || 0;
+  }
+  if (res.at !== undefined) {
+    res.at -= match.score?.extraTime.awayTeam || 0;
+  }
+
+  if (res.ht !== undefined) {
+    res.ht -= match.score?.penalties.homeTeam || 0;
+  }
+  if (res.at !== undefined) {
+    res.at -= match.score?.penalties.awayTeam || 0;
+  }
+
+  return res;
+};
+
 export const getAllMatches = (setMatches: Function) => {
   var config: AxiosRequestConfig = {
     method: "GET",
@@ -325,38 +418,7 @@ export const getAllMatches = (setMatches: Function) => {
         }
         let score = el.score;
 
-        const calcScore = (match: MatchType) => {
-          let res: {
-            ht: number | undefined;
-            at: number | undefined;
-          } = { ht: undefined, at: undefined };
-
-          let ht = score?.fullTime?.homeTeam;
-          let at = score?.fullTime?.awayTeam;
-          if (ht !== null) {
-            res.ht = score?.fullTime?.homeTeam;
-          }
-          if (at !== null) {
-            res.at = score?.fullTime?.awayTeam;
-          }
-
-          if (res.ht !== undefined) {
-            res.ht -= match.score?.extraTime.homeTeam || 0;
-          }
-          if (res.at !== undefined) {
-            res.at -= match.score?.extraTime.awayTeam || 0;
-          }
-
-          if (res.ht !== undefined) {
-            res.ht -= match.score?.penalties.homeTeam || 0;
-          }
-          if (res.at !== undefined) {
-            res.at -= match.score?.penalties.awayTeam || 0;
-          }
-
-          return res;
-        };
-        let calculatedScore = calcScore(el);
+        let calculatedScore = calcScore(el, score);
 
         let matchToAdd: MatchType = {
           number: index + 1,

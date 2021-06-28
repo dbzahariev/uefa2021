@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig } from "axios";
 import React, { useEffect, useState } from "react";
 import { selectedCompetition } from "../../App";
-import { MatchType } from "../AllMatches2";
+import { calcScore, MatchType } from "../../helpers/OtherHelpers";
 import OneMatchInScheme from "./OneMatchInScheme";
 import Separator from "./separator.svg";
 
@@ -31,31 +31,7 @@ export default function Scheme() {
         data.forEach((el: any, index) => {
           let score = el.score;
 
-          const calcScore = (match: MatchType) => {
-            let res: {
-              ht: number | undefined;
-              at: number | undefined;
-            } = { ht: undefined, at: undefined };
-
-            let ht = score?.fullTime?.homeTeam;
-            let at = score?.fullTime?.awayTeam;
-            if (ht !== null) {
-              res.ht = score?.fullTime?.homeTeam;
-            }
-            if (at !== null) {
-              res.at = score?.fullTime?.awayTeam;
-            }
-
-            if (res.ht !== undefined) {
-              res.ht -= match.score?.extraTime.homeTeam || 0;
-            }
-            if (res.at !== undefined) {
-              res.at -= match.score?.extraTime.awayTeam || 0;
-            }
-
-            return res;
-          };
-          let calculatedScore = calcScore(el);
+          let calculatedScore = calcScore(el, score);
 
           let matchToAdd: MatchType = {
             number: index + 1,

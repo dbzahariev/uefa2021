@@ -2,10 +2,10 @@ import { Button, notification, Select, Space } from "antd";
 import TextArea from "antd/lib/input/TextArea";
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
-import { UsersType } from "../AllMatches2";
 import OneMessage, { MessageType } from "./OneMessage";
 import $ from "jquery";
 import EmojiPopup from "./EmojiPopup";
+import { UsersType } from "../../helpers/OtherHelpers";
 
 const { Option } = Select;
 

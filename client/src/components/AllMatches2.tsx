@@ -1,5 +1,5 @@
 import { Space, Spin, Switch } from "antd";
-import { Key, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import AutoRefresh, { AutoRefreshInterval } from "./AutoRefresh";
 import { LoadingOutlined } from "@ant-design/icons";
 import OneMatchTable from "./OneMatchTable";
@@ -12,66 +12,9 @@ import {
   stylingTable,
   reloadData,
   getAllUsers,
-} from "../helpers/OtherHelports";
-
-export interface MatchType {
-  number: number;
-  key: Key;
-  id: number;
-  homeTeam: {
-    id: number;
-    name: string;
-  };
-  awayTeam: {
-    id: number;
-    name: string;
-  };
-  utcDate: Date;
-  group?: string | undefined;
-  stage?: string | undefined;
-  score?: {
-    duration: string;
-    extraTime: {
-      homeTeam: null;
-      awayTeam: null;
-    };
-    fullTime: {
-      homeTeam: number;
-      awayTeam: number;
-    };
-    halfTime: {
-      homeTeam: number;
-      awayTeam: number;
-    };
-    penalties: {
-      homeTeam: null;
-      awayTeam: null;
-    };
-    winner: string;
-  };
-  winner?: string;
-  homeTeamScore?: number | undefined;
-  awayTeamScore?: number | undefined;
-  status: string;
-}
-
-export interface UsersType {
-  name: string;
-  bets: {
-    matchId: number;
-    homeTeamScore: number;
-    awayTeamScore: number;
-    winner: string;
-    point: number;
-    date: Date;
-  }[];
-  index: number;
-  _id?: string;
-  id?: string;
-  totalPoints?: number;
-  finalWinner: "string";
-  colorTable: string;
-}
+  MatchType,
+  UsersType,
+} from "../helpers/OtherHelpers";
 
 const getMatchesForView = (matches: MatchType[], showGroups: boolean) => {
   let res = [...matches];

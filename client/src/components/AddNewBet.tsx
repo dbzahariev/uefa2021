@@ -5,8 +5,9 @@ import axios, { AxiosRequestConfig } from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { selectedCompetition } from "../App";
+import { calcScore, UsersType, MatchType } from "../helpers/OtherHelpers";
 import { translateTeamsName } from "../helpers/Translate";
-import { MatchType, renderP, UsersType } from "./AllMatches";
+import { renderP } from "./AllMatches";
 
 const { Option } = Select;
 
@@ -41,26 +42,10 @@ export default function AddNewBet() {
           }
           let score = el.score;
 
-          const calcScore = (match: any) => {
-            let res: {
-              ht: number | undefined;
-              at: number | undefined;
-            } = { ht: undefined, at: undefined };
-
-            let ht = score?.fullTime?.homeTeam;
-            let at = score?.fullTime?.awayTeam;
-            if (ht !== null) {
-              res.ht = score?.fullTime?.homeTeam;
-            }
-            if (at !== null) {
-              res.at = score?.fullTime?.awayTeam;
-            }
-
-            return res;
-          };
-          let calculatedScore = calcScore(el);
+          let calculatedScore = calcScore(el, score);
 
           let matchToAdd: MatchType = {
+            status: el.status,
             number: index + 1,
             key: matches.length || 0,
             id: el.id,

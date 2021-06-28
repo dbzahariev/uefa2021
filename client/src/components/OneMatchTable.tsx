@@ -2,9 +2,8 @@ import Table from "antd/lib/table";
 import Column from "antd/lib/table/Column";
 import ColumnGroup from "antd/lib/table/ColumnGroup";
 import { Link } from "react-router-dom";
-import { renderP } from "../helpers/OtherHelports";
+import { MatchType, renderP, UsersType } from "../helpers/OtherHelpers";
 import { translateTeamsName } from "../helpers/Translate";
-import { MatchType, UsersType } from "./AllMatches2";
 
 export default function oneMatchTable({
   AllMatches,
