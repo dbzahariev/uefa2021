@@ -154,7 +154,7 @@ export default function AddNewBet() {
       if (myBet?.homeTeamScore !== undefined)
         homeTeamScore = myBet.homeTeamScore;
 
-      if (awayTeamScore === -1 || homeTeamScore === -1) {
+      if (awayTeamScore !== -1 || homeTeamScore !== -1) {
         haveBet = true;
       }
       return haveBet;
@@ -171,13 +171,15 @@ export default function AddNewBet() {
     if (differenceMin >= 0 && differenceMin <= 15 && haveBet) {
       result = true;
     }
+
     if (differenceMin >= 15) {
-      if (haveBet) {
-        result = false;
-      } else {
-        result = true;
-      }
+      result = true;
     }
+
+    if (differenceMin > 0 && differenceMin < 15) {
+      result = haveBet;
+    }
+
     if (differenceMin < 0) {
       result = false;
     }
