@@ -347,6 +347,13 @@ export const getAllMatches = (setMatches: Function) => {
             res.at -= match.score?.extraTime.awayTeam || 0;
           }
 
+          if (res.ht !== undefined) {
+            res.ht -= match.score?.penalties.homeTeam || 0;
+          }
+          if (res.at !== undefined) {
+            res.at -= match.score?.penalties.awayTeam || 0;
+          }
+
           return res;
         };
         let calculatedScore = calcScore(el);
