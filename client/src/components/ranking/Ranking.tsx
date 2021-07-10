@@ -21,8 +21,8 @@ export default function Ranking() {
   const [dimensions, setDimensions] = useState({
     widthI: window.innerWidth,
     heightI: window.innerHeight,
-    widthO: window.outerWidth,
-    heightO: window.outerHeight,
+    widthO: window.innerWidth,
+    heightO: window.innerHeight,
   });
 
   const getMatches = () => {
@@ -69,9 +69,9 @@ export default function Ranking() {
     const updateWindowDimensions = () => {
       setDimensions({
         widthI: window.innerWidth,
-        heightI: window.innerWidth,
+        heightI: window.innerHeight,
         widthO: window.outerWidth,
-        heightO: window.outerWidth,
+        heightO: window.outerHeight,
       });
     };
 
@@ -102,26 +102,17 @@ export default function Ranking() {
         style={{
           position: "relative",
           display: "flex",
+          width: `${784 * 0.6}px`,
+          height: `${487 * 0.6}px`,
         }}
       >
         <div
           style={{
             position: "absolute",
-            left: dimensions.widthO * 0.152,
-            top: dimensions.heightO * 0.0,
-            width: dimensions.widthO * 0.103,
-            justifyContent: "center",
-            display: "flex",
-          }}
-        >
-          {oneHuman(getSortedUsers()[0], "#9EB644")}
-        </div>
-        <div
-          style={{
-            position: "absolute",
-            left: dimensions.widthO * 0.05,
-            top: dimensions.heightO * 0.075,
-            width: dimensions.widthO * 0.103,
+            paddingLeft: "25%",
+            paddingTop: "10%",
+            width: "20%",
+            height: "7%",
             justifyContent: "center",
             display: "flex",
           }}
@@ -131,9 +122,23 @@ export default function Ranking() {
         <div
           style={{
             position: "absolute",
-            left: dimensions.widthO * 0.254,
-            top: dimensions.heightO * 0.135,
-            width: dimensions.widthO * 0.103,
+            paddingLeft: "50%",
+            top: 0,
+            width: "20%",
+            height: "7%",
+            justifyContent: "center",
+            display: "flex",
+          }}
+        >
+          {oneHuman(getSortedUsers()[0], "#9EB644")}
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            paddingLeft: "73%",
+            paddingTop: "17%",
+            width: "20%",
+            height: "7%",
             justifyContent: "center",
             display: "flex",
           }}
@@ -143,9 +148,10 @@ export default function Ranking() {
         <div
           style={{
             position: "absolute",
-            left: dimensions.widthO * 0.0,
-            top: dimensions.heightO * 0.51,
-            width: dimensions.widthO * 0.103,
+            paddingLeft: "9%",
+            paddingTop: "67%",
+            width: "20%",
+            height: "7%",
             justifyContent: "center",
             display: "flex",
           }}
@@ -155,9 +161,10 @@ export default function Ranking() {
         <div
           style={{
             position: "absolute",
-            left: dimensions.widthO * 0.1,
-            top: dimensions.heightO * 0.51,
-            width: dimensions.widthO * 0.103,
+            paddingLeft: "38%",
+            paddingTop: "67%",
+            width: "20%",
+            height: "7%",
             justifyContent: "center",
             display: "flex",
           }}
@@ -167,9 +174,10 @@ export default function Ranking() {
         <div
           style={{
             position: "absolute",
-            left: dimensions.widthO * 0.2,
-            top: dimensions.heightO * 0.51,
-            width: dimensions.widthO * 0.103,
+            paddingLeft: "62%",
+            paddingTop: "67%",
+            width: "20%",
+            height: "7%",
             justifyContent: "center",
             display: "flex",
           }}
@@ -179,9 +187,10 @@ export default function Ranking() {
         <div
           style={{
             position: "absolute",
-            left: dimensions.widthO * 0.3,
-            top: dimensions.heightO * 0.51,
-            width: dimensions.widthO * 0.103,
+            paddingLeft: "87%",
+            paddingTop: "67%",
+            width: "20%",
+            height: "7%",
             justifyContent: "center",
             display: "flex",
           }}
@@ -193,12 +202,11 @@ export default function Ranking() {
           src={rankingImg}
           alt="Separator"
           style={{
-            top: dimensions.heightO * 0.04,
-            position: "absolute",
+            marginTop: "6%",
             justifyContent: "center",
             display: "flex",
-            width: 784 * 0.8,
-            height: 487 * 0.8,
+            width: "100%",
+            height: "100%",
             objectFit: "contain",
           }}
         />
@@ -214,7 +222,7 @@ export default function Ranking() {
     >
       {ranking()}
 
-      <div style={{ marginTop: dimensions.heightO * 0.6 }}>
+      <div style={{ marginTop: "50px" }}>
         <div>
           <Space direction={"horizontal"} style={{ margin: 5, paddingTop: 10 }}>
             <span>Показване на групова фаза</span>
