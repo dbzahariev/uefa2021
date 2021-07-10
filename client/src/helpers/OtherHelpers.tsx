@@ -64,8 +64,8 @@ export interface UsersType {
   index: number;
   _id?: string;
   id?: string;
-  totalPoints?: number;
-  finalWinner: "string";
+  totalPoints: number;
+  finalWinner: string;
   colorTable: string;
 }
 
@@ -85,10 +85,14 @@ export const getAllUsers = (setUsers: Function) => {
           index: el.index,
           finalWinner: el.finalWinner,
           colorTable: el.colorTable,
+          totalPoints: 0,
         };
         if (el._id) {
           userToAdd.id = el._id;
         }
+        el.bets.forEach((bet) => {
+          userToAdd.totalPoints = (userToAdd.totalPoints || 0) + bet.point;
+        });
 
         newUsers.push(userToAdd);
       });

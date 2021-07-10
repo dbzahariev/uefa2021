@@ -16,7 +16,10 @@ import {
   UsersType,
 } from "../helpers/OtherHelpers";
 
-const getMatchesForView = (matches: MatchType[], showGroups: boolean) => {
+export const getMatchesForView = (
+  matches: MatchType[],
+  showGroups: boolean
+) => {
   let res = [...matches];
   if (showGroups === false) {
     let kk = res.filter(

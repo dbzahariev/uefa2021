@@ -83,6 +83,7 @@ export default function AddNewBet() {
             index: el.index,
             finalWinner: el.finalWinner,
             colorTable: el.colorTable,
+            totalPoints: 0,
           };
           if (el._id) {
             userToAdd.id = el._id;

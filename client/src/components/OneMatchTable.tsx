@@ -100,17 +100,19 @@ export default function oneMatchTable({
           dataIndex="homeTeamScore"
           key="homeTeamScore"
           width={100}
-          render={(el: any, record: MatchType) => (
-            <div
-              style={{
-                width: "30px",
-              }}
-            >
-              {record.status === "IN_PLAY" || record.status === "PAUSED"
-                ? "?"
-                : `${getFullScore(record, "homeTeam", el)}`}
-            </div>
-          )}
+          render={(el: any, record: MatchType) => {
+            return (
+              <div
+                style={{
+                  width: "30px",
+                }}
+              >
+                {record.status === "IN_PLAY" || record.status === "PAUSED"
+                  ? "?"
+                  : `${getFullScore(record, "homeTeam", el)}`}
+              </div>
+            );
+          }}
         />
         <Column
           title="Г"

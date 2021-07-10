@@ -1,0 +1,1020 @@
+[
+  {
+    "number": 1,
+    "key": 0,
+    "id": 285418,
+    "homeTeam": { "id": 803, "name": "Turkey" },
+    "awayTeam": { "id": 784, "name": "Italy" },
+    "homeTeamScore": 0,
+    "awayTeamScore": 3,
+    "winner": "AWAY_TEAM",
+    "utcDate": "2021-06-11T19:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "AWAY_TEAM",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 0, "awayTeam": 3 },
+      "halfTime": { "homeTeam": 0, "awayTeam": 0 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 2,
+    "key": 1,
+    "id": 285419,
+    "homeTeam": { "id": 833, "name": "Wales" },
+    "awayTeam": { "id": 788, "name": "Switzerland" },
+    "homeTeamScore": 1,
+    "awayTeamScore": 1,
+    "winner": "DRAW",
+    "utcDate": "2021-06-12T13:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "DRAW",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 1, "awayTeam": 1 },
+      "halfTime": { "homeTeam": 0, "awayTeam": 0 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 3,
+    "key": 2,
+    "id": 285424,
+    "homeTeam": { "id": 782, "name": "Denmark" },
+    "awayTeam": { "id": 1976, "name": "Finland" },
+    "homeTeamScore": 0,
+    "awayTeamScore": 1,
+    "winner": "AWAY_TEAM",
+    "utcDate": "2021-06-12T18:30:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "AWAY_TEAM",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 0, "awayTeam": 1 },
+      "halfTime": { "homeTeam": 0, "awayTeam": 0 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 4,
+    "key": 3,
+    "id": 285425,
+    "homeTeam": { "id": 805, "name": "Belgium" },
+    "awayTeam": { "id": 808, "name": "Russia" },
+    "homeTeamScore": 3,
+    "awayTeamScore": 0,
+    "winner": "HOME_TEAM",
+    "utcDate": "2021-06-12T19:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "HOME_TEAM",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 3, "awayTeam": 0 },
+      "halfTime": { "homeTeam": 2, "awayTeam": 0 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 5,
+    "key": 4,
+    "id": 285436,
+    "homeTeam": { "id": 770, "name": "England" },
+    "awayTeam": { "id": 799, "name": "Croatia" },
+    "homeTeamScore": 1,
+    "awayTeamScore": 0,
+    "winner": "HOME_TEAM",
+    "utcDate": "2021-06-13T13:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "HOME_TEAM",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 1, "awayTeam": 0 },
+      "halfTime": { "homeTeam": 0, "awayTeam": 0 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 6,
+    "key": 5,
+    "id": 285430,
+    "homeTeam": { "id": 816, "name": "Austria" },
+    "awayTeam": { "id": 1977, "name": "North Macedonia" },
+    "homeTeamScore": 3,
+    "awayTeamScore": 1,
+    "winner": "HOME_TEAM",
+    "utcDate": "2021-06-13T16:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "HOME_TEAM",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 3, "awayTeam": 1 },
+      "halfTime": { "homeTeam": 1, "awayTeam": 1 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 7,
+    "key": 6,
+    "id": 285431,
+    "homeTeam": { "id": 8601, "name": "Netherlands" },
+    "awayTeam": { "id": 790, "name": "Ukraine" },
+    "homeTeamScore": 3,
+    "awayTeamScore": 2,
+    "winner": "HOME_TEAM",
+    "utcDate": "2021-06-13T19:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "HOME_TEAM",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 3, "awayTeam": 2 },
+      "halfTime": { "homeTeam": 0, "awayTeam": 0 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 8,
+    "key": 7,
+    "id": 285437,
+    "homeTeam": { "id": 8873, "name": "Scotland" },
+    "awayTeam": { "id": 798, "name": "Czech Republic" },
+    "homeTeamScore": 0,
+    "awayTeamScore": 2,
+    "winner": "AWAY_TEAM",
+    "utcDate": "2021-06-14T13:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "AWAY_TEAM",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 0, "awayTeam": 2 },
+      "halfTime": { "homeTeam": 0, "awayTeam": 1 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 9,
+    "key": 8,
+    "id": 285442,
+    "homeTeam": { "id": 794, "name": "Poland" },
+    "awayTeam": { "id": 768, "name": "Slovakia" },
+    "homeTeamScore": 1,
+    "awayTeamScore": 2,
+    "winner": "AWAY_TEAM",
+    "utcDate": "2021-06-14T16:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "AWAY_TEAM",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 1, "awayTeam": 2 },
+      "halfTime": { "homeTeam": 0, "awayTeam": 1 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 10,
+    "key": 9,
+    "id": 285443,
+    "homeTeam": { "id": 760, "name": "Spain" },
+    "awayTeam": { "id": 792, "name": "Sweden" },
+    "homeTeamScore": 0,
+    "awayTeamScore": 0,
+    "winner": "DRAW",
+    "utcDate": "2021-06-14T19:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "DRAW",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 0, "awayTeam": 0 },
+      "halfTime": { "homeTeam": 0, "awayTeam": 0 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 11,
+    "key": 10,
+    "id": 285448,
+    "homeTeam": { "id": 827, "name": "Hungary" },
+    "awayTeam": { "id": 765, "name": "Portugal" },
+    "homeTeamScore": 0,
+    "awayTeamScore": 3,
+    "winner": "AWAY_TEAM",
+    "utcDate": "2021-06-15T16:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "AWAY_TEAM",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 0, "awayTeam": 3 },
+      "halfTime": { "homeTeam": 0, "awayTeam": 0 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 12,
+    "key": 11,
+    "id": 285449,
+    "homeTeam": { "id": 773, "name": "France" },
+    "awayTeam": { "id": 759, "name": "Germany" },
+    "homeTeamScore": 1,
+    "awayTeamScore": 0,
+    "winner": "HOME_TEAM",
+    "utcDate": "2021-06-15T19:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "HOME_TEAM",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 1, "awayTeam": 0 },
+      "halfTime": { "homeTeam": 1, "awayTeam": 0 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 13,
+    "key": 12,
+    "id": 285426,
+    "homeTeam": { "id": 1976, "name": "Finland" },
+    "awayTeam": { "id": 808, "name": "Russia" },
+    "homeTeamScore": 0,
+    "awayTeamScore": 1,
+    "winner": "AWAY_TEAM",
+    "utcDate": "2021-06-16T13:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "AWAY_TEAM",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 0, "awayTeam": 1 },
+      "halfTime": { "homeTeam": 0, "awayTeam": 1 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 14,
+    "key": 13,
+    "id": 285420,
+    "homeTeam": { "id": 803, "name": "Turkey" },
+    "awayTeam": { "id": 833, "name": "Wales" },
+    "homeTeamScore": 0,
+    "awayTeamScore": 2,
+    "winner": "AWAY_TEAM",
+    "utcDate": "2021-06-16T16:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "AWAY_TEAM",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 0, "awayTeam": 2 },
+      "halfTime": { "homeTeam": 0, "awayTeam": 1 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 15,
+    "key": 14,
+    "id": 285421,
+    "homeTeam": { "id": 784, "name": "Italy" },
+    "awayTeam": { "id": 788, "name": "Switzerland" },
+    "homeTeamScore": 3,
+    "awayTeamScore": 0,
+    "winner": "HOME_TEAM",
+    "utcDate": "2021-06-16T19:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "HOME_TEAM",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 3, "awayTeam": 0 },
+      "halfTime": { "homeTeam": 1, "awayTeam": 0 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 16,
+    "key": 15,
+    "id": 285432,
+    "homeTeam": { "id": 790, "name": "Ukraine" },
+    "awayTeam": { "id": 1977, "name": "North Macedonia" },
+    "homeTeamScore": 2,
+    "awayTeamScore": 1,
+    "winner": "HOME_TEAM",
+    "utcDate": "2021-06-17T13:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "HOME_TEAM",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 2, "awayTeam": 1 },
+      "halfTime": { "homeTeam": 2, "awayTeam": 0 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 17,
+    "key": 16,
+    "id": 285427,
+    "homeTeam": { "id": 782, "name": "Denmark" },
+    "awayTeam": { "id": 805, "name": "Belgium" },
+    "homeTeamScore": 1,
+    "awayTeamScore": 2,
+    "winner": "AWAY_TEAM",
+    "utcDate": "2021-06-17T16:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "AWAY_TEAM",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 1, "awayTeam": 2 },
+      "halfTime": { "homeTeam": 1, "awayTeam": 0 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 18,
+    "key": 17,
+    "id": 285433,
+    "homeTeam": { "id": 8601, "name": "Netherlands" },
+    "awayTeam": { "id": 816, "name": "Austria" },
+    "homeTeamScore": 2,
+    "awayTeamScore": 0,
+    "winner": "HOME_TEAM",
+    "utcDate": "2021-06-17T19:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "HOME_TEAM",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 2, "awayTeam": 0 },
+      "halfTime": { "homeTeam": 1, "awayTeam": 0 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 19,
+    "key": 18,
+    "id": 285444,
+    "homeTeam": { "id": 792, "name": "Sweden" },
+    "awayTeam": { "id": 768, "name": "Slovakia" },
+    "homeTeamScore": 1,
+    "awayTeamScore": 0,
+    "winner": "HOME_TEAM",
+    "utcDate": "2021-06-18T13:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "HOME_TEAM",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 1, "awayTeam": 0 },
+      "halfTime": { "homeTeam": 0, "awayTeam": 0 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 20,
+    "key": 19,
+    "id": 285438,
+    "homeTeam": { "id": 799, "name": "Croatia" },
+    "awayTeam": { "id": 798, "name": "Czech Republic" },
+    "homeTeamScore": 1,
+    "awayTeamScore": 1,
+    "winner": "DRAW",
+    "utcDate": "2021-06-18T16:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "DRAW",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 1, "awayTeam": 1 },
+      "halfTime": { "homeTeam": 0, "awayTeam": 1 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 21,
+    "key": 20,
+    "id": 285439,
+    "homeTeam": { "id": 770, "name": "England" },
+    "awayTeam": { "id": 8873, "name": "Scotland" },
+    "homeTeamScore": 0,
+    "awayTeamScore": 0,
+    "winner": "DRAW",
+    "utcDate": "2021-06-18T19:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "DRAW",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 0, "awayTeam": 0 },
+      "halfTime": { "homeTeam": 0, "awayTeam": 0 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 22,
+    "key": 21,
+    "id": 285450,
+    "homeTeam": { "id": 827, "name": "Hungary" },
+    "awayTeam": { "id": 773, "name": "France" },
+    "homeTeamScore": 1,
+    "awayTeamScore": 1,
+    "winner": "DRAW",
+    "utcDate": "2021-06-19T13:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "DRAW",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 1, "awayTeam": 1 },
+      "halfTime": { "homeTeam": 1, "awayTeam": 0 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 23,
+    "key": 22,
+    "id": 285451,
+    "homeTeam": { "id": 765, "name": "Portugal" },
+    "awayTeam": { "id": 759, "name": "Germany" },
+    "homeTeamScore": 2,
+    "awayTeamScore": 4,
+    "winner": "AWAY_TEAM",
+    "utcDate": "2021-06-19T16:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "AWAY_TEAM",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 2, "awayTeam": 4 },
+      "halfTime": { "homeTeam": 1, "awayTeam": 2 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 24,
+    "key": 23,
+    "id": 285445,
+    "homeTeam": { "id": 760, "name": "Spain" },
+    "awayTeam": { "id": 794, "name": "Poland" },
+    "homeTeamScore": 1,
+    "awayTeamScore": 1,
+    "winner": "DRAW",
+    "utcDate": "2021-06-19T19:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "DRAW",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 1, "awayTeam": 1 },
+      "halfTime": { "homeTeam": 1, "awayTeam": 0 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 25,
+    "key": 24,
+    "id": 285422,
+    "homeTeam": { "id": 784, "name": "Italy" },
+    "awayTeam": { "id": 833, "name": "Wales" },
+    "homeTeamScore": 1,
+    "awayTeamScore": 0,
+    "winner": "HOME_TEAM",
+    "utcDate": "2021-06-20T16:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "HOME_TEAM",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 1, "awayTeam": 0 },
+      "halfTime": { "homeTeam": 1, "awayTeam": 0 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 26,
+    "key": 25,
+    "id": 285423,
+    "homeTeam": { "id": 788, "name": "Switzerland" },
+    "awayTeam": { "id": 803, "name": "Turkey" },
+    "homeTeamScore": 3,
+    "awayTeamScore": 1,
+    "winner": "HOME_TEAM",
+    "utcDate": "2021-06-20T16:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "HOME_TEAM",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 3, "awayTeam": 1 },
+      "halfTime": { "homeTeam": 2, "awayTeam": 0 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 27,
+    "key": 26,
+    "id": 285434,
+    "homeTeam": { "id": 1977, "name": "North Macedonia" },
+    "awayTeam": { "id": 8601, "name": "Netherlands" },
+    "homeTeamScore": 0,
+    "awayTeamScore": 3,
+    "winner": "AWAY_TEAM",
+    "utcDate": "2021-06-21T16:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "AWAY_TEAM",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 0, "awayTeam": 3 },
+      "halfTime": { "homeTeam": 0, "awayTeam": 1 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 28,
+    "key": 27,
+    "id": 285435,
+    "homeTeam": { "id": 790, "name": "Ukraine" },
+    "awayTeam": { "id": 816, "name": "Austria" },
+    "homeTeamScore": 0,
+    "awayTeamScore": 1,
+    "winner": "AWAY_TEAM",
+    "utcDate": "2021-06-21T16:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "AWAY_TEAM",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 0, "awayTeam": 1 },
+      "halfTime": { "homeTeam": 0, "awayTeam": 1 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 29,
+    "key": 28,
+    "id": 285428,
+    "homeTeam": { "id": 808, "name": "Russia" },
+    "awayTeam": { "id": 782, "name": "Denmark" },
+    "homeTeamScore": 1,
+    "awayTeamScore": 4,
+    "winner": "AWAY_TEAM",
+    "utcDate": "2021-06-21T19:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "AWAY_TEAM",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 1, "awayTeam": 4 },
+      "halfTime": { "homeTeam": 0, "awayTeam": 1 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 30,
+    "key": 29,
+    "id": 285429,
+    "homeTeam": { "id": 1976, "name": "Finland" },
+    "awayTeam": { "id": 805, "name": "Belgium" },
+    "homeTeamScore": 0,
+    "awayTeamScore": 2,
+    "winner": "AWAY_TEAM",
+    "utcDate": "2021-06-21T19:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "AWAY_TEAM",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 0, "awayTeam": 2 },
+      "halfTime": { "homeTeam": 0, "awayTeam": 0 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 31,
+    "key": 30,
+    "id": 285440,
+    "homeTeam": { "id": 799, "name": "Croatia" },
+    "awayTeam": { "id": 8873, "name": "Scotland" },
+    "homeTeamScore": 3,
+    "awayTeamScore": 1,
+    "winner": "HOME_TEAM",
+    "utcDate": "2021-06-22T19:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "HOME_TEAM",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 3, "awayTeam": 1 },
+      "halfTime": { "homeTeam": 1, "awayTeam": 1 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 32,
+    "key": 31,
+    "id": 285441,
+    "homeTeam": { "id": 798, "name": "Czech Republic" },
+    "awayTeam": { "id": 770, "name": "England" },
+    "homeTeamScore": 0,
+    "awayTeamScore": 1,
+    "winner": "AWAY_TEAM",
+    "utcDate": "2021-06-22T19:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "AWAY_TEAM",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 0, "awayTeam": 1 },
+      "halfTime": { "homeTeam": 0, "awayTeam": 1 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 33,
+    "key": 32,
+    "id": 285446,
+    "homeTeam": { "id": 768, "name": "Slovakia" },
+    "awayTeam": { "id": 760, "name": "Spain" },
+    "homeTeamScore": 0,
+    "awayTeamScore": 5,
+    "winner": "AWAY_TEAM",
+    "utcDate": "2021-06-23T16:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "AWAY_TEAM",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 0, "awayTeam": 5 },
+      "halfTime": { "homeTeam": 0, "awayTeam": 2 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 34,
+    "key": 33,
+    "id": 285447,
+    "homeTeam": { "id": 792, "name": "Sweden" },
+    "awayTeam": { "id": 794, "name": "Poland" },
+    "homeTeamScore": 3,
+    "awayTeamScore": 2,
+    "winner": "HOME_TEAM",
+    "utcDate": "2021-06-23T16:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "HOME_TEAM",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 3, "awayTeam": 2 },
+      "halfTime": { "homeTeam": 1, "awayTeam": 0 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 35,
+    "key": 34,
+    "id": 285452,
+    "homeTeam": { "id": 759, "name": "Germany" },
+    "awayTeam": { "id": 827, "name": "Hungary" },
+    "homeTeamScore": 2,
+    "awayTeamScore": 2,
+    "winner": "DRAW",
+    "utcDate": "2021-06-23T19:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "DRAW",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 2, "awayTeam": 2 },
+      "halfTime": { "homeTeam": 0, "awayTeam": 1 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 36,
+    "key": 35,
+    "id": 285453,
+    "homeTeam": { "id": 765, "name": "Portugal" },
+    "awayTeam": { "id": 773, "name": "France" },
+    "homeTeamScore": 2,
+    "awayTeamScore": 2,
+    "winner": "DRAW",
+    "utcDate": "2021-06-23T19:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "DRAW",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 2, "awayTeam": 2 },
+      "halfTime": { "homeTeam": 1, "awayTeam": 1 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 37,
+    "key": 36,
+    "id": 325091,
+    "homeTeam": { "id": 833, "name": "Wales" },
+    "awayTeam": { "id": 782, "name": "Denmark" },
+    "homeTeamScore": 0,
+    "awayTeamScore": 4,
+    "winner": "AWAY_TEAM",
+    "utcDate": "2021-06-26T16:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "AWAY_TEAM",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 0, "awayTeam": 4 },
+      "halfTime": { "homeTeam": 0, "awayTeam": 1 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 38,
+    "key": 37,
+    "id": 325090,
+    "homeTeam": { "id": 784, "name": "Italy" },
+    "awayTeam": { "id": 816, "name": "Austria" },
+    "homeTeamScore": 0,
+    "awayTeamScore": 0,
+    "winner": "HOME_TEAM",
+    "utcDate": "2021-06-26T19:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "HOME_TEAM",
+      "duration": "EXTRA_TIME",
+      "fullTime": { "homeTeam": 2, "awayTeam": 1 },
+      "halfTime": { "homeTeam": 0, "awayTeam": 0 },
+      "extraTime": { "homeTeam": 2, "awayTeam": 1 },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 39,
+    "key": 38,
+    "id": 325089,
+    "homeTeam": { "id": 8601, "name": "Netherlands" },
+    "awayTeam": { "id": 798, "name": "Czech Republic" },
+    "homeTeamScore": 0,
+    "awayTeamScore": 2,
+    "winner": "AWAY_TEAM",
+    "utcDate": "2021-06-27T16:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "AWAY_TEAM",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 0, "awayTeam": 2 },
+      "halfTime": { "homeTeam": 0, "awayTeam": 0 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 40,
+    "key": 39,
+    "id": 325088,
+    "homeTeam": { "id": 805, "name": "Belgium" },
+    "awayTeam": { "id": 765, "name": "Portugal" },
+    "homeTeamScore": 1,
+    "awayTeamScore": 0,
+    "winner": "HOME_TEAM",
+    "utcDate": "2021-06-27T19:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "HOME_TEAM",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 1, "awayTeam": 0 },
+      "halfTime": { "homeTeam": 1, "awayTeam": 0 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 41,
+    "key": 40,
+    "id": 325087,
+    "homeTeam": { "id": 799, "name": "Croatia" },
+    "awayTeam": { "id": 760, "name": "Spain" },
+    "homeTeamScore": 3,
+    "awayTeamScore": 3,
+    "winner": "AWAY_TEAM",
+    "utcDate": "2021-06-28T16:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "AWAY_TEAM",
+      "duration": "EXTRA_TIME",
+      "fullTime": { "homeTeam": 3, "awayTeam": 5 },
+      "halfTime": { "homeTeam": 1, "awayTeam": 1 },
+      "extraTime": { "homeTeam": 0, "awayTeam": 2 },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 42,
+    "key": 41,
+    "id": 325086,
+    "homeTeam": { "id": 773, "name": "France" },
+    "awayTeam": { "id": 788, "name": "Switzerland" },
+    "homeTeamScore": 3,
+    "awayTeamScore": 3,
+    "winner": "AWAY_TEAM",
+    "utcDate": "2021-06-28T19:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "AWAY_TEAM",
+      "duration": "PENALTY_SHOOTOUT",
+      "fullTime": { "homeTeam": 7, "awayTeam": 8 },
+      "halfTime": { "homeTeam": 0, "awayTeam": 1 },
+      "extraTime": { "homeTeam": 0, "awayTeam": 0 },
+      "penalties": { "homeTeam": 4, "awayTeam": 5 }
+    }
+  },
+  {
+    "number": 43,
+    "key": 42,
+    "id": 325085,
+    "homeTeam": { "id": 770, "name": "England" },
+    "awayTeam": { "id": 759, "name": "Germany" },
+    "homeTeamScore": 2,
+    "awayTeamScore": 0,
+    "winner": "HOME_TEAM",
+    "utcDate": "2021-06-29T16:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "HOME_TEAM",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 2, "awayTeam": 0 },
+      "halfTime": { "homeTeam": 0, "awayTeam": 0 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 44,
+    "key": 43,
+    "id": 325084,
+    "homeTeam": { "id": 792, "name": "Sweden" },
+    "awayTeam": { "id": 790, "name": "Ukraine" },
+    "homeTeamScore": 1,
+    "awayTeamScore": 1,
+    "winner": "AWAY_TEAM",
+    "utcDate": "2021-06-29T19:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "AWAY_TEAM",
+      "duration": "EXTRA_TIME",
+      "fullTime": { "homeTeam": 1, "awayTeam": 2 },
+      "halfTime": { "homeTeam": 1, "awayTeam": 1 },
+      "extraTime": { "homeTeam": 0, "awayTeam": 1 },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 45,
+    "key": 44,
+    "id": 325083,
+    "homeTeam": { "id": 788, "name": "Switzerland" },
+    "awayTeam": { "id": 760, "name": "Spain" },
+    "homeTeamScore": 1,
+    "awayTeamScore": 1,
+    "winner": "AWAY_TEAM",
+    "utcDate": "2021-07-02T16:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "AWAY_TEAM",
+      "duration": "PENALTY_SHOOTOUT",
+      "fullTime": { "homeTeam": 2, "awayTeam": 4 },
+      "halfTime": { "homeTeam": 0, "awayTeam": 1 },
+      "extraTime": { "homeTeam": 0, "awayTeam": 0 },
+      "penalties": { "homeTeam": 1, "awayTeam": 3 }
+    }
+  },
+  {
+    "number": 46,
+    "key": 45,
+    "id": 325082,
+    "homeTeam": { "id": 805, "name": "Belgium" },
+    "awayTeam": { "id": 784, "name": "Italy" },
+    "homeTeamScore": 1,
+    "awayTeamScore": 2,
+    "winner": "AWAY_TEAM",
+    "utcDate": "2021-07-02T19:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "AWAY_TEAM",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 1, "awayTeam": 2 },
+      "halfTime": { "homeTeam": 1, "awayTeam": 2 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 47,
+    "key": 46,
+    "id": 325081,
+    "homeTeam": { "id": 798, "name": "Czech Republic" },
+    "awayTeam": { "id": 782, "name": "Denmark" },
+    "homeTeamScore": 1,
+    "awayTeamScore": 2,
+    "winner": "AWAY_TEAM",
+    "utcDate": "2021-07-03T16:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "AWAY_TEAM",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 1, "awayTeam": 2 },
+      "halfTime": { "homeTeam": 0, "awayTeam": 2 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 48,
+    "key": 47,
+    "id": 325080,
+    "homeTeam": { "id": 790, "name": "Ukraine" },
+    "awayTeam": { "id": 770, "name": "England" },
+    "homeTeamScore": 0,
+    "awayTeamScore": 4,
+    "winner": "AWAY_TEAM",
+    "utcDate": "2021-07-03T19:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "AWAY_TEAM",
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": 0, "awayTeam": 4 },
+      "halfTime": { "homeTeam": 0, "awayTeam": 1 },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 49,
+    "key": 48,
+    "id": 325079,
+    "homeTeam": { "id": 784, "name": "Italy" },
+    "awayTeam": { "id": 760, "name": "Spain" },
+    "homeTeamScore": 1,
+    "awayTeamScore": 1,
+    "winner": "HOME_TEAM",
+    "utcDate": "2021-07-06T19:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "HOME_TEAM",
+      "duration": "PENALTY_SHOOTOUT",
+      "fullTime": { "homeTeam": 5, "awayTeam": 3 },
+      "halfTime": { "homeTeam": 0, "awayTeam": 0 },
+      "extraTime": { "homeTeam": 0, "awayTeam": 0 },
+      "penalties": { "homeTeam": 4, "awayTeam": 2 }
+    }
+  },
+  {
+    "number": 50,
+    "key": 49,
+    "id": 325078,
+    "homeTeam": { "id": 770, "name": "England" },
+    "awayTeam": { "id": 782, "name": "Denmark" },
+    "homeTeamScore": 1,
+    "awayTeamScore": 1,
+    "winner": "HOME_TEAM",
+    "utcDate": "2021-07-07T19:00:00Z",
+    "status": "FINISHED",
+    "score": {
+      "winner": "HOME_TEAM",
+      "duration": "EXTRA_TIME",
+      "fullTime": { "homeTeam": 2, "awayTeam": 1 },
+      "halfTime": { "homeTeam": 1, "awayTeam": 1 },
+      "extraTime": { "homeTeam": 1, "awayTeam": 0 },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  },
+  {
+    "number": 51,
+    "key": 50,
+    "id": 325077,
+    "homeTeam": { "id": 784, "name": "Italy" },
+    "awayTeam": { "id": 770, "name": "England" },
+    "winner": "",
+    "utcDate": "2021-07-11T19:00:00Z",
+    "status": "SCHEDULED",
+    "score": {
+      "winner": null,
+      "duration": "REGULAR",
+      "fullTime": { "homeTeam": null, "awayTeam": null },
+      "halfTime": { "homeTeam": null, "awayTeam": null },
+      "extraTime": { "homeTeam": null, "awayTeam": null },
+      "penalties": { "homeTeam": null, "awayTeam": null }
+    }
+  }
+]
