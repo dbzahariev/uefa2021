@@ -64,9 +64,9 @@ export interface UsersType {
   index: number;
   _id?: string;
   id?: string;
-  totalPoints: number;
   finalWinner: string;
   colorTable: string;
+  totalPoints: number;
 }
 
 export const getAllUsers = (setUsers: Function) => {
@@ -90,9 +90,6 @@ export const getAllUsers = (setUsers: Function) => {
         if (el._id) {
           userToAdd.id = el._id;
         }
-        el.bets.forEach((bet) => {
-          userToAdd.totalPoints = (userToAdd.totalPoints || 0) + bet.point;
-        });
 
         newUsers.push(userToAdd);
       });
@@ -367,7 +364,87 @@ export const stylingTable = (users: UsersType[]) => {
     `#root > div:nth-child(3) > div > div > div > div > div > div > div > div > table > thead`
   ).css("top", "28px");
 
+  $(
+    `#root > div:nth-child(2) > div:nth-child(2) > div.ant-table-wrapper > div > div > div > div > div > table > thead`
+  ).css("position", "sticky");
+
+  $(
+    `#root > div:nth-child(2) > div:nth-child(2) > div.ant-table-wrapper > div > div > div > div > div > table > thead`
+  ).css("position", "-webkit-sticky");
+
+  $(
+    `#root > div:nth-child(2) > div:nth-child(2) > div.ant-table-wrapper > div > div > div > div > div > table > thead`
+  ).css("z-index", "1");
+
+  $(`#root > div:nth-child(1)`).css("background-color", "white");
+
+  $(
+    `#root > div:nth-child(2) > div:nth-child(2) > div.ant-table-wrapper > div > div > div > div > div > table > thead`
+  ).css("top", "50px");
+
+  $(
+    `#root > div:nth-child(4) > div > div > div > div > div > div > div > div > table > thead`
+  ).css("position", "sticky");
+
+  $(
+    `#root > div:nth-child(4) > div > div > div > div > div > div > div > div > table > thead`
+  ).css("position", "-webkit-sticky");
+
+  $(
+    `#root > div:nth-child(4) > div > div > div > div > div > div > div > div > table > thead`
+  ).css("top", "50px");
+
+  $(
+    `#root > div:nth-child(4) > div > div > div > div > div > div > div > div > table > thead`
+  ).css("z-index", "1");
+
   $(`#root > div:nth-child(3)`).css("display", "inline");
+};
+
+export const getFinalStats = (afterThat: Function) => {
+  var config: AxiosRequestConfig = {
+    method: "GET",
+    url: `https://api.football-data.org/v2/competitions/${selectedCompetition}/matches`,
+    headers: {
+      "X-Auth-Token": "35261f5a038d45029fa4ae0abc1f2f7a",
+    },
+  };
+
+  axios(config)
+    .then(function (response) {
+      let data: MatchType[] = response.data.matches;
+      data = data.slice(0, 55); // limit First 3
+      let matches: MatchType[] = [];
+
+      let onlyFinal: MatchType | undefined = undefined;
+
+      data.forEach((el: MatchType, index) => {
+        let score = el.score;
+
+        let calculatedScore = calcScore(el, score);
+
+        let matchToAdd: MatchType = {
+          number: index + 1,
+          key: matches.length || 0,
+          id: el.id,
+          homeTeam: el.homeTeam,
+          awayTeam: el.awayTeam,
+          utcDate: el.utcDate,
+          group: el.group || el.stage,
+          winner: score?.winner || "",
+          homeTeamScore: calculatedScore.ht,
+          awayTeamScore: calculatedScore.at,
+          status: el.status,
+          score: el.score,
+        };
+
+        if (el.stage === "FINAL") {
+          onlyFinal = matchToAdd;
+        }
+      });
+      afterThat(onlyFinal);
+    })
+    .catch((error) => console.error(error));
 };
 
 export const calcScore = (match: MatchType, score: any) => {

@@ -60,8 +60,8 @@ export default function PlayersPoints() {
         };
 
         newPointModule.points.push(newPoint);
-        newPointModule.totalPoints =
-          newPointModule.totalPoints + newPoint.point;
+        // newPointModule.totalPoints =
+        //   newPointModule.totalPoints + newPoint.point;
         newPointModule.points.sort((a, b) => a.matchId - b.matchId);
 
         if (points.findIndex((el) => el.user === user.name) === -1) {
@@ -149,7 +149,7 @@ export default function PlayersPoints() {
           index: el.index,
           finalWinner: el.finalWinner,
           colorTable: el.colorTable,
-          totalPoints: el.totalPoints,
+          totalPoints: 0,
         };
         if (el._id) {
           userToAdd.id = el._id;

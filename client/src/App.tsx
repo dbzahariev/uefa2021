@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import Groups from "./components/Groups";
-import AllMatches from "./components/AllMatches2";
 import OneMatch from "./components/OneMatch";
 import "antd/dist/antd.css";
 
@@ -19,6 +18,7 @@ import AddNewBet from "./components/AddNewBet";
 import Chat from "./components/chat/Chat";
 import Scheme from "./components/scheme/Scheme";
 import Ranking from "./components/ranking/Ranking";
+import AllMatches from "./components/AllMatches2";
 
 const competitionsIds = {
   Uefa: 2018,
@@ -99,7 +99,7 @@ export default function App() {
             Схема
           </Link>
           <Link to="/ranking" style={{ fontSize: fontSize }}>
-            Подредба
+            Класиране
           </Link>
         </Space>
       </div>
@@ -111,12 +111,15 @@ export default function App() {
         <Route path="/chatroom" exact component={Chat} />
         <Route path="/scheme" exact component={Scheme} />
         <Route path="/ranking" exact component={Ranking} />
-        <Route path="/allMatches" exact>
+        <Route path="/" exact>
           <AllMatches refresh={refresh} />
         </Route>
-        <Route exact path="/">
-          <Redirect to="/allMatches" />
+        <Route exact path="/allMatches">
+          <Redirect to="/" />
         </Route>
+        {/* <Route exact path="/">
+          <Redirect to="/allMatches" />
+        </Route> */}
       </Switch>
     </Router>
   );

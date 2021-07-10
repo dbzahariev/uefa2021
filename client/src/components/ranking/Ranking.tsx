@@ -18,13 +18,6 @@ export default function Ranking() {
   const [matches, setMatches] = useState<MatchType[]>([]);
   const [showGroups, setShowGroups] = useState(true);
 
-  const [dimensions, setDimensions] = useState({
-    widthI: window.innerWidth,
-    heightI: window.innerHeight,
-    widthO: window.innerWidth,
-    heightO: window.innerHeight,
-  });
-
   const getMatches = () => {
     let matchesFromBackup: MatchType[] = [];
     backup2020Matches.forEach((el) => {
@@ -48,14 +41,21 @@ export default function Ranking() {
 
   const getUsers = () => {
     let usersFromBackup: UsersType[] = [];
+    const getAllPoints = (bets: any[]) => {
+      let res = 0;
+      bets.forEach((bet) => {
+        res += bet.point;
+      });
+      return res;
+    };
     backup2020Users.forEach((el) => {
       let userToAdd: UsersType = {
         name: el.name,
         bets: el.bets as any[],
         index: el.index,
-        totalPoints: el.totalPoints,
         finalWinner: el.finalWinner,
         colorTable: el.colorTable,
+        totalPoints: getAllPoints(el.bets),
       };
       usersFromBackup.push(userToAdd);
     });
@@ -65,17 +65,6 @@ export default function Ranking() {
   useEffect(() => {
     getUsers();
     getMatches();
-
-    const updateWindowDimensions = () => {
-      setDimensions({
-        widthI: window.innerWidth,
-        heightI: window.innerHeight,
-        widthO: window.outerWidth,
-        heightO: window.outerHeight,
-      });
-    };
-
-    window.addEventListener("resize", updateWindowDimensions);
     // eslint-disable-next-line
   }, []);
 
@@ -93,7 +82,11 @@ export default function Ranking() {
   }
 
   const oneHuman = (user: UsersType, color2: string) => {
-    return <span style={{ color: color2, fontSize: "21px" }}>{user.name}</span>;
+    return (
+      <p
+        style={{ color: color2, fontSize: "15px", whiteSpace: "nowrap" }}
+      >{`${user.name} (${user.totalPoints})`}</p>
+    );
   };
 
   const ranking = () => {
@@ -149,7 +142,7 @@ export default function Ranking() {
           style={{
             position: "absolute",
             paddingLeft: "9%",
-            paddingTop: "67%",
+            paddingTop: "68%",
             width: "20%",
             height: "7%",
             justifyContent: "center",
@@ -162,7 +155,7 @@ export default function Ranking() {
           style={{
             position: "absolute",
             paddingLeft: "38%",
-            paddingTop: "67%",
+            paddingTop: "68%",
             width: "20%",
             height: "7%",
             justifyContent: "center",
@@ -175,7 +168,7 @@ export default function Ranking() {
           style={{
             position: "absolute",
             paddingLeft: "62%",
-            paddingTop: "67%",
+            paddingTop: "68%",
             width: "20%",
             height: "7%",
             justifyContent: "center",
@@ -188,7 +181,7 @@ export default function Ranking() {
           style={{
             position: "absolute",
             paddingLeft: "87%",
-            paddingTop: "67%",
+            paddingTop: "68%",
             width: "20%",
             height: "7%",
             justifyContent: "center",
@@ -221,7 +214,6 @@ export default function Ranking() {
       }}
     >
       {ranking()}
-
       <div style={{ marginTop: "50px" }}>
         <div>
           <Space direction={"horizontal"} style={{ margin: 5, paddingTop: 10 }}>
