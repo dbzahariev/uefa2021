@@ -1,15 +1,22 @@
 import { useEffect, useState } from "react";
-import { MatchType, ScoreType, UsersType } from "../../helpers/OtherHelpers";
+import {
+  MatchType,
+  ScoreType,
+  stylingTable,
+  UsersType,
+} from "../../helpers/OtherHelpers";
 import { getMatchesForView } from "../AllMatches2";
 import OneMatchTable from "../OneMatchTable";
 import rankingImg from "./rankingImg.svg";
 import backup2020Matches from "./2020Matches.json";
 import backup2020Users from "./2020Users.json";
+import { Space, Switch } from "antd";
+import { CloseOutlined, CheckOutlined } from "@ant-design/icons";
 
 export default function Ranking() {
   const [users, setUsers] = useState<UsersType[]>([]);
-
   const [matches, setMatches] = useState<MatchType[]>([]);
+  const [showGroups, setShowGroups] = useState(true);
 
   const [dimensions, setDimensions] = useState({
     widthI: window.innerWidth,
@@ -32,6 +39,7 @@ export default function Ranking() {
         score: el.score as ScoreType,
         homeTeamScore: el.homeTeamScore,
         awayTeamScore: el.awayTeamScore,
+        group: el.group,
       };
       matchesFromBackup.push(matchToAdd);
     });
@@ -70,6 +78,10 @@ export default function Ranking() {
     window.addEventListener("resize", updateWindowDimensions);
     // eslint-disable-next-line
   }, []);
+
+  useEffect(() => {
+    stylingTable(users);
+  }, [showGroups, users]);
 
   const getSortedUsers = () => {
     let res = users.sort((a, b) => b.totalPoints - a.totalPoints);
@@ -201,9 +213,21 @@ export default function Ranking() {
       }}
     >
       {ranking()}
+
       <div style={{ marginTop: dimensions.heightO * 0.6 }}>
+        <div>
+          <Space direction={"horizontal"} style={{ margin: 5, paddingTop: 10 }}>
+            <span>Показване на групова фаза</span>
+            <Switch
+              onChange={(newValue: any) => setShowGroups(newValue)}
+              checkedChildren={<CheckOutlined />}
+              unCheckedChildren={<CloseOutlined />}
+              checked={showGroups}
+            />
+          </Space>
+        </div>
         <OneMatchTable
-          AllMatches={getMatchesForView(matches, true)}
+          AllMatches={getMatchesForView(matches, showGroups)}
           users={users}
         />
       </div>
