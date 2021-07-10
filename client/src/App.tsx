@@ -11,12 +11,14 @@ import {
   Link,
   useParams,
   Switch,
+  Redirect,
 } from "react-router-dom";
 import { Space } from "antd";
 import Rules from "./components/Rules";
 import AddNewBet from "./components/AddNewBet";
 import Chat from "./components/chat/Chat";
 import Scheme from "./components/scheme/Scheme";
+import Ranking from "./components/ranking/Ranking";
 
 const competitionsIds = {
   Uefa: 2018,
@@ -38,7 +40,7 @@ export default function App() {
     setReload(reload + 1);
   };
 
-  let fontSize = "18px";
+  let fontSize = "20px";
 
   const [dimensions, setDimensions] = useState({
     widthI: window.innerWidth,
@@ -65,15 +67,18 @@ export default function App() {
       <div
         style={{
           position: "sticky",
-          backgroundColor: "white",
-          width: `${dimensions.widthO * 1.098}px`,
+          width: `${dimensions.widthO * 0.99}px`,
           zIndex: 2,
           top: 0,
         }}
       >
-        <Space direction={"horizontal"} size={"large"} style={{}}>
+        <Space
+          direction={"horizontal"}
+          size={"large"}
+          style={{ height: `${dimensions.heightO * 0.06}px` }}
+        >
           <Link
-            style={{ fontSize: fontSize, width: 130, display: "block" }}
+            style={{ fontSize: fontSize, width: 150, display: "block" }}
             to="/"
           >
             Всички мачове
@@ -93,6 +98,9 @@ export default function App() {
           <Link to="/scheme" style={{ fontSize: fontSize }}>
             Схема
           </Link>
+          <Link to="/ranking" style={{ fontSize: fontSize }}>
+            Подредба
+          </Link>
         </Space>
       </div>
       <Switch>
@@ -102,8 +110,12 @@ export default function App() {
         <Route path="/addbet" exact component={AddNewBet}></Route>
         <Route path="/chatroom" exact component={Chat} />
         <Route path="/scheme" exact component={Scheme} />
-        <Route path="/" exact>
+        <Route path="/ranking" exact component={Ranking} />
+        <Route path="/allMatches" exact>
           <AllMatches refresh={refresh} />
+        </Route>
+        <Route exact path="/">
+          <Redirect to="/ranking" />
         </Route>
       </Switch>
     </Router>
