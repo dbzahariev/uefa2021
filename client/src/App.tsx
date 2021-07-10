@@ -79,7 +79,7 @@ export default function App() {
         >
           <Link
             style={{ fontSize: fontSize, width: 150, display: "block" }}
-            to="/"
+            to="/allMatches"
           >
             Всички мачове
           </Link>
@@ -115,7 +115,7 @@ export default function App() {
           <AllMatches refresh={refresh} />
         </Route>
         <Route exact path="/">
-          <Redirect to="/ranking" />
+          <Redirect to="/allMatches" />
         </Route>
       </Switch>
     </Router>
