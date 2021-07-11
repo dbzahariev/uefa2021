@@ -359,7 +359,7 @@ export default function Chat() {
   };
 
   return (
-    <div style={{ margin: 10 }}>
+    <div style={{ margin: 10, width: `${window.innerWidth * 0.98}px` }}>
       <Select
         style={{
           marginLeft: 20,
