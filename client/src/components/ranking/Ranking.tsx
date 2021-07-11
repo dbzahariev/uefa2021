@@ -1,12 +1,9 @@
 import { useEffect, useState } from "react";
 import {
-  getFinalStats,
   MatchType,
   ScoreType,
   stylingTable,
   UsersType,
-  getAllUsers,
-  getPoints,
 } from "../../helpers/OtherHelpers";
 import { getMatchesForView } from "../AllMatches2";
 import OneMatchTable from "../OneMatchTable";
@@ -24,7 +21,6 @@ export default function Ranking() {
   const [matches, setMatches] = useState<MatchType[]>([]);
   const [showGroups, setShowGroups] = useState(true);
   const [competitionValue, setCompetitionValue] = useState<string>("2020");
-  const [finalStat, setFinalStat] = useState<MatchType | undefined>(undefined);
 
   const getMatches = () => {
     let matchesFromBackup: MatchType[] = [];
@@ -49,42 +45,14 @@ export default function Ranking() {
         awayTeamScore: el.awayTeamScore,
         group: el.group,
       };
-      if (matchToAdd.group === "FINAL" && finalStat !== undefined) {
-        matchToAdd = finalStat;
-      }
 
       matchesFromBackup.push(matchToAdd);
     });
     setMatches(matchesFromBackup);
   };
 
-  useEffect(() => {
-    if (
-      matches !== undefined &&
-      users !== undefined &&
-      matches.length > 0 &&
-      users.length > 0 &&
-      users[0].totalPoints === 0
-    ) {
-      let res = getPoints(users, matches);
-      // res.sort((a, b) => (b.totalPoints || 0) - (a.totalPoints || 0));
-      setUsers(res);
-      // let res = getPoints(users, matches);
-      // res.sort((a, b) => (b.totalPoints || 0) - (a.totalPoints || 0));
-      // setUsers(res);
-    }
-  }, [users, matches]);
-
   const getUsers = () => {
-    // getAllUsers(setUsers);
     let usersFromBackup: UsersType[] = [];
-    const getAllPoints = (bets: any[]) => {
-      let res = 0;
-      bets.forEach((bet) => {
-        res += bet.point;
-      });
-      return res;
-    };
     backup2020.users.forEach((el) => {
       let userToAdd: UsersType = {
         name: el.name,
@@ -92,7 +60,7 @@ export default function Ranking() {
         index: el.index,
         finalWinner: el.finalWinner,
         colorTable: el.colorTable,
-        totalPoints: getAllPoints(el.bets),
+        totalPoints: el.totalPoints,
       };
       usersFromBackup.push(userToAdd);
     });
@@ -100,21 +68,11 @@ export default function Ranking() {
   };
 
   useEffect(() => {
-    getFinalStats((el: MatchType) => {
-      setFinalStat(el);
-    });
+    getUsers();
+    getMatches();
 
     // eslint-disable-next-line
   }, []);
-
-  useEffect(() => {
-    if (finalStat !== undefined) {
-      // getUsers();
-
-      getAllUsers(setUsers);
-      getMatches();
-    }
-  }, [finalStat]);
 
   useEffect(() => {
     stylingTable(users);

@@ -1058,15 +1058,15 @@
       "awayTeam": { "id": 770, "name": "England" },
       "utcDate": "2021-07-11T19:00:00Z",
       "group": "FINAL",
-      "winner": "",
+      "winner": "HOME_TEAM",
       "status": "SCHEDULED",
       "score": {
-        "winner": null,
-        "duration": "REGULAR",
-        "fullTime": { "homeTeam": null, "awayTeam": null },
-        "halfTime": { "homeTeam": null, "awayTeam": null },
-        "extraTime": { "homeTeam": null, "awayTeam": null },
-        "penalties": { "homeTeam": null, "awayTeam": null }
+        "winner": "HOME_TEAM",
+        "duration": "PENALTY_SHOOTOUT",
+        "fullTime": { "homeTeam": 4, "awayTeam": 3 },
+        "halfTime": { "homeTeam": 0, "awayTeam": 1 },
+        "extraTime": { "homeTeam": 0, "awayTeam": 0 },
+        "penalties": { "homeTeam": 3, "awayTeam": 2 }
       }
     }
   ],
@@ -1473,6 +1473,14 @@
           "winner": "HOME_TEAM",
           "point": 2,
           "date": "2021-07-06T21:46:23.637Z"
+        },
+        {
+          "matchId": 325077,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2021-07-11T10:09:49.389Z"
         }
       ],
       "index": 7,
@@ -1883,12 +1891,20 @@
           "winner": "HOME_TEAM",
           "point": 2,
           "date": "2021-07-07T18:03:29.712Z"
+        },
+        {
+          "matchId": 325077,
+          "homeTeamScore": 2,
+          "awayTeamScore": 2,
+          "winner": "HOME_TEAM",
+          "point": 2,
+          "date": "2021-07-11T14:06:12.960Z"
         }
       ],
       "index": 5,
       "finalWinner": "Франция",
       "colorTable": "203",
-      "totalPoints": 55,
+      "totalPoints": 64,
       "id": "60c1be4ed83c07efd040069a"
     },
     {
@@ -2293,12 +2309,20 @@
           "winner": "AWAY_TEAM",
           "point": 0,
           "date": "2021-07-07T18:09:39.152Z"
+        },
+        {
+          "matchId": 325077,
+          "homeTeamScore": 10,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 3,
+          "date": "2021-07-11T16:47:13.408Z"
         }
       ],
       "index": 3,
       "finalWinner": "",
       "colorTable": "50",
-      "totalPoints": 54,
+      "totalPoints": 57,
       "id": "60c1ba6caf25506bb64a5065"
     },
     {
@@ -2703,12 +2727,20 @@
           "winner": "HOME_TEAM",
           "point": 2,
           "date": "2021-07-07T09:17:59.299Z"
+        },
+        {
+          "matchId": 325077,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 12,
+          "date": "2021-07-11T18:31:45.220Z"
         }
       ],
       "index": 2,
       "finalWinner": "",
       "colorTable": "180",
-      "totalPoints": 52,
+      "totalPoints": 64,
       "id": "60b00e8fc26d7a07a49b79cc"
     },
     {
@@ -3113,12 +3145,20 @@
           "winner": "AWAY_TEAM",
           "point": 0,
           "date": "2021-07-07T14:17:36.842Z"
+        },
+        {
+          "matchId": 325077,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 3,
+          "date": "2021-07-11T07:45:43.026Z"
         }
       ],
       "index": 1,
       "finalWinner": "Франция",
       "colorTable": "10",
-      "totalPoints": 49.5,
+      "totalPoints": 52.5,
       "id": "60aff5d0e612023fa447b653"
     },
     {
@@ -3523,12 +3563,20 @@
           "winner": "HOME_TEAM",
           "point": 2,
           "date": "2021-07-06T17:02:09.563Z"
+        },
+        {
+          "matchId": 325077,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 3,
+          "date": "2021-07-11T18:14:52.696Z"
         }
       ],
       "index": 4,
       "finalWinner": "",
       "colorTable": "80",
-      "totalPoints": 48.5,
+      "totalPoints": 51.5,
       "id": "60c1be20d83c07efd0400699"
     },
     {
@@ -3933,12 +3981,20 @@
           "winner": "HOME_TEAM",
           "point": 2,
           "date": "2021-07-07T18:46:01.456Z"
+        },
+        {
+          "matchId": 325077,
+          "homeTeamScore": 3,
+          "awayTeamScore": 2,
+          "winner": "HOME_TEAM",
+          "point": 3,
+          "date": "2021-07-11T18:26:31.518Z"
         }
       ],
       "index": 6,
       "finalWinner": "",
       "colorTable": "284",
-      "totalPoints": 47.5,
+      "totalPoints": 50.5,
       "id": "60c34e9a62b193c8bdceb01e"
     }
   ]
