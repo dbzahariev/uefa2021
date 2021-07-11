@@ -8,19 +8,30 @@ import {
 import { getMatchesForView } from "../AllMatches2";
 import OneMatchTable from "../OneMatchTable";
 import rankingImg from "./rankingImg.svg";
-import backup2020Matches from "./2020Matches.json";
-import backup2020Users from "./2020Users.json";
-import { Space, Switch } from "antd";
+import backup2020 from "./Backup2020.json";
+import { Select, Space, Switch } from "antd";
 import { CloseOutlined, CheckOutlined } from "@ant-design/icons";
+
+const { Option } = Select;
+
+const years = [{ value: "2020", name: { eng: "Euro 2020", bg: "Евро 2020" } }];
 
 export default function Ranking() {
   const [users, setUsers] = useState<UsersType[]>([]);
   const [matches, setMatches] = useState<MatchType[]>([]);
   const [showGroups, setShowGroups] = useState(true);
+  const [competitionValue, setCompetitionValue] = useState<string>("2020");
 
   const getMatches = () => {
     let matchesFromBackup: MatchType[] = [];
-    backup2020Matches.forEach((el) => {
+
+    let selectedBackup = backup2020;
+
+    if (competitionValue === years[0].value) {
+      selectedBackup = backup2020;
+    }
+
+    selectedBackup.matches.forEach((el) => {
       let matchToAdd: MatchType = {
         number: el.number,
         key: el.key,
@@ -48,7 +59,7 @@ export default function Ranking() {
       });
       return res;
     };
-    backup2020Users.forEach((el) => {
+    backup2020.users.forEach((el) => {
       let userToAdd: UsersType = {
         name: el.name,
         bets: el.bets as any[],
@@ -207,12 +218,36 @@ export default function Ranking() {
     );
   };
 
+  const handleChangeForSelector = (value: any) => {
+    setCompetitionValue(value);
+  };
+
   return (
     <div
       style={{
         padding: "1%",
       }}
     >
+      <Select
+        style={{
+          marginLeft: 20,
+          width: "240px",
+          marginTop: 10,
+          marginBottom: 10,
+        }}
+        // defaultValue={years[0].value}
+        value={competitionValue}
+        onChange={handleChangeForSelector}
+      >
+        <Option value="">Избери година</Option>
+        {years.map((year) => {
+          return (
+            <Option key={year.value} value={year.value}>
+              {year.name.bg}
+            </Option>
+          );
+        })}
+      </Select>
       {ranking()}
       <div style={{ marginTop: "50px" }}>
         <Space

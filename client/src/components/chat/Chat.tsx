@@ -390,7 +390,7 @@ export default function Chat() {
           borderBottomRightRadius: 0,
           height: checkMobile()
             ? dimensions.heightI * 0.6
-            : dimensions.heightI * 0.73,
+            : dimensions.heightI * 0.68,
         }}
       >
         {massages.map((message, index: number) => oneChat(message, index))}

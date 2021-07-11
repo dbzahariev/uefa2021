@@ -19,6 +19,7 @@ import Chat from "./components/chat/Chat";
 import Scheme from "./components/scheme/Scheme";
 import Ranking from "./components/ranking/Ranking";
 import AllMatches from "./components/AllMatches2";
+import inputBack from "./components/InputBackup";
 
 const competitionsIds = {
   Uefa: 2018,
@@ -101,6 +102,9 @@ export default function App() {
           <Link to="/ranking" style={{ fontSize: fontSize }}>
             Класиране
           </Link>
+          <Link to="/inputBack" style={{ fontSize: fontSize }}>
+            Input back
+          </Link>
         </Space>
       </div>
       <Switch>
@@ -111,6 +115,7 @@ export default function App() {
         <Route path="/chatroom" exact component={Chat} />
         <Route path="/scheme" exact component={Scheme} />
         <Route path="/ranking" exact component={Ranking} />
+        <Route path="/inputBack" exact component={inputBack} />
         <Route path="/" exact>
           <AllMatches refresh={refresh} />
         </Route>
