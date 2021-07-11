@@ -125,7 +125,9 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
       <AutoRefresh refresh={refresh} />
       <div>
         <Space direction={"horizontal"} style={{ margin: 5, paddingTop: 10 }}>
-          <span style={{ width: "51%" }}>Показване на групова фаза</span>
+          <span style={{ width: `${window.innerWidth * 0.2}px` }}>
+            Показване на групова фаза
+          </span>
           <Switch
             onChange={(newValue: any) => setShowGroups(newValue)}
             checkedChildren={<CheckOutlined />}

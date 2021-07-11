@@ -217,7 +217,9 @@ export default function Ranking() {
       <div style={{ marginTop: "50px" }}>
         <div>
           <Space direction={"horizontal"} style={{ margin: 5, paddingTop: 10 }}>
-            <span style={{ width: "50%" }}>Показване на групова фаза</span>
+            <span style={{ width: `${window.innerWidth * 0.2}px` }}>
+              Показване на групова фаза
+            </span>
             <Switch
               onChange={(newValue: any) => setShowGroups(newValue)}
               checkedChildren={<CheckOutlined />}
