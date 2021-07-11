@@ -215,19 +215,24 @@ export default function Ranking() {
     >
       {ranking()}
       <div style={{ marginTop: "50px" }}>
-        <div>
-          <Space direction={"horizontal"} style={{ margin: 5, paddingTop: 10 }}>
-            <span style={{ width: `${window.innerWidth * 0.2}px` }}>
-              Показване на групова фаза
-            </span>
-            <Switch
-              onChange={(newValue: any) => setShowGroups(newValue)}
-              checkedChildren={<CheckOutlined />}
-              unCheckedChildren={<CloseOutlined />}
-              checked={showGroups}
-            />
-          </Space>
-        </div>
+        <Space
+          direction={"horizontal"}
+          style={{
+            margin: 5,
+            paddingTop: 10,
+            width: `${window.innerWidth * 0.4}px`,
+          }}
+        >
+          <span style={{ width: `${window.innerWidth * 0.4}px` }}>
+            Показване на групова фаза
+          </span>
+          <Switch
+            onChange={(newValue: any) => setShowGroups(newValue)}
+            checkedChildren={<CheckOutlined />}
+            unCheckedChildren={<CloseOutlined />}
+            checked={showGroups}
+          />
+        </Space>
         <OneMatchTable
           AllMatches={getMatchesForView(matches, showGroups)}
           users={users}
