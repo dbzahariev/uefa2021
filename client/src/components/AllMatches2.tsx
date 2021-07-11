@@ -116,9 +116,9 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
     return null;
   }
 
-  if (finalState !== undefined && finalState.status === "FINISHED") {
-    return <Redirect to="/ranking" />;
-  }
+  // if (finalState !== undefined && finalState.status === "FINISHED") {
+  //   return <Redirect to="/ranking" />;
+  // }
 
   return (
     <>
