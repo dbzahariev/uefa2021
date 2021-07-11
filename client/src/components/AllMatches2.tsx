@@ -130,7 +130,6 @@ export default function AllMatches2({ refresh }: { refresh: Function }) {
             margin: 5,
             paddingTop: 10,
             width: `${window.innerWidth * 0.4}px`,
-            backgroundColor: "red",
           }}
         >
           <span style={{ width: `${window.innerWidth * 0.4}px` }}>
