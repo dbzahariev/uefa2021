@@ -1,0 +1,4921 @@
+{
+  "matches": [
+    {
+      "number": 1,
+      "key": 0,
+      "id": 201801,
+      "homeTeam": {
+        "id": 1,
+        "name": "Франция"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Румъния"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "Group A",
+      "winner": "HOME_TEAM",
+      "homeTeamScore": 2,
+      "awayTeamScore": 1,
+      "status": "FINISHED",
+      "score": {
+        "winner": "HOME_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 2,
+          "awayTeam": 1
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 2,
+      "key": 1,
+      "id": 201802,
+      "homeTeam": {
+        "id": 1,
+        "name": "Албания"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Швейцария"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "Group A",
+      "winner": "AWAY_TEAM",
+      "homeTeamScore": 0,
+      "awayTeamScore": 1,
+      "status": "FINISHED",
+      "score": {
+        "winner": "AWAY_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 0,
+          "awayTeam": 1
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 3,
+      "key": 2,
+      "id": 201803,
+      "homeTeam": {
+        "id": 1,
+        "name": "Уелс"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Словакия"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "Group B",
+      "winner": "HOME_TEAM",
+      "homeTeamScore": 2,
+      "awayTeamScore": 1,
+      "status": "FINISHED",
+      "score": {
+        "winner": "HOME_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 2,
+          "awayTeam": 1
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 4,
+      "key": 3,
+      "id": 201804,
+      "homeTeam": {
+        "id": 1,
+        "name": "Англия"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Русия"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "Group B",
+      "winner": "DRAW",
+      "homeTeamScore": 1,
+      "awayTeamScore": 1,
+      "status": "FINISHED",
+      "score": {
+        "winner": "DRAW",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 1,
+          "awayTeam": 1
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 5,
+      "key": 4,
+      "id": 201805,
+      "homeTeam": {
+        "id": 1,
+        "name": "Турция"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Хърватия"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "Group D",
+      "winner": "AWAY_TEAM",
+      "homeTeamScore": 0,
+      "awayTeamScore": 1,
+      "status": "FINISHED",
+      "score": {
+        "winner": "AWAY_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 0,
+          "awayTeam": 1
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 6,
+      "key": 5,
+      "id": 201806,
+      "homeTeam": {
+        "id": 1,
+        "name": "Полша"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Ирландия"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "Group C",
+      "winner": "HOME_TEAM",
+      "homeTeamScore": 1,
+      "awayTeamScore": 0,
+      "status": "FINISHED",
+      "score": {
+        "winner": "HOME_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 1,
+          "awayTeam": 0
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 7,
+      "key": 6,
+      "id": 201807,
+      "homeTeam": {
+        "id": 1,
+        "name": "Германия"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Украйна"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "Group C",
+      "winner": "HOME_TEAM",
+      "homeTeamScore": 2,
+      "awayTeamScore": 0,
+      "status": "FINISHED",
+      "score": {
+        "winner": "HOME_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 2,
+          "awayTeam": 0
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 8,
+      "key": 7,
+      "id": 201808,
+      "homeTeam": {
+        "id": 1,
+        "name": "Испания"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Чехия"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "Group D",
+      "winner": "HOME_TEAM",
+      "homeTeamScore": 1,
+      "awayTeamScore": 0,
+      "status": "FINISHED",
+      "score": {
+        "winner": "HOME_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 1,
+          "awayTeam": 0
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 9,
+      "key": 8,
+      "id": 201809,
+      "homeTeam": {
+        "id": 1,
+        "name": "Еире"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Швеция"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "Group E",
+      "winner": "DRAW",
+      "homeTeamScore": 1,
+      "awayTeamScore": 1,
+      "status": "FINISHED",
+      "score": {
+        "winner": "DRAW",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 1,
+          "awayTeam": 1
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 10,
+      "key": 9,
+      "id": 201810,
+      "homeTeam": {
+        "id": 1,
+        "name": "Белгия"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Италия"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "Group E",
+      "winner": "AWAY_TEAM",
+      "homeTeamScore": 0,
+      "awayTeamScore": 2,
+      "status": "FINISHED",
+      "score": {
+        "winner": "AWAY_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 0,
+          "awayTeam": 2
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 11,
+      "key": 10,
+      "id": 201811,
+      "homeTeam": {
+        "id": 1,
+        "name": "Австрия"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Унгария"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "Group F",
+      "winner": "AWAY_TEAM",
+      "homeTeamScore": 0,
+      "awayTeamScore": 2,
+      "status": "FINISHED",
+      "score": {
+        "winner": "AWAY_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 0,
+          "awayTeam": 2
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 12,
+      "key": 11,
+      "id": 201812,
+      "homeTeam": {
+        "id": 1,
+        "name": "Португалия"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Исландия"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "Group F",
+      "winner": "DRAW",
+      "homeTeamScore": 1,
+      "awayTeamScore": 1,
+      "status": "FINISHED",
+      "score": {
+        "winner": "DRAW",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 1,
+          "awayTeam": 1
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 13,
+      "key": 12,
+      "id": 201813,
+      "homeTeam": {
+        "id": 1,
+        "name": "Русия"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Словакия"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "Group B",
+      "winner": "AWAY_TEAM",
+      "homeTeamScore": 1,
+      "awayTeamScore": 2,
+      "status": "FINISHED",
+      "score": {
+        "winner": "AWAY_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 1,
+          "awayTeam": 2
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 14,
+      "key": 13,
+      "id": 201814,
+      "homeTeam": {
+        "id": 1,
+        "name": "Румъния"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Швейцария"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "Group A",
+      "winner": "DRAW",
+      "homeTeamScore": 1,
+      "awayTeamScore": 1,
+      "status": "FINISHED",
+      "score": {
+        "winner": "DRAW",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 1,
+          "awayTeam": 1
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 15,
+      "key": 14,
+      "id": 201815,
+      "homeTeam": {
+        "id": 1,
+        "name": "Франция"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Албания"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "Group A",
+      "winner": "HOME_TEAM",
+      "homeTeamScore": 2,
+      "awayTeamScore": 0,
+      "status": "FINISHED",
+      "score": {
+        "winner": "HOME_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 2,
+          "awayTeam": 0
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 16,
+      "key": 15,
+      "id": 201816,
+      "homeTeam": {
+        "id": 1,
+        "name": "Англия"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Уелс"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "Group B",
+      "winner": "HOME_TEAM",
+      "homeTeamScore": 2,
+      "awayTeamScore": 1,
+      "status": "FINISHED",
+      "score": {
+        "winner": "HOME_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 2,
+          "awayTeam": 1
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 17,
+      "key": 16,
+      "id": 201817,
+      "homeTeam": {
+        "id": 1,
+        "name": "Украйна"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Ирландия"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "Group C",
+      "winner": "AWAY_TEAM",
+      "homeTeamScore": 0,
+      "awayTeamScore": 2,
+      "status": "FINISHED",
+      "score": {
+        "winner": "AWAY_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 0,
+          "awayTeam": 2
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 18,
+      "key": 17,
+      "id": 201818,
+      "homeTeam": {
+        "id": 1,
+        "name": "Германия"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Полша"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "Group C",
+      "winner": "DRAW",
+      "homeTeamScore": 0,
+      "awayTeamScore": 0,
+      "status": "FINISHED",
+      "score": {
+        "winner": "DRAW",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 19,
+      "key": 18,
+      "id": 201819,
+      "homeTeam": {
+        "id": 1,
+        "name": "Италия"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Швеция"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "Group E",
+      "winner": "HOME_TEAM",
+      "homeTeamScore": 1,
+      "awayTeamScore": 0,
+      "status": "FINISHED",
+      "score": {
+        "winner": "HOME_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 1,
+          "awayTeam": 0
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 20,
+      "key": 19,
+      "id": 201820,
+      "homeTeam": {
+        "id": 1,
+        "name": "Чехия"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Хърватия"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "Group D",
+      "winner": "DRAW",
+      "homeTeamScore": 2,
+      "awayTeamScore": 2,
+      "status": "FINISHED",
+      "score": {
+        "winner": "DRAW",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 2,
+          "awayTeam": 2
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 21,
+      "key": 20,
+      "id": 201821,
+      "homeTeam": {
+        "id": 1,
+        "name": "Испания"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Турция"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "Group D",
+      "winner": "HOME_TEAM",
+      "homeTeamScore": 3,
+      "awayTeamScore": 0,
+      "status": "FINISHED",
+      "score": {
+        "winner": "HOME_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 3,
+          "awayTeam": 0
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 22,
+      "key": 21,
+      "id": 201822,
+      "homeTeam": {
+        "id": 1,
+        "name": "Белгия"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Еире"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "Group E",
+      "winner": "HOME_TEAM",
+      "homeTeamScore": 3,
+      "awayTeamScore": 0,
+      "status": "FINISHED",
+      "score": {
+        "winner": "HOME_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 3,
+          "awayTeam": 0
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 23,
+      "key": 22,
+      "id": 201823,
+      "homeTeam": {
+        "id": 1,
+        "name": "Исландия"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Унгария"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "Group F",
+      "winner": "DRAW",
+      "homeTeamScore": 1,
+      "awayTeamScore": 1,
+      "status": "FINISHED",
+      "score": {
+        "winner": "DRAW",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 1,
+          "awayTeam": 1
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 24,
+      "key": 23,
+      "id": 201824,
+      "homeTeam": {
+        "id": 1,
+        "name": "Португалия"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Австрия"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "Group F",
+      "winner": "DRAW",
+      "homeTeamScore": 0,
+      "awayTeamScore": 0,
+      "status": "FINISHED",
+      "score": {
+        "winner": "DRAW",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 25,
+      "key": 24,
+      "id": 201825,
+      "homeTeam": {
+        "id": 1,
+        "name": "Румъния"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Албания"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "Group A",
+      "winner": "AWAY_TEAM",
+      "homeTeamScore": 0,
+      "awayTeamScore": 1,
+      "status": "FINISHED",
+      "score": {
+        "winner": "AWAY_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 0,
+          "awayTeam": 1
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 26,
+      "key": 25,
+      "id": 201826,
+      "homeTeam": {
+        "id": 1,
+        "name": "Швейцария"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Франция"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "Group A",
+      "winner": "DRAW",
+      "homeTeamScore": 0,
+      "awayTeamScore": 0,
+      "status": "FINISHED",
+      "score": {
+        "winner": "DRAW",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 27,
+      "key": 26,
+      "id": 201827,
+      "homeTeam": {
+        "id": 1,
+        "name": "Словакия"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Англия"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "Group B",
+      "winner": "DRAW",
+      "homeTeamScore": 0,
+      "awayTeamScore": 0,
+      "status": "FINISHED",
+      "score": {
+        "winner": "DRAW",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 28,
+      "key": 27,
+      "id": 201828,
+      "homeTeam": {
+        "id": 1,
+        "name": "Русия"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Уелс"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "Group B",
+      "winner": "AWAY_TEAM",
+      "homeTeamScore": 0,
+      "awayTeamScore": 3,
+      "status": "FINISHED",
+      "score": {
+        "winner": "AWAY_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 0,
+          "awayTeam": 3
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 29,
+      "key": 28,
+      "id": 201829,
+      "homeTeam": {
+        "id": 1,
+        "name": "Украйна"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Полша"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "Group C",
+      "winner": "AWAY_TEAM",
+      "homeTeamScore": 0,
+      "awayTeamScore": 1,
+      "status": "FINISHED",
+      "score": {
+        "winner": "AWAY_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 0,
+          "awayTeam": 1
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 30,
+      "key": 29,
+      "id": 201830,
+      "homeTeam": {
+        "id": 1,
+        "name": "Ирландия"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Германия"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "Group C",
+      "winner": "AWAY_TEAM",
+      "homeTeamScore": 0,
+      "awayTeamScore": 1,
+      "status": "FINISHED",
+      "score": {
+        "winner": "AWAY_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 0,
+          "awayTeam": 1
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 31,
+      "key": 30,
+      "id": 201831,
+      "homeTeam": {
+        "id": 1,
+        "name": "Чехия"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Турция"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "Group D",
+      "winner": "AWAY_TEAM",
+      "homeTeamScore": 0,
+      "awayTeamScore": 2,
+      "status": "FINISHED",
+      "score": {
+        "winner": "AWAY_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 0,
+          "awayTeam": 2
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 32,
+      "key": 31,
+      "id": 201832,
+      "homeTeam": {
+        "id": 1,
+        "name": "Хърватия"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Испания"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "Group D",
+      "winner": "HOME_TEAM",
+      "homeTeamScore": 2,
+      "awayTeamScore": 1,
+      "status": "FINISHED",
+      "score": {
+        "winner": "HOME_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 2,
+          "awayTeam": 1
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 33,
+      "key": 32,
+      "id": 201833,
+      "homeTeam": {
+        "id": 1,
+        "name": "Унгария"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Португалия"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "Group F",
+      "winner": "DRAW",
+      "homeTeamScore": 3,
+      "awayTeamScore": 3,
+      "status": "FINISHED",
+      "score": {
+        "winner": "DRAW",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 3,
+          "awayTeam": 3
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 34,
+      "key": 33,
+      "id": 201834,
+      "homeTeam": {
+        "id": 1,
+        "name": "Исландия"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Австрия"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "Group F",
+      "winner": "HOME_TEAM",
+      "homeTeamScore": 2,
+      "awayTeamScore": 1,
+      "status": "FINISHED",
+      "score": {
+        "winner": "HOME_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 2,
+          "awayTeam": 1
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 35,
+      "key": 34,
+      "id": 201835,
+      "homeTeam": {
+        "id": 1,
+        "name": "Италия"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Еире"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "Group E",
+      "winner": "AWAY_TEAM",
+      "homeTeamScore": 0,
+      "awayTeamScore": 1,
+      "status": "FINISHED",
+      "score": {
+        "winner": "AWAY_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 0,
+          "awayTeam": 1
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 36,
+      "key": 35,
+      "id": 201836,
+      "homeTeam": {
+        "id": 1,
+        "name": "Швеция"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Белгия"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "Group E",
+      "winner": "AWAY_TEAM",
+      "homeTeamScore": 0,
+      "awayTeamScore": 1,
+      "status": "FINISHED",
+      "score": {
+        "winner": "AWAY_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 0,
+          "awayTeam": 1
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 37,
+      "key": 36,
+      "id": 201837,
+      "homeTeam": {
+        "id": 1,
+        "name": "Швейцария"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Полша"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "LAST_16",
+      "winner": "AWAY_TEAM",
+      "homeTeamScore": 1,
+      "awayTeamScore": 1,
+      "status": "FINISHED",
+      "score": {
+        "winner": "AWAY_TEAM",
+        "duration": "EXTRA_TIME",
+        "fullTime": {
+          "homeTeam": 1,
+          "awayTeam": 1
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": 1,
+          "awayTeam": 2
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 38,
+      "key": 37,
+      "id": 201838,
+      "homeTeam": {
+        "id": 1,
+        "name": "Уелс"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Ирландия"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "LAST_16",
+      "winner": "HOME_TEAM",
+      "homeTeamScore": 1,
+      "awayTeamScore": 0,
+      "status": "FINISHED",
+      "score": {
+        "winner": "HOME_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 0,
+          "awayTeam": 1
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 39,
+      "key": 38,
+      "id": 201839,
+      "homeTeam": {
+        "id": 1,
+        "name": "Хърватия"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Португалия"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "LAST_16",
+      "winner": "AWAY_TEAM",
+      "homeTeamScore": 0,
+      "awayTeamScore": 0,
+      "status": "FINISHED",
+      "score": {
+        "winner": "AWAY_TEAM",
+        "duration": "EXTRA_TIME",
+        "fullTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": 0,
+          "awayTeam": 1
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 40,
+      "key": 39,
+      "id": 201840,
+      "homeTeam": {
+        "id": 1,
+        "name": "Франция"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Еире"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "LAST_16",
+      "winner": "HOME_TEAM",
+      "homeTeamScore": 2,
+      "awayTeamScore": 1,
+      "status": "FINISHED",
+      "score": {
+        "winner": "HOME_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 2,
+          "awayTeam": 1
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 41,
+      "key": 40,
+      "id": 201841,
+      "homeTeam": {
+        "id": 1,
+        "name": "Германия"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Словакия"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "LAST_16",
+      "winner": "HOME_TEAM",
+      "homeTeamScore": 3,
+      "awayTeamScore": 0,
+      "status": "FINISHED",
+      "score": {
+        "winner": "HOME_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 3,
+          "awayTeam": 0
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 42,
+      "key": 41,
+      "id": 201842,
+      "homeTeam": {
+        "id": 1,
+        "name": "Унгария"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Белгия"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "LAST_16",
+      "winner": "AWAY_TEAM",
+      "homeTeamScore": 0,
+      "awayTeamScore": 4,
+      "status": "FINISHED",
+      "score": {
+        "winner": "AWAY_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 0,
+          "awayTeam": 4
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 43,
+      "key": 42,
+      "id": 201843,
+      "homeTeam": {
+        "id": 1,
+        "name": "Италия"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Испания"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "LAST_16",
+      "winner": "HOME_TEAM",
+      "homeTeamScore": 2,
+      "awayTeamScore": 0,
+      "status": "FINISHED",
+      "score": {
+        "winner": "HOME_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 2,
+          "awayTeam": 0
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 44,
+      "key": 43,
+      "id": 201844,
+      "homeTeam": {
+        "id": 1,
+        "name": "Англия"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Исландия"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "LAST_16",
+      "winner": "AWAY_TEAM",
+      "homeTeamScore": 1,
+      "awayTeamScore": 2,
+      "status": "FINISHED",
+      "score": {
+        "winner": "AWAY_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 1,
+          "awayTeam": 2
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 45,
+      "key": 44,
+      "id": 201845,
+      "homeTeam": {
+        "id": 1,
+        "name": "Полша"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Португалия"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "QUARTER_FINAL",
+      "winner": "AWAY_TEAM",
+      "homeTeamScore": 1,
+      "awayTeamScore": 1,
+      "status": "FINISHED",
+      "score": {
+        "winner": "AWAY_TEAM",
+        "duration": "EXTRA_TIME",
+        "fullTime": {
+          "homeTeam": 1,
+          "awayTeam": 1
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": 1,
+          "awayTeam": 2
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 46,
+      "key": 45,
+      "id": 201846,
+      "homeTeam": {
+        "id": 1,
+        "name": "Уелс"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Белгия"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "QUARTER_FINAL",
+      "winner": "HOME_TEAM",
+      "homeTeamScore": 3,
+      "awayTeamScore": 1,
+      "status": "FINISHED",
+      "score": {
+        "winner": "HOME_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 3,
+          "awayTeam": 1
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 47,
+      "key": 46,
+      "id": 201847,
+      "homeTeam": {
+        "id": 1,
+        "name": "Германия"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Италия"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "QUARTER_FINAL",
+      "winner": "HOME_TEAM",
+      "homeTeamScore": 1,
+      "awayTeamScore": 1,
+      "status": "FINISHED",
+      "score": {
+        "winner": "HOME_TEAM",
+        "duration": "EXTRA_TIME",
+        "fullTime": {
+          "homeTeam": 1,
+          "awayTeam": 1
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": 2,
+          "awayTeam": 1
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 48,
+      "key": 47,
+      "id": 201848,
+      "homeTeam": {
+        "id": 1,
+        "name": "Франция"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Исландия"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "QUARTER_FINAL",
+      "winner": "HOME_TEAM",
+      "homeTeamScore": 5,
+      "awayTeamScore": 2,
+      "status": "FINISHED",
+      "score": {
+        "winner": "HOME_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 5,
+          "awayTeam": 2
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 49,
+      "key": 48,
+      "id": 201849,
+      "homeTeam": {
+        "id": 1,
+        "name": "Португалия"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Уелс"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "SEMI_FINAL",
+      "winner": "HOME_TEAM",
+      "homeTeamScore": 2,
+      "awayTeamScore": 0,
+      "status": "FINISHED",
+      "score": {
+        "winner": "HOME_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 2,
+          "awayTeam": 0
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 50,
+      "key": 49,
+      "id": 201850,
+      "homeTeam": {
+        "id": 1,
+        "name": "Германия"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Франция"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "SEMI_FINAL",
+      "winner": "AWAY_TEAM",
+      "homeTeamScore": 0,
+      "awayTeamScore": 2,
+      "status": "FINISHED",
+      "score": {
+        "winner": "AWAY_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "homeTeam": 0,
+          "awayTeam": 2
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": null,
+          "awayTeam": null
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    },
+    {
+      "number": 51,
+      "key": 50,
+      "id": 201851,
+      "homeTeam": {
+        "id": 1,
+        "name": "Португалия"
+      },
+      "awayTeam": {
+        "id": 2,
+        "name": "Франция"
+      },
+      "utcDate": "2016-06-14T15:00:00Z",
+      "group": "FINAL",
+      "winner": "HOME_TEAM",
+      "homeTeamScore": 0,
+      "awayTeamScore": 0,
+      "status": "FINISHED",
+      "score": {
+        "winner": "HOME_TEAM",
+        "duration": "EXTRA_TIME",
+        "fullTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "halfTime": {
+          "homeTeam": 0,
+          "awayTeam": 0
+        },
+        "extraTime": {
+          "homeTeam": 0,
+          "awayTeam": 1
+        },
+        "penalties": {
+          "homeTeam": null,
+          "awayTeam": null
+        }
+      }
+    }
+  ],
+  "users": [
+    {
+      "name": "Татяна",
+      "bets": [
+        {
+          "matchId": 201801,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201802,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201803,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201804,
+          "homeTeamScore": 1,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201805,
+          "homeTeamScore": 1,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201806,
+          "homeTeamScore": 1,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 3,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201807,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201808,
+          "homeTeamScore": 2,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201809,
+          "homeTeamScore": 1,
+          "awayTeamScore": 3,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201810,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201811,
+          "homeTeamScore": 1,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201812,
+          "homeTeamScore": 3,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201813,
+          "homeTeamScore": 1,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201814,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201815,
+          "homeTeamScore": 2,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 3,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201816,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201817,
+          "homeTeamScore": 0,
+          "awayTeamScore": 1,
+          "winner": "AWAY_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201818,
+          "homeTeamScore": 2,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201819,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201820,
+          "homeTeamScore": 0,
+          "awayTeamScore": 1,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201821,
+          "homeTeamScore": 2,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201822,
+          "homeTeamScore": 1,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201823,
+          "homeTeamScore": 0,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201824,
+          "homeTeamScore": 2,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201825,
+          "homeTeamScore": 1,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201826,
+          "homeTeamScore": 0,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201827,
+          "homeTeamScore": 1,
+          "awayTeamScore": 3,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201828,
+          "homeTeamScore": 0,
+          "awayTeamScore": 1,
+          "winner": "AWAY_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201829,
+          "homeTeamScore": 0,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201830,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201831,
+          "homeTeamScore": 0,
+          "awayTeamScore": 1,
+          "winner": "AWAY_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201832,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201833,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201834,
+          "homeTeamScore": 0,
+          "awayTeamScore": 1,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201835,
+          "homeTeamScore": 0,
+          "awayTeamScore": 1,
+          "winner": "AWAY_TEAM",
+          "point": 3,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201836,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201837,
+          "homeTeamScore": 0,
+          "awayTeamScore": 1,
+          "winner": "AWAY_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201838,
+          "homeTeamScore": 1,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 4,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201839,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201840,
+          "homeTeamScore": 2,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 2,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201841,
+          "homeTeamScore": 1,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 2,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201842,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "AWAY_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201843,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 2,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201844,
+          "homeTeamScore": 4,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201845,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 1.25,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201846,
+          "homeTeamScore": 2,
+          "awayTeamScore": 2,
+          "winner": "HOME_TEAM",
+          "point": 1.25,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201847,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201848,
+          "homeTeamScore": 2,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 2.5,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201849,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 3,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201850,
+          "homeTeamScore": 1,
+          "awayTeamScore": 3,
+          "winner": "AWAY_TEAM",
+          "point": 3,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201851,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 2,
+          "date": "2016-06-14T15:00:00Z"
+        }
+      ],
+      "index": 1,
+      "finalWinner": "",
+      "colorTable": "10",
+      "totalPoints": 45,
+      "id": "20181"
+    },
+    {
+      "name": "Сашо",
+      "bets": [
+        {
+          "matchId": 201801,
+          "homeTeamScore": 4,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201802,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201803,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201804,
+          "homeTeamScore": 3,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201805,
+          "homeTeamScore": 1,
+          "awayTeamScore": 3,
+          "winner": "AWAY_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201806,
+          "homeTeamScore": 3,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201807,
+          "homeTeamScore": 3,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201808,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201809,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 3,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201810,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201811,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201812,
+          "homeTeamScore": 4,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201813,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201814,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201815,
+          "homeTeamScore": 3,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201816,
+          "homeTeamScore": 3,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201817,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201818,
+          "homeTeamScore": 3,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201819,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201820,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201821,
+          "homeTeamScore": 3,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201822,
+          "homeTeamScore": 3,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201823,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 3,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201824,
+          "homeTeamScore": 3,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201825,
+          "homeTeamScore": 2,
+          "awayTeamScore": 2,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201826,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201827,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201828,
+          "homeTeamScore": 2,
+          "awayTeamScore": 2,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201829,
+          "homeTeamScore": 1,
+          "awayTeamScore": 3,
+          "winner": "AWAY_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201830,
+          "homeTeamScore": 1,
+          "awayTeamScore": 4,
+          "winner": "AWAY_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201831,
+          "homeTeamScore": 3,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201832,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 3,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201833,
+          "homeTeamScore": 1,
+          "awayTeamScore": 3,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201834,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 3,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201835,
+          "homeTeamScore": 2,
+          "awayTeamScore": 2,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201836,
+          "homeTeamScore": 1,
+          "awayTeamScore": 3,
+          "winner": "AWAY_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201837,
+          "homeTeamScore": 1,
+          "awayTeamScore": 3,
+          "winner": "AWAY_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201838,
+          "homeTeamScore": 3,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 2,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201839,
+          "homeTeamScore": 3,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201840,
+          "homeTeamScore": 2,
+          "awayTeamScore": 2,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201841,
+          "homeTeamScore": 4,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 2,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201842,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 2,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201843,
+          "homeTeamScore": 2,
+          "awayTeamScore": 2,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201844,
+          "homeTeamScore": 2,
+          "awayTeamScore": 2,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201845,
+          "homeTeamScore": 2,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 2.5,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201846,
+          "homeTeamScore": 2,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201847,
+          "homeTeamScore": 2,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 1.25,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201848,
+          "homeTeamScore": 2,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201849,
+          "homeTeamScore": 2,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201850,
+          "homeTeamScore": 2,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 1.5,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201851,
+          "homeTeamScore": 2,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 2,
+          "date": "2016-06-14T15:00:00Z"
+        }
+      ],
+      "index": 2,
+      "finalWinner": "",
+      "colorTable": "180",
+      "totalPoints": 43.25,
+      "id": "20182"
+    },
+    {
+      "name": "Зари",
+      "bets": [
+        {
+          "matchId": 201801,
+          "homeTeamScore": 3,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201802,
+          "homeTeamScore": 0,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201803,
+          "homeTeamScore": 1,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201804,
+          "homeTeamScore": 3,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201805,
+          "homeTeamScore": 2,
+          "awayTeamScore": 2,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201806,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201807,
+          "homeTeamScore": 3,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201808,
+          "homeTeamScore": 3,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201809,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201810,
+          "homeTeamScore": 0,
+          "awayTeamScore": 1,
+          "winner": "AWAY_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201811,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201812,
+          "homeTeamScore": 3,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201813,
+          "homeTeamScore": 2,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201814,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201815,
+          "homeTeamScore": 3,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201816,
+          "homeTeamScore": 2,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201817,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201818,
+          "homeTeamScore": 3,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201819,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201820,
+          "homeTeamScore": 0,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201821,
+          "homeTeamScore": 3,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 3,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201822,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201823,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201824,
+          "homeTeamScore": 3,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201825,
+          "homeTeamScore": 2,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201826,
+          "homeTeamScore": 1,
+          "awayTeamScore": 3,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201827,
+          "homeTeamScore": 1,
+          "awayTeamScore": 3,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201828,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201829,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201830,
+          "homeTeamScore": 0,
+          "awayTeamScore": 4,
+          "winner": "AWAY_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201831,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201832,
+          "homeTeamScore": 0,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201833,
+          "homeTeamScore": 0,
+          "awayTeamScore": 1,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201834,
+          "homeTeamScore": 0,
+          "awayTeamScore": 0,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201835,
+          "homeTeamScore": 1,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201836,
+          "homeTeamScore": 0,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201837,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 3,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201838,
+          "homeTeamScore": 2,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 2,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201839,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201840,
+          "homeTeamScore": 2,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 2,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201841,
+          "homeTeamScore": 3,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 4,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201842,
+          "homeTeamScore": 1,
+          "awayTeamScore": 3,
+          "winner": "AWAY_TEAM",
+          "point": 2,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201843,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201844,
+          "homeTeamScore": 2,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201845,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "AWAY_TEAM",
+          "point": 5,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201846,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 2.5,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201847,
+          "homeTeamScore": 2,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 1.25,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201848,
+          "homeTeamScore": 3,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 2.5,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201849,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201850,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201851,
+          "homeTeamScore": 1,
+          "awayTeamScore": 3,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        }
+      ],
+      "index": 3,
+      "finalWinner": "",
+      "colorTable": "50",
+      "totalPoints": 42.25,
+      "id": "201803"
+    },
+    {
+      "name": "Бен",
+      "bets": [
+        {
+          "matchId": 201801,
+          "homeTeamScore": 1,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201802,
+          "homeTeamScore": 1,
+          "awayTeamScore": 3,
+          "winner": "AWAY_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201803,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201804,
+          "homeTeamScore": 1,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201805,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201806,
+          "homeTeamScore": 1,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 3,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201807,
+          "homeTeamScore": 1,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201808,
+          "homeTeamScore": 2,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201809,
+          "homeTeamScore": 0,
+          "awayTeamScore": 1,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201810,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201811,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201812,
+          "homeTeamScore": 2,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201813,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201814,
+          "homeTeamScore": 0,
+          "awayTeamScore": 1,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201815,
+          "homeTeamScore": 1,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201816,
+          "homeTeamScore": 1,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201817,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201818,
+          "homeTeamScore": 3,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201819,
+          "homeTeamScore": 1,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 3,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201820,
+          "homeTeamScore": 0,
+          "awayTeamScore": 1,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201821,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201822,
+          "homeTeamScore": 1,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201823,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 3,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201824,
+          "homeTeamScore": 2,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201825,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201826,
+          "homeTeamScore": 0,
+          "awayTeamScore": 1,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201827,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201828,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201829,
+          "homeTeamScore": 0,
+          "awayTeamScore": 1,
+          "winner": "AWAY_TEAM",
+          "point": 3,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201830,
+          "homeTeamScore": 0,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201831,
+          "homeTeamScore": 1,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201832,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201833,
+          "homeTeamScore": 0,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201834,
+          "homeTeamScore": 0,
+          "awayTeamScore": 1,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201835,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201836,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201837,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "AWAY_TEAM",
+          "point": 4,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201838,
+          "homeTeamScore": 1,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 4,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201839,
+          "homeTeamScore": 2,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 2,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201840,
+          "homeTeamScore": 2,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 2,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201841,
+          "homeTeamScore": 2,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 2,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201842,
+          "homeTeamScore": 0,
+          "awayTeamScore": 1,
+          "winner": "AWAY_TEAM",
+          "point": 2,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201843,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201844,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201845,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 1.25,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201846,
+          "homeTeamScore": 0,
+          "awayTeamScore": 1,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201847,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "AWAY_TEAM",
+          "point": 3.75,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201848,
+          "homeTeamScore": 2,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 2.5,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201849,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 3,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201850,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "AWAY_TEAM",
+          "point": 1.5,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201851,
+          "homeTeamScore": 10,
+          "awayTeamScore": 9,
+          "winner": "HOME_TEAM",
+          "point": 2,
+          "date": "2016-06-14T15:00:00Z"
+        }
+      ],
+      "index": 4,
+      "finalWinner": "",
+      "colorTable": "180",
+      "totalPoints": 52,
+      "id": "201804"
+    },
+    {
+      "name": "Бочето",
+      "bets": [
+        {
+          "matchId": 201801,
+          "homeTeamScore": 1,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201802,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201803,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201804,
+          "homeTeamScore": 2,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201805,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201806,
+          "homeTeamScore": 2,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201807,
+          "homeTeamScore": 2,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 3,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201808,
+          "homeTeamScore": 2,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201809,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 3,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201810,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201811,
+          "homeTeamScore": 1,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201812,
+          "homeTeamScore": 3,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201813,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201814,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 3,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201815,
+          "homeTeamScore": 4,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201816,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 3,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201817,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201818,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201819,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201820,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201821,
+          "homeTeamScore": 3,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 3,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201822,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201823,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 3,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201824,
+          "homeTeamScore": 2,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201825,
+          "homeTeamScore": 2,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201826,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201827,
+          "homeTeamScore": 0,
+          "awayTeamScore": 3,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201828,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201829,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201830,
+          "homeTeamScore": 0,
+          "awayTeamScore": 3,
+          "winner": "AWAY_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201831,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201832,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201833,
+          "homeTeamScore": 0,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201834,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201835,
+          "homeTeamScore": 2,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201836,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201837,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201838,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 2,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201839,
+          "homeTeamScore": 2,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 2,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201840,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201841,
+          "homeTeamScore": 3,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 2,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201842,
+          "homeTeamScore": 1,
+          "awayTeamScore": 3,
+          "winner": "AWAY_TEAM",
+          "point": 2,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201843,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201844,
+          "homeTeamScore": 3,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201845,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 3.75,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201846,
+          "homeTeamScore": 1,
+          "awayTeamScore": 3,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201847,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 1.25,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201848,
+          "homeTeamScore": 3,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 2.5,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201849,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 3,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201850,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201851,
+          "homeTeamScore": 5,
+          "awayTeamScore": 5,
+          "winner": "AWAY_TEAM",
+          "point": 2,
+          "date": "2016-06-14T15:00:00Z"
+        }
+      ],
+      "index": 5,
+      "finalWinner": "",
+      "colorTable": "129",
+      "totalPoints": 51.5,
+      "id": "201805"
+    },
+    {
+      "name": "Ети",
+      "bets": [
+        {
+          "matchId": 201801,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 3,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201802,
+          "homeTeamScore": 0,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201803,
+          "homeTeamScore": 0,
+          "awayTeamScore": 0,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201804,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201805,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201806,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201807,
+          "homeTeamScore": 3,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201808,
+          "homeTeamScore": 3,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201809,
+          "homeTeamScore": 0,
+          "awayTeamScore": 1,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201810,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201811,
+          "homeTeamScore": 0,
+          "awayTeamScore": 0,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201812,
+          "homeTeamScore": 3,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201813,
+          "homeTeamScore": 2,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201814,
+          "homeTeamScore": 2,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201815,
+          "homeTeamScore": 2,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 3,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201816,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 3,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201817,
+          "homeTeamScore": 1,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201818,
+          "homeTeamScore": 2,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201819,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201820,
+          "homeTeamScore": 0,
+          "awayTeamScore": 1,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201821,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201822,
+          "homeTeamScore": 0,
+          "awayTeamScore": 1,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201823,
+          "homeTeamScore": 1,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201824,
+          "homeTeamScore": 2,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201825,
+          "homeTeamScore": 1,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201826,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201827,
+          "homeTeamScore": 0,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201828,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201829,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201830,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201831,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201832,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201833,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201834,
+          "homeTeamScore": 1,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201835,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201836,
+          "homeTeamScore": 0,
+          "awayTeamScore": 1,
+          "winner": "AWAY_TEAM",
+          "point": 3,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201837,
+          "homeTeamScore": 0,
+          "awayTeamScore": 1,
+          "winner": "AWAY_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201838,
+          "homeTeamScore": 2,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 2,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201839,
+          "homeTeamScore": 1,
+          "awayTeamScore": 3,
+          "winner": "AWAY_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201840,
+          "homeTeamScore": 2,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 2,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201841,
+          "homeTeamScore": 3,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 2,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201842,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 2,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201843,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201844,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201845,
+          "homeTeamScore": 0,
+          "awayTeamScore": 1,
+          "winner": "AWAY_TEAM",
+          "point": 1.25,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201846,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201847,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 1.25,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201848,
+          "homeTeamScore": 1,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 2.5,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201849,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 3,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201850,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 3,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201851,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        }
+      ],
+      "index": 6,
+      "finalWinner": "203",
+      "colorTable": "",
+      "totalPoints": 40,
+      "id": "201806"
+    },
+    {
+      "name": "Митко",
+      "bets": [
+        {
+          "matchId": 201801,
+          "homeTeamScore": 0,
+          "awayTeamScore": 0,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201802,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201803,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 3,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201804,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201805,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201806,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201807,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201808,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201809,
+          "homeTeamScore": 1,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201810,
+          "homeTeamScore": 1,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201811,
+          "homeTeamScore": 1,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201812,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201813,
+          "homeTeamScore": 1,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201814,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 3,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201815,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201816,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201817,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201818,
+          "homeTeamScore": 1,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201819,
+          "homeTeamScore": 1,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 3,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201820,
+          "homeTeamScore": 0,
+          "awayTeamScore": 1,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201821,
+          "homeTeamScore": 1,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201822,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201823,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 3,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201824,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201825,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201826,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201827,
+          "homeTeamScore": 0,
+          "awayTeamScore": 1,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201828,
+          "homeTeamScore": 0,
+          "awayTeamScore": 1,
+          "winner": "AWAY_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201829,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201830,
+          "homeTeamScore": 0,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201831,
+          "homeTeamScore": 0,
+          "awayTeamScore": 0,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201832,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201833,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201834,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "DRAW",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201835,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201836,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201837,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201838,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 2,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201839,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "AWAY_TEAM",
+          "point": 2,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201840,
+          "homeTeamScore": 1,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 2,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201841,
+          "homeTeamScore": 2,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 2,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201842,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "AWAY_TEAM",
+          "point": 1,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201843,
+          "homeTeamScore": 0,
+          "awayTeamScore": 1,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201844,
+          "homeTeamScore": 2,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201845,
+          "homeTeamScore": 1,
+          "awayTeamScore": 0,
+          "winner": "HOME_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201846,
+          "homeTeamScore": 0,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201847,
+          "homeTeamScore": 1,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 5,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201848,
+          "homeTeamScore": 2,
+          "awayTeamScore": 1,
+          "winner": "HOME_TEAM",
+          "point": 2.5,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201849,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201850,
+          "homeTeamScore": 1,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 3,
+          "date": "2016-06-14T15:00:00Z"
+        },
+        {
+          "matchId": 201851,
+          "homeTeamScore": 0,
+          "awayTeamScore": 2,
+          "winner": "AWAY_TEAM",
+          "point": 0,
+          "date": "2016-06-14T15:00:00Z"
+        }
+      ],
+      "index": 7,
+      "finalWinner": "",
+      "colorTable": "129",
+      "totalPoints": 43.5,
+      "id": "201807"
+    }
+  ]
+}
